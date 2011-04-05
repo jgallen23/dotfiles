@@ -327,4 +327,5 @@ syntax on
 filetype plugin indent on
 
 let g:solarized_termcolors=16
+set background=light
 colorscheme solarized
