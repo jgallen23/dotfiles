@@ -10,11 +10,11 @@ esac
 if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
-if [ -p ~/.bash_aliases ]; then
-	source ~/.bash_aliases
+if [ -f ~/.bash_aliases ]; then
+	. ~/.bash_aliases
 fi
-if [ -p ~/.bash_env ]; then
-	source ~/.bash_env
+if [ -f ~/.bash_env ]; then
+	. ~/.bash_env
 fi
 
 source ~/dotfiles/git-completion.bash
