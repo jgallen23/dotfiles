@@ -1,0 +1,32 @@
+--langdef=css
+--langmap=css:.css
+--regex-css=/^([\.|#].*)\{/\1/s,style/
+
+--langdef=js
+--langmap=js:.js
+--regex-js=/(.*) = {/\1/o,object/
+--regex-js=/(var )?(.*)[=|:] function(.*){/\2\3/f,function/
+--regex-js=/function (.*){/\1/c,function2/
+--regex-js=/[jQuery|$].fn\.(.*)=/\1/j,jquery/
+--regex-js=/[jQuery|$].widget\(\"(.*)\"/\1/w,jquerywidget/
+--regex-js=/[jQuery|$].jgawidget\(\"(.*)\"/\1/g,jgawidget/
+--regex-js=/[jQuery|$].ux.behavior\(\"(.*)\"/\1/x,ux/
+
+--langdef=aspx
+--langmap=aspx:.aspx
+--regex-aspx=/id ?= ?.([a-zA-Z_0-9]*)./\1/i,id/
+--regex-aspx=/class ?= ?.([a-zA-Z_0-9]*)./\1/c,class/
+
+--langdef=html2
+--langmap=html2:.html
+--regex-html2=/ id ?= ?.([a-zA-Z_0-9]*)./\1/i,id/
+--regex-html2=/ class ?= ?.([a-zA-Z_0-9]*)./\1/c,class/
+
+--langdef=objc
+--langmap=objc:.m.h
+--regex-objc=/[+|-] ?\([a-zA-Z]*\) ?(.*)[;|{]/\1\2/m,method/
+
+--langdef=taskpaper
+--langmap=taskpaper:.taskpaper
+--regex-taskpaper=/(.*):$/\1/p,project/
+--regex-taskpaper=/@([a-zA-Z]+)/\1/t,tag/
