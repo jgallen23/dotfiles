@@ -16,3 +16,6 @@
 [submodule ".vim/bundle/vim-git-branch-info"]
 	path = .vim/bundle/vim-git-branch-info
 	url = https://github.com/taq/vim-git-branch-info.git
+[submodule ".vim/bundle/ZoomWin"]
+	path = .vim/bundle/ZoomWin
+	url = https://github.com/vim-scripts/ZoomWin.git
