@@ -326,6 +326,8 @@ filetype off
 syntax on
 filetype plugin indent on
 
-let g:solarized_termcolors=16
+if !has("gui_running")
+	let g:solarized_termcolors=16
+endif
 set background=light
 colorscheme solarized
