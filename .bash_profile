@@ -20,7 +20,7 @@ fi
 source ~/dotfiles/git-completion.bash
 
 export PATH=~/bin:/opt/local/bin:/opt/local/sbin:$PATH
-#export PYTHONPATH=/System/Library/Frameworks/Python.framework/Versions/2.6/Extras/lib/python:/Library/Python/2.6/site-packages:$PYTHONPATH
+export PYTHONPATH=/System/Library/Frameworks/Python.framework/Versions/2.6/Extras/lib/python:/Library/Python/2.6/site-packages:$PYTHONPATH
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim

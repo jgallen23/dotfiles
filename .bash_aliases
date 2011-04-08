@@ -15,3 +15,9 @@ dj() { ./manage.py $@ --settings $DJANGO_SETTINGS_FILE; }
 alias of="open ."
 alias u='cd ..'
 alias u2='cd ../..'
+
+gitcheck() {
+	for i in ~/code/*; do
+		(cd $i && (echo $i; git status -s))
+	done
+}
