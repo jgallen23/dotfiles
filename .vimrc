@@ -1,36 +1,15 @@
-" Enable Syntax Colors
-" --------------------
-"  in GUI mode we go with fruity and Consolas 10
-"  in CLI mode desert looks better (fruity is GUI only)
-syntax on
-if has("gui_running")
-  colorscheme ir_black
-  "set guifont=Monaco:h12
-  set guifont=Inconsolata:h14
-else
-  set mouse=a
-  colorscheme ir_black
-endif
-
-
 "set foldmethod=indent
 set ignorecase
 set hidden
+
 noremap ;; :%s:::g<Left><Left><Left>
 noremap ;' :%s:::cg<Left><Left><Left><Left>
+
 " Disable Generation of Backup Files
 " ----------------------------------
 "  actually they are nice but vim is stable and doesn't crash :D
 set nobackup
 set noswapfile
-
-
-" Some File Type Stuff
-" --------------------
-"  Enable filetype plugins and indention
-filetype on
-filetype plugin on
-filetype indent on
 
 " Leader
 " ------
@@ -77,11 +56,6 @@ set tabstop=8
 " ----------------------
 set enc=utf-8
 
-" Toggle Comments
-" ---------------
-"  toggle comments on alt+c
-"source ~/.vim/scripts/FeralToggleCommentify.vim
-
 "yaml
 autocmd FileType yaml set ai sw=2 sts=2 et
 autocmd FileType coffee set ai sw=2 sts=2 et
@@ -104,9 +78,8 @@ let python_highlight_builtins=0
 " ------------------------------------------
 
 autocmd FileType html,xml,asp,aspx,master,ascx,ejs setlocal shiftwidth=4 tabstop=4 softtabstop=4 smartindent!
-autocmd BufNewFile,BufRead *.master,*.aspx,*.ascx,*.ejs setlocal ft=html
+autocmd BufNewFile,BufRead *.html,*.htm,*.master,*.aspx,*.ascx,*.ejs setlocal ft=html
 "autocmd BufNewFile,BufRead *.html,*.htm  call s:SelectHTML()
-autocmd BufNewFile,BufRead *.html,*.htm  setlocal ft=html
 let html_no_rendering=1
 
 let g:closetag_default_xml=1
@@ -118,6 +91,8 @@ au BufRead,BufNewFile COMMIT_EDITMSG setlocal ft=git
 " CSS
 " ---
 autocmd FileType css setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType less setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd BufNewFile,BufRead *.less setlocal ft=less
 
 " rst
 " ---
@@ -237,7 +212,7 @@ noremap <S-Down> <C-X>
 "hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 "hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 set cursorline
-nnoremap <Leader>c :set cursorline!<CR>
+"nnoremap <Leader>c :set cursorline!<CR>
 
 nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
 
@@ -305,6 +280,26 @@ endfu
 command! RunNodeBuffer call DoRunNodeBuffer2()
 map <Leader>n :RunNodeBuffer<CR>
 
+fu! DoRunCoffeeBuffer2()
+	pclose! " force preview window closed
+	setlocal ft=coffee
+
+	let curfile = bufname("%")
+	let tmpfile = tempname()
+	silent execute "write! ".tmpfile
+	below new
+	execute "%!coffee ".tmpfile
+	call delete(tmpfile)
+
+	" indicate the output window as the current previewwindow
+	setlocal previewwindow ro nomodifiable nomodified
+
+	" back into the original window
+	winc p
+endfu
+command! RunCoffeeBuffer call DoRunCoffeeBuffer2()
+map <Leader>c :RunCoffeeBuffer<CR>
+
 map <Leader>tk :e ~/Dropbox/Tasks/Personal.taskpaper<CR>
 map <Leader>dm :e ~/Dropbox/Tasks/DemandMedia.taskpaper<CR>
 
@@ -318,7 +313,7 @@ function! UpdateTags()
 	let cmd = '/opt/local/bin/ctags -o ~/tags "'.f.'"'
 	call system(cmd)
 endfunction
-autocmd BufEnter,BufRead,BufWritePost *.js,*.html,*.py,*.taskpaper call UpdateTags()
+autocmd BufEnter,BufRead,BufWritePost *.js,*.html,*.py,*.taskpaper,*.coffee call UpdateTags()
 
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -326,8 +321,5 @@ filetype off
 syntax on
 filetype plugin indent on
 
-if !has("gui_running")
-	let g:solarized_termcolors=16
-endif
 set background=light
 colorscheme solarized
