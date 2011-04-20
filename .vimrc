@@ -138,7 +138,7 @@ map <silent> ,V :source ~/.vimrc<CR>
 "map ,p :!python %<CR>
 "map ,g :!`pwd`/update<CR>
 map ,g :MyGrep 
-map ,e :!%<CR>
+"map ,e :!%<CR>
 
 if $HOSTNAME == 'jgaWorkLinux' || $HOSTNAME == 'jga-nb' 
 	let g:ctags_path='/usr/bin/ctags'
@@ -299,6 +299,33 @@ fu! DoRunCoffeeBuffer2()
 endfu
 command! RunCoffeeBuffer call DoRunCoffeeBuffer2()
 map <Leader>c :RunCoffeeBuffer<CR>
+
+
+fu! DoRunCode()	
+  pclose! " force preview window closed
+	
+  let ex = "python"
+  if &ft == "coffee"
+    let ex = "coffee"
+  elseif &ft == "javascript"
+    let ex = "node"
+  end
+
+  let f = expand("%:p")
+
+  let curfile = bufname("%")
+  below new
+
+  execute "%!".ex." ".curfile
+  "call delete(tmpfile)
+
+  setlocal previewwindow ro nomodifiable nomodified
+
+  winc p
+endfu
+command! RunCode call DoRunCode()
+map <Leader>e :RunCode<CR>
+
 
 map <Leader>tk :e ~/Dropbox/Tasks/Personal.taskpaper<CR>
 map <Leader>dm :e ~/Dropbox/Tasks/DemandMedia.taskpaper<CR>
