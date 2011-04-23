@@ -50,7 +50,7 @@ set number
 " Tab Settings
 " ------------
 set smarttab
-set tabstop=8
+set tabstop=4
 
 " utf-8 default encoding
 " ----------------------
@@ -99,6 +99,12 @@ autocmd BufNewFile,BufRead *.less setlocal ft=less
 autocmd BufNewFile,BufRead *.txt setlocal ft=rst
 autocmd FileType rst setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
+" PHP
+" ---------
+"syn region htmlphpBlock start='<?' end='?>' keepend
+"hi link htmlphpBlock comment
+
+
 " Javascript
 " ----------
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
@@ -136,9 +142,7 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 map ,v :e ~/.vimrc<CR><C-W>_
 map <silent> ,V :source ~/.vimrc<CR>
 "map ,p :!python %<CR>
-"map ,g :!`pwd`/update<CR>
 map ,g :MyGrep 
-"map ,e :!%<CR>
 
 if $HOSTNAME == 'jgaWorkLinux' || $HOSTNAME == 'jga-nb' 
 	let g:ctags_path='/usr/bin/ctags'
@@ -193,16 +197,6 @@ let g:autotagVerbosityLevel=0
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.pyc$|\.jpg$|\.png$|\.gif$|media/.*|ui/compressed/'
 let g:fuf_coveragefile_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|jpg|png|gif|pyc|DS_Store|designer.cs)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
-fun! MakeLarge()
-	set lines=60
-	set columns=220
-endfun
-map ,l :call MakeLarge()<CR>
-fun! MakeSmall()
-	set lines=44
-	set columns=160
-endfun
-"map ,s :call MakeSmall()<CR>
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 
