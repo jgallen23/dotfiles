@@ -25,3 +25,6 @@
 [submodule ".vim/bundle/vim-stylus"]
 	path = .vim/bundle/vim-stylus
 	url = https://github.com/wavded/vim-stylus.git
+[submodule ".vim/bundle/css3"]
+	path = .vim/bundle/css3
+	url = https://github.com/vim-scripts/css3.git

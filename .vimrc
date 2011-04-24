@@ -195,7 +195,7 @@ nnoremap <silent> fc	:call fuf#givenfile#launch('', 0, 'css>', split(glob('**/*.
 let NERDTreeIgnore=['\.pyc$', '\~$']
 let g:autotagVerbosityLevel=0
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.pyc$|\.jpg$|\.png$|\.gif$|media/.*|ui/compressed/'
-let g:fuf_coveragefile_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|jpg|png|gif|pyc|DS_Store|designer.cs)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+let g:fuf_coveragefile_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|jpg|png|gif|pyc|DS_Store|designer.cs)$|node_modules|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
 vmap <Tab> >gv
 vmap <S-Tab> <gv
