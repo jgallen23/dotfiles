@@ -214,6 +214,7 @@ set diffopt=filler
 set diffopt+=iwhite
 set tags=~/tags
 
+
 set shell=/bin/bash
 
 if !has('gui_running')
@@ -344,3 +345,4 @@ filetype plugin indent on
 
 set background=light
 colorscheme solarized
+call togglebg#map("bg")
