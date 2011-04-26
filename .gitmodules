@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/css3"]
 	path = .vim/bundle/css3
 	url = https://github.com/vim-scripts/css3.git
+[submodule ".vim/bundle/comments.vim"]
+	path = .vim/bundle/comments.vim
+	url = https://github.com/vim-scripts/comments.vim.git
