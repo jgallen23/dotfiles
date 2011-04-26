@@ -2,6 +2,7 @@
 set ignorecase
 set hidden
 
+set mouse=a
 noremap ;; :%s:::g<Left><Left><Left>
 noremap ;' :%s:::cg<Left><Left><Left><Left>
 
