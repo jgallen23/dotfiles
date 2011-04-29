@@ -21,3 +21,5 @@ gitcheck() {
 		(cd $i && (echo $i; git status -s))
 	done
 }
+
+alias chromedev="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security"

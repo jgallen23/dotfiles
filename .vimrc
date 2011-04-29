@@ -2,7 +2,7 @@
 set ignorecase
 set hidden
 
-set mouse=a
+"set mouse=a
 noremap ;; :%s:::g<Left><Left><Left>
 noremap ;' :%s:::cg<Left><Left><Left><Left>
 
@@ -109,6 +109,7 @@ autocmd FileType rst setlocal shiftwidth=4 tabstop=4 softtabstop=4
 " Javascript
 " ----------
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd BufNewFile,BufRead *.json setlocal ft=javascript
 let javascript_enable_domhtmlcss=1
 
 " File Browser
