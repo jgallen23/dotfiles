@@ -348,4 +348,4 @@ filetype plugin indent on
 set background=light
 let g:solarized_visibility="normal"
 colorscheme solarized
-call togglebg#map("bg")
+"call togglebg#map(",bg")
