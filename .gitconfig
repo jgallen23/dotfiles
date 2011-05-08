@@ -16,6 +16,7 @@
 	lb=!git l --branches
 	cmp=!sh -c 'git log --left-right --name-only --oneline --no-merges $0...'
 	br=!sh -c 'git checkout --no-track -b $0 origin/prod'
+    su=submodule update --init
 [push]
 	default = current
 [color]

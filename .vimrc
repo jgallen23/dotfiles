@@ -337,7 +337,7 @@ function! UpdateTags()
 	let cmd = '/opt/local/bin/ctags -o ~/tags "'.f.'"'
 	call system(cmd)
 endfunction
-autocmd BufEnter,BufRead,BufWritePost *.js,*.html,*.py,*.taskpaper,*.coffee call UpdateTags()
+autocmd BufEnter,BufRead,BufWritePost *.js,*.html,*.py,*.taskpaper call UpdateTags()
 
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
