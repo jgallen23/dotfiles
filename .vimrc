@@ -104,6 +104,7 @@ autocmd FileType rst setlocal shiftwidth=4 tabstop=4 softtabstop=4
 " ---------
 "syn region htmlphpBlock start='<?' end='?>' keepend
 "hi link htmlphpBlock comment
+autocmd FileType php set sw=4 ts=4 sts=4
 
 
 " Javascript
