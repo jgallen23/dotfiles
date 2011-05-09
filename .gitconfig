@@ -4,7 +4,8 @@
 [alias]
 	st=status
 	c=commit
-	ca=commit -a
+	;ca=commit -a
+	a=add
 	i=add -i
 	pl=pull
 	ps=push

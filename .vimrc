@@ -108,7 +108,7 @@ autocmd FileType rst setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 " Javascript
 " ----------
-autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType javascript set ai sw=2 sts=2 et
 autocmd BufNewFile,BufRead *.json setlocal ft=javascript
 let javascript_enable_domhtmlcss=1
 
