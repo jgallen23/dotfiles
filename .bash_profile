@@ -80,8 +80,3 @@ PS1="${SCREENTITLE}${PS1}"
 
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
-
-# MacPorts Installer addition on 2010-12-21_at_17:52:20: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
