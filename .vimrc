@@ -346,7 +346,7 @@ filetype off
 syntax on
 filetype plugin indent on
 
-set background=light
+set background=dark
 let g:solarized_visibility="normal"
 colorscheme solarized
 "call togglebg#map(",bg")
