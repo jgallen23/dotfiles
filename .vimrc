@@ -113,6 +113,19 @@ autocmd FileType javascript set ai sw=2 sts=2 et
 autocmd BufNewFile,BufRead *.json setlocal ft=javascript
 let javascript_enable_domhtmlcss=1
 
+" If there isn't one, append a semi colon to the end of the current line.
+function s:appendSemiColon()
+    if getline('.') !~ ';$'
+        let original_cursor_position = getpos('.')
+        exec("s/$/;/")
+        call setpos('.', original_cursor_position)
+    endif
+endfunction
+
+" For programming languages using a semi colon at the end of statement.
+autocmd FileType javascript nmap <silent> <Leader>; :call <SID>appendSemiColon()<cr>
+ 
+
 " File Browser
 " ------------
 " hide some files and remove stupid help
