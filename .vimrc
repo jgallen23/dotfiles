@@ -114,7 +114,7 @@ autocmd BufNewFile,BufRead *.json setlocal ft=javascript
 let javascript_enable_domhtmlcss=1
 
 " If there isn't one, append a semi colon to the end of the current line.
-function s:appendSemiColon()
+function! s:appendSemiColon()
     if getline('.') !~ ';$'
         let original_cursor_position = getpos('.')
         exec("s/$/;/")
@@ -167,6 +167,7 @@ if $HOSTNAME == 'jgaWorkLinux' || $HOSTNAME == 'jga-nb'
 else
 	let g:ctags_path='/opt/local/bin/ctags'
 	let g:autotagCtagsCmd="/opt/local/bin/ctags"
+    let g:tagbar_ctags_bin="/opt/local/bin/ctags"
 
 endif
 "let g:ctags_statusline=1
@@ -363,3 +364,12 @@ set background=dark
 let g:solarized_visibility="normal"
 colorscheme solarized
 "call togglebg#map(",bg")
+
+let g:tagbar_type_javascript = {
+      \ 'ctagstype' : 'js',
+      \ 'kinds'     : [
+          \ 'o:object',
+          \ 'f:function'
+      \ ],
+      \ 'sort'    : 0
+  \ }
