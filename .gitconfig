@@ -1,6 +1,6 @@
 [user]
 	name = Greg Allen
-	email = me@jga.me
+	email =	grega@demandmedia.com 
 [alias]
 	st=status
 	c=commit
@@ -11,12 +11,14 @@
 	ps=push
 	d=diff --color
 	dc=diff --color --cached
-	lg=log --graph --oneline --no-merges --pretty=format:'%Cred%h%Creset - %s %Cgreen(%an - %ci)%Creset %C(yellow)%d%Creset' --abbrev-commit
-	lf=log --name-only --oneline --no-merges --pretty=format:'%Cred%h%Creset - %s %Cgreen(%an - %ci)%Creset %C(yellow)%d%Creset' --abbrev-commit
+	;lg=log --graph --oneline --no-merges --pretty=format:'%Cred%h%Creset - %s %Cgreen(%an - %cd)%Creset %C(yellow)%d%Creset' --abbrev-commit
+	;lf=log --name-only --oneline --no-merges --pretty=format:'%Cred%h%Creset - %s %Cgreen(%an - %ci)%Creset %C(yellow)%d%Creset' --abbrev-commit
 	lbare=log --oneline --no-merges --pretty=format:'%s %d'
 	lb=!git l --branches
 	cmp=!sh -c 'git log --left-right --name-only --oneline --no-merges $0...'
-	br=!sh -c 'git checkout --no-track -b $0 origin/prod'
+	;br=!sh -c 'git checkout --no-track -b $0 origin/prod'
+	f=log --oneline --first-parent --pretty=format:'%Cred%h%Creset - %s %Cgreen(%an - %ci)%Creset %C(yellow)%d%Creset' --abbrev-commit
+	sf="!sh -c 'git lg --boundary $0~1..$0'"
     su=submodule update --init
 [push]
 	default = current
