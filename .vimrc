@@ -356,9 +356,7 @@ filetype off
 syntax on
 filetype plugin indent on
 
-set background=dark
-let g:solarized_visibility="normal"
-colorscheme solarized
+colorscheme ir_black
 "call togglebg#map(",bg")
 
 let g:tagbar_type_javascript = {
