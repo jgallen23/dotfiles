@@ -160,16 +160,12 @@ map <silent> ,V :source ~/.vimrc<CR>
 "map ,p :!python %<CR>
 map ,g :MyGrep 
 
-if $HOSTNAME == 'jgaWorkLinux' || $HOSTNAME == 'jga-nb' 
-	let g:ctags_path='/usr/bin/ctags'
-	let g:autotagCtagsCmd="/usr/bin/ctags"
-
-else
-	let g:ctags_path='/opt/local/bin/ctags'
-	let g:autotagCtagsCmd="/opt/local/bin/ctags"
+if glob("/opt/local/bin/ctags") != ""
     let g:tagbar_ctags_bin="/opt/local/bin/ctags"
-
+else
+    let g:tagbar_ctags_bin="/usr/bin/ctags"
 endif
+
 "let g:ctags_statusline=1
 
 set textwidth=0
