@@ -6,6 +6,7 @@
 	c=commit
 	;ca=commit -a
 	a=add
+    au=add -u
 	i=add -i
 	pl=pull
 	ps=push
