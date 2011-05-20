@@ -310,6 +310,7 @@ map <Leader>c :RunCoffeeBuffer<CR>
 
 
 fu! DoRunCode()	
+  execute "w"
   pclose! " force preview window closed
 	
   let ex = "python"
