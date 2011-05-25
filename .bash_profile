@@ -1,4 +1,4 @@
-alias screen='export SCREENPWD=$(pwd); /usr/bin/screen'
+alias screen='export SCREENPWD=$(pwd); screen'
 #export SHELL='/bin/bash -rcfile ~/.bash_profile';
 
 case "$TERM" in 
