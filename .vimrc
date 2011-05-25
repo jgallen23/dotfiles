@@ -1,6 +1,8 @@
+set t_Co=256
 "set foldmethod=indent
 set ignorecase
 set hidden
+
 
 "set mouse=a
 noremap ;; :%s:::g<Left><Left><Left>
@@ -310,6 +312,7 @@ map <Leader>c :RunCoffeeBuffer<CR>
 
 
 fu! DoRunCode()	
+  execute "w"
   pclose! " force preview window closed
 	
   let ex = "python"
@@ -356,7 +359,12 @@ filetype off
 syntax on
 filetype plugin indent on
 
-colorscheme ir_black
+if has("gui_running")
+  set guifont=Monaco:h12
+endif
+set background=dark
+colorscheme lucius
+
 "call togglebg#map(",bg")
 
 let g:tagbar_type_javascript = {
