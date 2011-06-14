@@ -3,6 +3,7 @@ set t_Co=256
 set ignorecase
 set hidden
 
+set clipboard=unnamed
 
 "set mouse=a
 noremap ;; :%s:::g<Left><Left><Left>

@@ -6,7 +6,7 @@
 	c=commit
 	;ca=commit -a
 	a=add
-    au=add -u
+    au=!git add -u && git st
 	i=add -i
 	pl=pull
 	ps=push
