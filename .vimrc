@@ -110,6 +110,8 @@ autocmd FileType rst setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType php set sw=4 ts=4 sts=4
 
 
+autocmd FileType markdown set sw=4 ts=4 sts=4
+
 " Javascript
 " ----------
 autocmd FileType javascript set ai sw=2 sts=2 et
