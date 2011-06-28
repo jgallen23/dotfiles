@@ -112,6 +112,8 @@ autocmd BufRead *.php highlight BadWhitespace ctermbg=red guibg=red
 autocmd BufRead *.php match BadWhitespace /\s\+$/
 
 
+autocmd FileType markdown set sw=4 ts=4 sts=4
+
 " Javascript
 " ----------
 autocmd FileType javascript set ai sw=2 sts=2 et
