@@ -98,6 +98,9 @@ autocmd FileType rst setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 autocmd FileType php set sw=4 ts=4 sts=4
 
+autocmd BufNewFile,BufRead *.applescript setlocal ft=applescript
+autocmd FileType applescript set sw=4 ts=4 sts=4 noexpandtab
+
 autocmd FileType markdown set sw=4 ts=4 sts=4
 
 " Javascript
@@ -141,12 +144,12 @@ map ,rs :call ReloadSnippets(snippets_dir, &ft)<CR>
 map ,rc :exec(":e ".snippets_dir.&ft.".snippets")<CR>
 map ,o :!open .<CR>
 
-nnoremap <silent> sd	:FufDir ~/.shortcuts/<CR>
-nnoremap <silent> cd	:FufDirWithFullCwd<CR>
-nnoremap <silent> cf	:FufFileWithCurrentBufferDir<CR>
-nnoremap <silent> cv	:FufTag<CR>
-nnoremap <silent> <space>	:FufBuffer<CR>
-nnoremap <silent> <tab>	:FufFile<CR>
+nnoremap <silent> sd  :FufDir ~/.shortcuts/<CR>
+nnoremap <silent> cd  :FufDirWithFullCwd<CR>
+nnoremap <silent> cf  :FufFileWithCurrentBufferDir<CR>
+nnoremap <silent> cv  :FufTag<CR>
+nnoremap <silent> <space>  :FufBuffer<CR>
+nnoremap <silent> <tab>  :FufFile<CR>
 
 nnoremap <silent> \ :FufCoverageFile<CR>
 
@@ -170,7 +173,7 @@ set tags=~/tags
 set shell=/bin/bash
 
 if !has('gui_running')
-	set backspace=indent,eol,start
+  set backspace=indent,eol,start
 endif
 
 let g:sparkupNextMapping = '<c-s>'
@@ -180,15 +183,17 @@ let g:git_branch_status_nogit=""
 let g:git_branch_status_text=" " 
 let g:git_branch_status_ignore_remotes=1
 
-fu! DoRunCode()	
+fu! DoRunCode()  
   execute "w"
   pclose! " force preview window closed
-	
+  
   let ex = "python"
   if &ft == "coffee"
     let ex = "coffee"
   elseif &ft == "javascript"
     let ex = "node"
+  elseif &ft == "applescript"
+    let ex = "osascript"
   end
 
   let f = expand("%:p")
@@ -207,9 +212,9 @@ command! RunCode call DoRunCode()
 map <Leader>e :RunCode<CR>
 
 function! UpdateTags()
-	let f = expand("%:p")
-	let cmd = '/opt/local/bin/ctags -o ~/tags "'.f.'"'
-	call system(cmd)
+  let f = expand("%:p")
+  let cmd = '/opt/local/bin/ctags -o ~/tags "'.f.'"'
+  call system(cmd)
 endfunction
 autocmd BufEnter,BufRead,BufWritePost *.js,*.html,*.py,*.taskpaper call UpdateTags()
 
