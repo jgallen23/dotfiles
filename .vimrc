@@ -96,7 +96,7 @@ autocmd BufNewFile,BufRead *.less setlocal ft=less
 autocmd BufNewFile,BufRead *.txt setlocal ft=rst
 autocmd FileType rst setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
-autocmd FileType php set si ai sw=4 ts=4 sts=4
+autocmd FileType php set si ai sw=4 ts=4 sts=4 noexpandtab
 autocmd BufRead *.php highlight BadWhitespace ctermbg=red guibg=red
 autocmd BufRead *.php match BadWhitespace /\s\+$/
 
