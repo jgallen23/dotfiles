@@ -37,7 +37,7 @@ set gcr=a:blinkon0
 "  go with smartindent if there is no plugin indent file.
 "  but don't outdent hashes
 set smartindent
-inoremap # X#
+"inoremap # X#
 
 " Statusbar and Linenumbers
 " -------------------------
@@ -154,7 +154,7 @@ nnoremap <silent> <tab>  :FufFile<CR>
 nnoremap <silent> \ :FufCoverageFile<CR>
 
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.pyc$|\.jpg$|\.png$|\.gif$|media/.*|ui/compressed/'
-let g:fuf_coveragefile_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|jpg|png|gif|pyc|DS_Store|designer.cs)$|node_modules|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+let g:fuf_coveragefile_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|jpg|png|gif|pyc|DS_Store|designer.cs)$|node_modules|vendor|dist|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
 vmap <Tab> >gv
 vmap <S-Tab> <gv
@@ -218,9 +218,11 @@ function! UpdateTags()
 endfunction
 autocmd BufEnter,BufRead,BufWritePost *.js,*.html,*.py,*.taskpaper call UpdateTags()
 
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-filetype off
+let g:vimwiki_list = [
+    \ {'path': '~/Dropbox/trunksync/notes/', 'index': 'HomePage', 'path_html': '~/trunknotes_html', 'ext': '.markdown', 'auto_export': 0}
+    \ ]
+
+call pathogen#infect()
 syntax on
 filetype plugin indent on
 
