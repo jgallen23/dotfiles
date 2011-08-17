@@ -155,6 +155,19 @@ nnoremap <silent> <tab>  :FufFile<CR>
 
 nnoremap <silent> \ :FufCoverageFile<CR>
 
+fu! FindeHowMain()
+	call fuf#setOneTimeVariables(['g:fuf_coveragefile_globPatterns', ['**/main.php']]) | FufCoverageFile
+endfu
+nnoremap <silent> <leader>fm :call FindeHowMain()<CR>
+fu! FindeHowController()
+	call fuf#setOneTimeVariables(['g:fuf_coveragefile_globPatterns', ['**/controller.php']]) | FufCoverageFile
+endfu
+nnoremap <silent> <leader>fc :call FindeHowController()<CR>
+fu! FindUI()
+	call fuf#setOneTimeVariables(['g:fuf_coveragefile_globPatterns', ['**/*.css','**/*.js']]) | FufCoverageFile
+endfu
+nnoremap <silent> <leader>fu :call FindUI()<CR>
+
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.pyc$|\.jpg$|\.png$|\.gif$|media/.*|ui/compressed/'
 let g:fuf_coveragefile_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|jpg|png|gif|pyc|DS_Store|designer.cs)$|node_modules|vendor|dist|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
