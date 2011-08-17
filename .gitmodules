@@ -3,7 +3,7 @@
 	url = https://github.com/motemen/git-vim.git
 [submodule ".vim/bundle/jshint.vim"]
 	path = .vim/bundle/jshint.vim
-	url = https://github.com/wookiehangover/jshint.vim.git
+	url = git://github.com/wookiehangover/jshint.vim.git 
 [submodule ".vim/bundle/taskpaper.vim"]
 	path = .vim/bundle/taskpaper.vim
 	url = https://github.com/jgallen23/taskpaper.vim.git
@@ -37,9 +37,6 @@
 [submodule ".vim/bundle/vim-extradite"]
 	path = .vim/bundle/vim-extradite
 	url = https://github.com/int3/vim-extradite
-[submodule ".vim/bundle/viki"]
-	path = .vim/bundle/viki
-	url = https://github.com/tomtom/viki_vim.git
-[submodule ".vim/bundle/tlib"]
-	path = .vim/bundle/tlib
-	url = git://github.com/tomtom/tlib_vim.git
+[submodule ".vim/bundle/detectindent"]
+	path = .vim/bundle/detectindent
+	url = https://github.com/ciaranm/detectindent.git
