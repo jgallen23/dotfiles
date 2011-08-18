@@ -246,3 +246,4 @@ if has("gui_running")
 endif
 set background=dark
 colorscheme lucius
+autocmd BufEnter,BufRead *.* DetectIndent
