@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/detectindent"]
 	path = .vim/bundle/detectindent
 	url = https://github.com/ciaranm/detectindent.git
+[submodule ".vim/bundle/jslint"]
+	path = .vim/bundle/jslint
+	url = https://github.com/smith/jslint.vim.git

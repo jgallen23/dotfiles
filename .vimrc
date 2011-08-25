@@ -45,7 +45,7 @@ set smartindent
 "  something that looks useful.
 set cmdheight=1
 set laststatus=2
-set statusline=[%l,%c\ %P%M]\ [%{getcwd()}%*\][%{GitBranchInfoTokens()[0]}]%{AutoRefreshStatusLine()}\ %f\ %r%h%w
+set statusline=[%l,%c\ %P%M]\ [%{getcwd()}%*\][%{GitBranchInfoTokens()[0]}]\ %f\ %r%h%w
 set number
 
 " Tab Settings
