@@ -45,7 +45,7 @@ set smartindent
 "  something that looks useful.
 set cmdheight=1
 set laststatus=2
-set statusline=[%l,%c\ %P%M]\ [%{getcwd()}%*\][%{GitBranch()}]%{AutoRefreshStatusLine()}\ %f\ %r%h%w
+set statusline=[%l,%c\ %P%M]\ [%{getcwd()}%*\][%{GitBranchInfoTokens()[0]}]\ %f\ %r%h%w
 set number
 
 " Tab Settings
@@ -103,7 +103,8 @@ autocmd BufRead *.php match BadWhitespace /\s\+$/
 autocmd BufNewFile,BufRead *.applescript setlocal ft=applescript
 autocmd FileType applescript set sw=4 ts=4 sts=4 noexpandtab
 
-autocmd FileType markdown set sw=4 ts=4 sts=4
+autocmd FileType markdown set sw=2 ts=2 sts=2
+autocmd FileType vimwiki set sw=2 ts=2 sts=2
 
 " Javascript
 " ----------
@@ -167,6 +168,10 @@ fu! FindUI()
 	call fuf#setOneTimeVariables(['g:fuf_coveragefile_globPatterns', ['**/*.css','**/*.js']]) | FufCoverageFile
 endfu
 nnoremap <silent> <leader>fu :call FindUI()<CR>
+fu! FindWiki()
+	call fuf#setOneTimeVariables(['g:fuf_coveragefile_globPatterns', ['~/Dropbox/Notes/projects/*.wiki','~/Dropbox/Notes/projects/demandmedia/*.wiki']]) | FufCoverageFile
+endfu
+nnoremap <silent> <leader>fw :call FindWiki()<CR>
 
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.pyc$|\.jpg$|\.png$|\.gif$|media/.*|ui/compressed/'
 let g:fuf_coveragefile_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|jpg|png|gif|pyc|DS_Store|designer.cs)$|node_modules|vendor|dist|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
@@ -234,8 +239,27 @@ endfunction
 autocmd BufEnter,BufRead,BufWritePost *.js,*.html,*.py,*.taskpaper call UpdateTags()
 
 let g:vimwiki_list = [
-    \ {'path': '~/Dropbox/trunksync/notes/', 'index': 'HomePage', 'path_html': '~/trunknotes_html', 'ext': '.markdown', 'auto_export': 0}
+    \ {'path': '~/Dropbox/Notes/projects', 'index': 'Home', 'ext': '.wiki', 'auto_export': 0 },
+    \ {'path': '~/Dropbox/Notes/projects/demandmedia', 'index': 'DM', 'ext': '.wiki', 'auto_export': 0 }
     \ ]
+let g:vimwiki_camel_case=0
+"let g:vimwiki_folding=1
+"let g:vimwiki_fold_lists=1
+let g:vimwiki_hl_cb_checked=1
+autocmd BufLeave *.wiki silent! wall
+
+function! FindAllTasks()
+	execute "noautocmd vimgrep /\\[ \\]/j ~/Dropbox/Notes/projects/** | cw"
+endfunction
+function! FindTasks(pri)
+	execute "noautocmd silent vimgrep / ] (".a:pri.")/j ~/Dropbox/Notes/projects/** | cw"
+endfunction
+
+map <leader>t1 :call FindTasks(1)<CR>
+map <leader>t2 :call FindTasks(2)<CR>
+map <leader>t3 :call FindTasks(3)<CR>
+map <leader>t` :call FindTasks('.')<CR>
+map <leader>ta :call FindAllTasks()<CR>
 
 call pathogen#infect()
 syntax on
