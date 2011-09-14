@@ -129,6 +129,10 @@ nnoremap N Nzz
 nnoremap <C-o> <C-o>zz
 nnoremap <C-i> <C-i>zz
 
+nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-j> :wincmd j<CR>
+nmap <silent> <C-k> :wincmd k<CR>
+nmap <silent> <C-l> :wincmd l<CR>
 
 map ,v :e ~/.vimrc<CR><C-W>_
 map <silent> ,V :source ~/.vimrc<CR>
@@ -246,21 +250,6 @@ let g:vimwiki_camel_case=0
 "let g:vimwiki_folding=1
 "let g:vimwiki_fold_lists=1
 let g:vimwiki_hl_cb_checked=1
-autocmd BufLeave *.wiki silent! wall
-
-function! FindAllTasks()
-	execute "noautocmd vimgrep /\\[ \\]/j ~/Dropbox/Notes/projects/** | cw"
-endfunction
-function! FindTasks(pri)
-	execute "noautocmd silent vimgrep / ] (".a:pri.")/j ~/Dropbox/Notes/projects/** | cw"
-endfunction
-
-map <leader>t1 :call FindTasks(1)<CR>
-map <leader>t2 :call FindTasks(2)<CR>
-map <leader>t3 :call FindTasks(3)<CR>
-map <leader>t` :call FindTasks('.')<CR>
-map <leader>ta :call FindAllTasks()<CR>
-
 call pathogen#infect()
 syntax on
 filetype plugin indent on

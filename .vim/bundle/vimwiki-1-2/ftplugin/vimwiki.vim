@@ -325,7 +325,7 @@ if !hasmapto('<Plug>VimwikiToggleListItem')
   nmap <silent><buffer> <C-Space> <Plug>VimwikiToggleListItem
   vmap <silent><buffer> <C-Space> <Plug>VimwikiToggleListItem
   if has("unix")
-    nmap <silent><buffer> <C-@> <Plug>VimwikiToggleListItem
+    "nmap <silent><buffer> <C-@> <Plug>VimwikiToggleListItem
   endif
 endif
 nnoremap <silent><script><buffer>
