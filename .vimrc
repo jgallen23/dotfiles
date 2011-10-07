@@ -26,7 +26,7 @@ let maplocalleader="<"
 " also highlight current line and disable the blinking cursor.
 set wildmenu
 set ruler
-set wrap
+set wrap!
 set guioptions-=T
 "set cursorline
 set completeopt-=preview
