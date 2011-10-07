@@ -23,3 +23,7 @@ gitcheck() {
 }
 
 alias chromedev="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security"
+
+function swap_priority {
+	find . -type f | xargs sed -i '' -e "s/ ] ($1)/ ] ($2)/"
+}
