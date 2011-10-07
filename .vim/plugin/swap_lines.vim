@@ -5,7 +5,7 @@ function! s:swap_lines(n1, n2)
     call setline(a:n2, line1)
 endfunction
 
-function! s:swap_up()
+function! SwapUp()
     let n = line('.')
     if n == 1
         return
@@ -15,7 +15,7 @@ function! s:swap_up()
     exec n - 1
 endfunction
 
-function! s:swap_down()
+function! SwapDown()
     let n = line('.')
     if n == line('$')
         return
@@ -25,5 +25,5 @@ function! s:swap_down()
     exec n + 1
 endfunction
 
-noremap <silent> <leader><up> :call <SID>swap_up()<CR>
-noremap <silent> <leader><down> :call <SID>swap_down()<CR>
+noremap <silent> <leader><up> :call SwapUp()<CR>
+noremap <silent> <leader><down> :call SwapDown()<CR>

@@ -12,12 +12,13 @@ function! s:SetPriority(val)
   call setline(".", repl)
 endfunction
 
-noremap <silent><buffer> 1 :call <SID>SetPriority(1)<CR>
-noremap <silent><buffer> 2 :call <SID>SetPriority(2)<CR>
-noremap <silent><buffer> 3 :call <SID>SetPriority(3)<CR>
-noremap <silent><buffer> 4 :call <SID>SetPriority(4)<CR>
-noremap <silent><buffer> 5 :call <SID>SetPriority(5)<CR>
-noremap <silent><buffer> 0 :call <SID>ClearPriority()<CR>
+noremap <silent><buffer> <leader>1 :call <SID>SetPriority(1)<CR>
+noremap <silent><buffer> <leader>2 :call <SID>SetPriority(2)<CR>
+noremap <silent><buffer> <leader>3 :call <SID>SetPriority(3)<CR>
+noremap <silent><buffer> <leader>4 :call <SID>SetPriority(4)<CR>
+noremap <silent><buffer> <leader>5 :call <SID>SetPriority(5)<CR>
+noremap <silent><buffer> <leader>6 :call <SID>SetPriority(6)<CR>
+noremap <silent><buffer> <leader>0 :call <SID>ClearPriority()<CR>
 
 vmap <buffer> s :sort<CR>
 
@@ -41,6 +42,9 @@ function! GetProject()
   let s:currentProject = s:currentProjectArr[0] + 1
   let s:nextProjectArr = searchpos('= .* =', 'n')
   let s:nextProject = s:nextProjectArr[0] - 1
+  if s:currentProject > line(".")
+	let s:currentProject = 1
+  endif
   if s:currentProject > s:nextProject
     let s:nextProject = line("$")
   endif
@@ -49,51 +53,155 @@ function! GetProject()
   return [s:currentProject,s:nextProject]
 endfunction
 
+
+python << EOF
+import re
+def indent_count(s):
+	i = 0
+	for c in s:
+		if c == "\t":
+			i += 1
+		else:
+			break
+	return i
+
+def sort(tasks):
+	def sort_tasks(a, b):
+		c = cmp(a['complete'], b['complete'])
+		if c == 0 and not a['complete']:
+			c = cmp(a['priority'], b['priority'])
+		return c
+
+	tasks = sorted(tasks, cmp=sort_tasks)
+	for task in tasks:
+		task['subtasks'] = sort(task['subtasks'])
+	return tasks
+
+
+def tasks_array(tasks, arr):
+	for task in tasks:
+		arr.append(task['name'])
+		tasks_array(task['subtasks'], arr)
+
+def parse(lines):
+	last_task = None
+	parent = []
+	for line in lines:
+		if not line:
+			continue
+		task = { 'indent': indent_count(line), 'name': line, 'subtasks': [] }
+
+		p = re.search("\((\d)\)", line)
+		if p:
+			pri = int(p.groups()[0])
+		else:
+			pri = 99
+		task['priority'] = pri
+
+		task['complete'] = True if len(re.findall('\[X\]', line)) == 1 else False
+
+		if last_task:
+			if last_task['indent'] < task['indent']:
+				last_task['subtasks'].append(task)
+				task['parent'] = last_task
+			elif last_task['indent'] == task['indent']:
+				if last_task.has_key('parent'):
+					last_task['parent']['subtasks'].append(task)
+					task['parent'] = last_task['parent']
+				else:
+					parent.append(task)
+			else:
+				if last_task['parent'].has_key('parent'):
+					last_task['parent']['parent']['subtasks'].append(task)
+					task['parent'] = last_task['parent']['parent']
+				else:
+					parent.append(task)
+		else:
+			parent.append(task)
+		last_task = task
+
+	return parent
+EOF
+
+
+
 function! SortProject()
-  let s:proj = GetProject()
-  execute s:proj[0].','.s:proj[1] .' sort'
+python << EOF
+proj = vim.eval('GetProject()')
+buff = vim.current.buffer
+start = int(proj[0]) - 1
+end = int(proj[1]) - 1
+lines = buff[start:end]
+t = parse(lines)
+t = sort(t)
+a = []
+tasks_array(t, a)
+buff[start:end] = a
+EOF
 endfunction
 noremap <silent> <leader>s :call SortProject()<CR>
-
-
-function! MoveDoneDown()
-  let s:proj = GetProject()
-  execute s:proj[0].','.s:proj[1] .' sort /\[X\]/'
-endfunction
-noremap <silent> <leader>d :call MoveDoneDown()<CR>
-
+noremap <silent><buffer> <up> :call SwapUp()<CR>
+noremap <silent><buffer> <down> :call SwapDown()<CR>
 
 autocmd BufLeave *.wiki silent! wall
 
 function! FindAllTasks(path)
-	execute "noautocmd vimgrep / ]/j ".a:path." | vertical cw | vertical resize ".s:width
+	execute "noautocmd vimgrep / ]/j ".a:path."/**/*.wiki | vertical cw | vertical resize ".s:width
 endfunction
-function! FindTasks(pri, path)
+
+function! FindTasks(path, pri)
+	let dir = expand("%:p:h")
   let s:columns = &columns
   let s:width = s:columns/2
   execute "noautocmd silent vimgrep / ] (".a:pri.")/j ".a:path." | vertical cw | vertical resize ".s:width
-  "execute "noautocmd silent vimgrep / ] (".a:pri.")/j ".a:path." | vertical cw | w search/priority_".a:pri.".txt"
 endfunction
 
-map <leader>1 :call FindTasks(1, "~/Dropbox/Notes/projects/**/*.wiki")<CR>
-map <leader>2 :call FindTasks(2, "~/Dropbox/Notes/projects/**/*.wiki")<CR>
-map <leader>3 :call FindTasks(3, "~/Dropbox/Notes/projects/**/*.wiki")<CR>
-map <leader>4 :call FindTasks(4, "~/Dropbox/Notes/projects/**/*.wiki")<CR>
-map <leader>5 :call FindTasks(5, "~/Dropbox/Notes/projects/**/*.wiki")<CR>
-map <leader>` :call FindTasks('.', "~/Dropbox/Notes/projects/**/*.wiki")<CR>
-map <leader>a :call FindAllTasks("~/Dropbox/Notes/projects/**/*.wiki")<CR>
-map <leader>p1 :call FindTasks(1, "~/Dropbox/Notes/projects/*")<CR>
-map <leader>p2 :call FindTasks(2, "~/Dropbox/Notes/projects/*")<CR>
-map <leader>p3 :call FindTasks(3, "~/Dropbox/Notes/projects/*")<CR>
-map <leader>p4 :call FindTasks(4, "~/Dropbox/Notes/projects/*")<CR>
-map <leader>p5 :call FindTasks(5, "~/Dropbox/Notes/projects/*")<CR>
-map <leader>p` :call FindTasks('.', "~/Dropbox/Notes/projects/*")<CR>
-map <leader>pa :call FindAllTasks("~/Dropbox/Notes/projects/*")<CR>
-map <leader>w1 :call FindTasks(1, "~/Dropbox/Notes/projects/demandmedia/**/*.wiki")<CR>
-map <leader>w2 :call FindTasks(2, "~/Dropbox/Notes/projects/demandmedia/**/*.wiki")<CR>
-map <leader>w3 :call FindTasks(3, "~/Dropbox/Notes/projects/demandmedia/**/*.wiki")<CR>
-map <leader>w4 :call FindTasks(4, "~/Dropbox/Notes/projects/demandmedia/**/*.wiki")<CR>
-map <leader>w5 :call FindTasks(5, "~/Dropbox/Notes/projects/demandmedia/**/*.wiki")<CR>
-map <leader>w` :call FindTasks('.', "~/Dropbox/Notes/projects/demandmedia/**/*.wiki")<CR>
-map <leader>wa :call FindAllTasks("~/Dropbox/Notes/projects/demandmedia/**/*.wiki")<CR>
+function! FindTasksSorted(path, pri)
+	"g:vimwiki_tasks_dir_sorted
+	let cmd = 'grep -rsinI " ] ('.a:pri.')" '.a:path.' | tr -d "\t" | sed -E "s/(.*wiki):([0-9]+):-(.*)/\3;;\1:\2/" | sort'
+	let out = system(cmd)
+
+	let tmpfile = "top.tmp"
+	"tempname()
+	exe "redir! > " . tmpfile
+	silent echon out
+	redir END
+
+	"set efm=%m||%f:%\\s%#%l
+	let old_efm = &efm
+	set efm=%m;;%f:%l
+
+	execute "silent! cgetfile " . tmpfile
+	let &efm = old_efm
+
+	call delete(tmpfile)
+
+	let s:columns = &columns
+	let s:width = s:columns/2
+ 	execute "vertical cw | vertical resize ".s:width
+endfunction
+
+
+map <silent> <leader>f1 :call FindTasks(expand("%:p:h")."/**/*.wiki", 1)<CR>
+map <silent> <leader>f2 :call FindTasks(expand("%:p:h")."/**/*.wiki", 2)<CR>
+map <silent> <leader>f3 :call FindTasks(expand("%:p:h")."/**/*.wiki", 3)<CR>
+map <silent> <leader>f4 :call FindTasks(expand("%:p:h")."/**/*.wiki", 4)<CR>
+map <silent> <leader>f5 :call FindTasks(expand("%:p:h")."/**/*.wiki", 5)<CR>
+map <silent> <leader>f6 :call FindTasks(expand("%:p:h")."/**/*.wiki", 6)<CR>
+map <silent> <leader>` :call FindTasksSorted(expand("%:p:h"), '.')<CR>
+map <silent> <leader>k :call FindTasksSorted(expand("%:p:h"), '[12345]')<CR>
+map <silent> <leader>t :call FindTasksSorted(expand("%:p:h"), '[123]')<CR>
+map <silent> <leader>a :call FindAllTasks(expand("%:p:h"))<CR>
+
+
+function! SetTaskContext(name, path1, path2)
+	let g:vimwiki_tasks_dir = a:path1 
+	let g:vimwiki_tasks_dir_sorted = a:path2 
+	echo "Context set to ".a:name
+endfunction
+
+map <silent> <leader>m :call SetTaskContext("Work", "~/Dropbox/Notes/demandmedia/*.wiki", "~/Dropbox/Notes/demandmedia/")<CR>
+map <silent> <leader>p :call SetTaskContext("Personal", "~/Dropbox/Notes/*.wiki", "~/Dropbox/Notes/*.wiki")<CR>
+map <silent> <leader>j :call SetTaskContext("Projects", "~/Dropbox/Notes/projects/**/*.wiki", "~/Dropbox/Notes/projects/")<CR>
+map <silent> <leader>l :call SetTaskContext("All", "~/Dropbox/Notes/**/*.wiki", "~/Dropbox/Notes/")<CR>
 

@@ -105,6 +105,7 @@ autocmd FileType applescript set sw=4 ts=4 sts=4 noexpandtab
 
 autocmd FileType markdown set sw=2 ts=2 sts=2
 autocmd FileType vimwiki set sw=2 ts=2 sts=2
+let g:vimwiki_listsyms = "    X"
 
 " Javascript
 " ----------
@@ -173,15 +174,23 @@ fu! FindUI()
 endfu
 nnoremap <silent> <leader>fu :call FindUI()<CR>
 fu! FindWiki()
-	call fuf#setOneTimeVariables(['g:fuf_coveragefile_globPatterns', ['~/Dropbox/Notes/projects/*.wiki','~/Dropbox/Notes/projects/demandmedia/*.wiki']]) | FufCoverageFile
+	call fuf#setOneTimeVariables(['g:fuf_coveragefile_globPatterns', ['~/Dropbox/Notes/**/*.wiki']]) | FufCoverageFile
 endfu
 nnoremap <silent> <leader>fw :call FindWiki()<CR>
+fu! FindWikiIndex()
+	call fuf#setOneTimeVariables(['g:fuf_coveragefile_globPatterns', ['~/Dropbox/Notes/**/index.wiki']]) | FufCoverageFile
+endfu
+nnoremap <silent> <leader>fi :call FindWikiIndex()<CR>
+
 
 let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.pyc$|\.jpg$|\.png$|\.gif$|media/.*|ui/compressed/'
 let g:fuf_coveragefile_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|jpg|png|gif|pyc|DS_Store|designer.cs)$|node_modules|vendor|dist|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
 vmap <Tab> >gv
 vmap <S-Tab> <gv
+
+vmap <right> >gv
+vmap <left> <gv
 
 noremap <S-Up> <C-A>
 noremap <S-Down> <C-X>
@@ -243,8 +252,10 @@ endfunction
 autocmd BufEnter,BufRead,BufWritePost *.js,*.html,*.py,*.taskpaper call UpdateTags()
 
 let g:vimwiki_list = [
-    \ {'path': '~/Dropbox/Notes/projects', 'index': 'Home', 'ext': '.wiki', 'auto_export': 0 },
-    \ {'path': '~/Dropbox/Notes/projects/demandmedia', 'index': 'DM', 'ext': '.wiki', 'auto_export': 0 }
+    \ {'path': '~/Dropbox/Notes', 'index': 'index', 'ext': '.wiki', 'auto_export': 0 },
+    \ {'path': '~/Dropbox/Notes/personal/', 'index': 'index', 'ext': '.wiki', 'auto_export': 0 },
+    \ {'path': '~/Dropbox/Notes/projects/', 'index': 'index', 'ext': '.wiki', 'auto_export': 0 },
+    \ {'path': '~/Dropbox/Notes/demandmedia/', 'index': 'index', 'ext': '.wiki', 'auto_export': 0 }
     \ ]
 let g:vimwiki_camel_case=0
 "let g:vimwiki_folding=1
@@ -259,4 +270,7 @@ if has("gui_running")
 endif
 set background=dark
 colorscheme lucius
-autocmd BufEnter,BufRead *.* DetectIndent
+"autocmd BufEnter,BufRead *.* DetectIndent
+
+let g:vimwiki_tasks_dir = "~/Dropbox/Notes/**/*.wiki" 
+let g:vimwiki_tasks_dir_sorted = "~/Dropbox/Notes/" 
