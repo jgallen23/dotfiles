@@ -113,6 +113,7 @@ autocmd FileType javascript set ai sw=2 sts=2 et
 autocmd BufNewFile,BufRead *.json setlocal ft=javascript
 let javascript_enable_domhtmlcss=1
 
+autocmd FileType vimwiki set ai sw=2 sts=2
 
 " File Browser
 " ------------
@@ -136,7 +137,7 @@ nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
 map ,v :e ~/.vimrc<CR><C-W>_
-map <silent> ,V :source ~/.vimrc<CR>
+map <silent> ,vr :source ~/.vimrc<CR>
 map ,g :MyGrep 
 
 
@@ -178,7 +179,7 @@ fu! FindWiki()
 endfu
 nnoremap <silent> <leader>fw :call FindWiki()<CR>
 fu! FindWikiIndex()
-	call fuf#setOneTimeVariables(['g:fuf_coveragefile_globPatterns', ['~/Dropbox/Notes/**/index.wiki']]) | FufCoverageFile
+	call fuf#setOneTimeVariables(['g:fuf_coveragefile_globPatterns', ['~/Dropbox/Notes/*/index.wiki']]) | FufCoverageFile
 endfu
 nnoremap <silent> <leader>fi :call FindWikiIndex()<CR>
 
@@ -197,7 +198,7 @@ noremap <S-Down> <C-X>
 
 set cursorline
 
-nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
+"nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
 
 set diffopt=filler
 set diffopt+=iwhite
@@ -272,5 +273,18 @@ set background=dark
 colorscheme lucius
 "autocmd BufEnter,BufRead *.* DetectIndent
 
-let g:vimwiki_tasks_dir = "~/Dropbox/Notes/**/*.wiki" 
-let g:vimwiki_tasks_dir_sorted = "~/Dropbox/Notes/" 
+map <silent> <leader>mk :call FindTasksSorted("demandmedia/*", '[12345]')<CR>
+map <silent> <leader>mt :call FindTasksSorted("demandmedia/*", '[123]')<CR>
+map <silent> <leader>ma :call FindAllTasks("demandmedia/*")<CR>
+map <silent> <leader>ak :call FindTasksSorted("*", '[12345]')<CR>
+map <silent> <leader>at :call FindTasksSorted("*", '[123]')<CR>
+
+fu! AllPersonal()
+	call FindAllTasks("personal/*")
+endfu
+fu! AllProjects()
+	call FindAllTasks("projects/*")
+endfu
+fu! AllDM()
+	call FindAllTasks("demandmedia/*")
+endfu
