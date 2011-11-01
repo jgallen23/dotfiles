@@ -1,3 +1,5 @@
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+
 set t_Co=256
 "set foldmethod=indent
 set ignorecase
