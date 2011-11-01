@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/jslint"]
 	path = .vim/bundle/jslint
 	url = https://github.com/smith/jslint.vim.git
+[submodule ".vim/bundle/vimroom"]
+	path = .vim/bundle/vimroom
+	url = git://github.com/mikewest/vimroom.git
