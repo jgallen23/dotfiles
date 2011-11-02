@@ -181,3 +181,19 @@ map <silent> <leader>t :call FindTasksSorted("* \| grep -v demandmedia/", '[123]
 map <silent> <leader>a :call FindAllTasks("**/*.wiki")<CR>
 map <silent> <leader>p :e ~/Dropbox/Notes/projects/index.wiki<CR>
 map <silent> <leader>i :e ~/Dropbox/Notes/projects/ideas/index.wiki<CR>
+
+map <silent> <leader>mk :call FindTasksSorted("demandmedia/*", '[12345]')<CR>
+map <silent> <leader>mt :call FindTasksSorted("demandmedia/*", '[123]')<CR>
+map <silent> <leader>ma :call FindAllTasks("demandmedia/*")<CR>
+map <silent> <leader>ak :call FindTasksSorted("*", '[12345]')<CR>
+map <silent> <leader>at :call FindTasksSorted("*", '[123]')<CR>
+
+command! AllPersonal :call FindAllTasks("personal/*")
+command! AllProjects :call FindAllTasks("projects/*")
+command! AllDM :call FindAllTasks("demandmedia/*")
+
+let g:vimwiki_camel_case=0
+let g:vimwiki_hl_cb_checked=1
+let g:vimwiki_list = [
+    \ {'path': '~/Dropbox/Notes', 'index': 'index', 'ext': '.wiki', 'auto_export': 0 }
+    \ ]
