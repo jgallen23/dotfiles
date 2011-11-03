@@ -71,3 +71,6 @@ let g:git_branch_status_nogit=""
 let g:git_branch_status_text=" " 
 let g:git_branch_status_ignore_remotes=1
 
+"javascript
+autocmd FileType javascript set et
+
