@@ -38,6 +38,7 @@ map <leader>v :e ~/.vimrc<CR><C-W>_
 map <leader>b :Explore<CR>
 map <silent> <leader>vr :source ~/.vimrc<CR>
 map <leader>g :MyGrep 
+map <leader>e :RunCode<CR>
 
 "move around windows better
 nmap <silent> <C-h> :wincmd h<CR>
