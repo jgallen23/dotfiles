@@ -34,6 +34,7 @@ set incsearch
 set ts=2 sw=2
 
 map <leader>v :e ~/.vimrc<CR><C-W>_
+map <leader>b :Explore<CR>
 map <silent> <leader>vr :source ~/.vimrc<CR>
 map <leader>g :MyGrep 
 

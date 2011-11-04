@@ -194,6 +194,7 @@ command! AllDM :call FindAllTasks("demandmedia/*")
 
 let g:vimwiki_camel_case=0
 let g:vimwiki_hl_cb_checked=1
+let g:vimwiki_listsyms = "    X"
 let g:vimwiki_list = [
     \ {'path': '~/Dropbox/Notes', 'index': 'index', 'ext': '.wiki', 'auto_export': 0 }
     \ ]
