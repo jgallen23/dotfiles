@@ -30,6 +30,7 @@ set statusline=[%l,%c\ %P%M]\ [%{getcwd()}%*\][%{GitBranchInfoTokens()[0]}]\ %f\
 set number
 set hlsearch
 set incsearch
+set cursorline
 
 set ts=2 sw=2
 
