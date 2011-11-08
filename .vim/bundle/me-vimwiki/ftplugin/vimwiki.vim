@@ -99,7 +99,6 @@ def parse(lines):
 		task['priority'] = pri
 
 		task['complete'] = True if len(re.findall('\[X\]', line)) == 1 else False
-
 		if last_task:
 			if last_task['indent'] < task['indent']:
 				last_task['subtasks'].append(task)
@@ -119,12 +118,8 @@ def parse(lines):
 		else:
 			parent.append(task)
 		last_task = task
-
 	return parent
 EOF
-
-
-
 function! SortProject()
 python << EOF
 proj = vim.eval('GetProject()')
@@ -142,66 +137,64 @@ endfunction
 noremap <silent> <leader>s :call SortProject()<CR>
 noremap <silent><buffer> <up> :call SwapUp()<CR>
 noremap <silent><buffer> <down> :call SwapDown()<CR>
-
 autocmd BufLeave *.wiki silent! wall
-
 function! FindAllTasks(path)
-	execute "noautocmd vimgrep / ]/j ".a:path."/**/*.wiki | vertical cw | vertical resize ".s:width
+	execute "noautocmd vimgrep / ]/j ".a:path." | vertical cw | vertical resize ".s:width
 endfunction
-
 function! FindTasks(path, pri)
-	let dir = expand("%:p:h")
   let s:columns = &columns
   let s:width = s:columns/2
   execute "noautocmd silent vimgrep / ] (".a:pri.")/j ".a:path." | vertical cw | vertical resize ".s:width
 endfunction
-
 function! FindTasksSorted(path, pri)
-	"g:vimwiki_tasks_dir_sorted
 	let cmd = 'grep -rsinI " ] ('.a:pri.')" '.a:path.' | tr -d "\t" | sed -E "s/(.*wiki):([0-9]+):-(.*)/\3;;\1:\2/" | sort'
 	let out = system(cmd)
-
 	let tmpfile = "top.tmp"
 	"tempname()
 	exe "redir! > " . tmpfile
 	silent echon out
 	redir END
-
 	"set efm=%m||%f:%\\s%#%l
 	let old_efm = &efm
 	set efm=%m;;%f:%l
-
 	execute "silent! cgetfile " . tmpfile
 	let &efm = old_efm
-
 	call delete(tmpfile)
-
 	let s:columns = &columns
 	let s:width = s:columns/2
  	execute "vertical cw | vertical resize ".s:width
 endfunction
 
+map <silent> <leader>f1 :call FindTasks("**/*.wiki", 1)<CR>
+map <silent> <leader>f2 :call FindTasks("**/*.wiki", 2)<CR>
+map <silent> <leader>f3 :call FindTasks("**/*.wiki", 3)<CR>
+map <silent> <leader>f4 :call FindTasks("**/*.wiki", 4)<CR>
+map <silent> <leader>f5 :call FindTasks("**/*.wiki", 5)<CR>
+map <silent> <leader>f6 :call FindTasks("**/*.wiki", 6)<CR>
+"map <silent> <leader>` :call FindTasksSorted("*", '.')<CR>
+"map <silent> <leader>k :call FindTasksSorted("*", '[12345]')<CR>
+"map <silent> <leader>t :call FindTasksSorted("*", '[123]')<CR>
+"map <silent> <leader>a :call FindAllTasks("**/*.wiki")<CR>
+map <silent> <leader>` :call FindTasksSorted("* \| grep -v demandmedia/", '.')<CR>
+map <silent> <leader>k :call FindTasksSorted("* \| grep -v demandmedia/", '[12345]')<CR>
+map <silent> <leader>t :call FindTasksSorted("* \| grep -v demandmedia/", '[123]')<CR>
+map <silent> <leader>a :call FindAllTasks("**/*.wiki")<CR>
+map <silent> <leader>p :e ~/Dropbox/Notes/projects/index.wiki<CR>
+map <silent> <leader>i :e ~/Dropbox/Notes/projects/ideas/index.wiki<CR>
 
-map <silent> <leader>f1 :call FindTasks(expand("%:p:h")."/**/*.wiki", 1)<CR>
-map <silent> <leader>f2 :call FindTasks(expand("%:p:h")."/**/*.wiki", 2)<CR>
-map <silent> <leader>f3 :call FindTasks(expand("%:p:h")."/**/*.wiki", 3)<CR>
-map <silent> <leader>f4 :call FindTasks(expand("%:p:h")."/**/*.wiki", 4)<CR>
-map <silent> <leader>f5 :call FindTasks(expand("%:p:h")."/**/*.wiki", 5)<CR>
-map <silent> <leader>f6 :call FindTasks(expand("%:p:h")."/**/*.wiki", 6)<CR>
-map <silent> <leader>` :call FindTasksSorted(expand("%:p:h"), '.')<CR>
-map <silent> <leader>k :call FindTasksSorted(expand("%:p:h"), '[12345]')<CR>
-map <silent> <leader>t :call FindTasksSorted(expand("%:p:h"), '[123]')<CR>
-map <silent> <leader>a :call FindAllTasks(expand("%:p:h"))<CR>
+map <silent> <leader>mk :call FindTasksSorted("demandmedia/*", '[12345]')<CR>
+map <silent> <leader>mt :call FindTasksSorted("demandmedia/*", '[123]')<CR>
+map <silent> <leader>ma :call FindAllTasks("demandmedia/*")<CR>
+map <silent> <leader>ak :call FindTasksSorted("*", '[12345]')<CR>
+map <silent> <leader>at :call FindTasksSorted("*", '[123]')<CR>
 
+command! AllPersonal :call FindAllTasks("personal/*")
+command! AllProjects :call FindAllTasks("projects/*")
+command! AllDM :call FindAllTasks("demandmedia/*")
 
-function! SetTaskContext(name, path1, path2)
-	let g:vimwiki_tasks_dir = a:path1 
-	let g:vimwiki_tasks_dir_sorted = a:path2 
-	echo "Context set to ".a:name
-endfunction
-
-map <silent> <leader>m :call SetTaskContext("Work", "~/Dropbox/Notes/demandmedia/*.wiki", "~/Dropbox/Notes/demandmedia/")<CR>
-map <silent> <leader>p :call SetTaskContext("Personal", "~/Dropbox/Notes/*.wiki", "~/Dropbox/Notes/*.wiki")<CR>
-map <silent> <leader>j :call SetTaskContext("Projects", "~/Dropbox/Notes/projects/**/*.wiki", "~/Dropbox/Notes/projects/")<CR>
-map <silent> <leader>l :call SetTaskContext("All", "~/Dropbox/Notes/**/*.wiki", "~/Dropbox/Notes/")<CR>
-
+let g:vimwiki_camel_case=0
+let g:vimwiki_hl_cb_checked=1
+let g:vimwiki_listsyms = "    X"
+let g:vimwiki_list = [
+    \ {'path': '~/Dropbox/Notes', 'index': 'index', 'ext': '.wiki', 'auto_export': 0 }
+    \ ]

@@ -31,3 +31,21 @@
 [submodule ".vim/bundle/jslint"]
 	path = .vim/bundle/jslint
 	url = https://github.com/smith/jslint.vim.git
+[submodule ".vim/bundle/vimroom"]
+	path = .vim/bundle/vimroom
+	url = git://github.com/mikewest/vimroom.git
+[submodule ".vim/bundle/vim-pathogen"]
+	path = .vim/bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule ".vim/bundle/snipmate.vim"]
+	path = .vim/bundle/snipmate.vim
+	url = https://github.com/msanders/snipmate.vim.git
+[submodule ".vim/bundle/vim-matchit"]
+	path = .vim/bundle/vim-matchit
+	url = https://github.com/tsaleh/vim-matchit.git
+[submodule ".vim/bundle/vim-jade"]
+	path = .vim/bundle/vim-jade
+	url = https://github.com/digitaltoad/vim-jade.git
+[submodule ".vim/bundle/vim-javascript"]
+	path = .vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
