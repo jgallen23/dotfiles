@@ -79,7 +79,7 @@ let g:git_branch_status_text=" "
 let g:git_branch_status_ignore_remotes=1
 
 "go to previous file
-nmap <BS> :bp<CR>
+nmap <BS> :e #<CR>
 
 "javascript
 autocmd FileType javascript set et
