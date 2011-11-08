@@ -68,6 +68,10 @@ vmap <S-Tab> <gv
 vmap <right> >gv
 vmap <left> <gv
 
+"start end of line
+noremap H ^ 
+noremap L g_
+
 "git branch
 let g:git_branch_status_head_current=1 
 let g:git_branch_status_nogit=""
