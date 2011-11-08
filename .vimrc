@@ -84,3 +84,5 @@ nmap <BS> :e #<CR>
 "javascript
 autocmd FileType javascript set et
 
+"change cwd
+command! CWD :cd %:p:h
