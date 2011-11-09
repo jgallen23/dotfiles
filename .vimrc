@@ -83,6 +83,13 @@ nmap <BS> :e #<CR>
 
 "javascript
 autocmd FileType javascript set et
+"php
+autocmd FileType php set et!
 
 "change cwd
 command! CWD :cd %:p:h
+
+"fix backspace
+if !has('gui_running')
+  set backspace=indent,eol,start
+endif
