@@ -86,3 +86,6 @@ autocmd FileType javascript set et
 
 "change cwd
 command! CWD :cd %:p:h
+
+"NerdTree
+let NERDTreeIgnore=['node_modules']
