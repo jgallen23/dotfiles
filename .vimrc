@@ -93,3 +93,6 @@ command! CWD :cd %:p:h
 if !has('gui_running')
   set backspace=indent,eol,start
 endif
+
+"NerdTree
+let NERDTreeIgnore=['node_modules']
