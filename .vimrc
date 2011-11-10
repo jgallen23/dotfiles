@@ -95,4 +95,5 @@ if !has('gui_running')
 endif
 
 "NerdTree
+map <leader>t :NERDTree<CR>
 let NERDTreeIgnore=['node_modules']
