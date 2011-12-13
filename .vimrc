@@ -59,9 +59,9 @@ nnoremap <silent> sd  :FufDir ~/.shortcuts/<CR>
 nnoremap <silent> cd  :FufDirWithFullCwd<CR>
 nnoremap <silent> cf  :FufFileWithCurrentBufferDir<CR>
 nnoremap <silent> cv  :FufTag<CR>
-nnoremap <silent> <space>  :FufBuffer<CR>
-nnoremap <silent> <tab>  :FufFile<CR>
-nnoremap <silent> \ :FufCoverageFile<CR>
+"nnoremap <silent> <space>  :FufBuffer<CR>
+"nnoremap <silent> <tab>  :FufFile<CR>
+"nnoremap <silent> \ :FufCoverageFile<CR>
 
 "indent
 vmap <Tab> >gv
@@ -106,3 +106,8 @@ map <leader>r :redraw!<CR>
 
 "Taskpaper
 autocmd BufWinEnter,BufWritePost *.taskpaper call FindTasksByPriority(expand('%'), '[123]', 1)
+
+"ctrlp
+let g:ctrlp_working_path_mode = 0
+nnoremap <silent> <space>  :CtrlPBuffer<CR>
+nnoremap <silent> \ :CtrlP<CR>
