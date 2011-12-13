@@ -29,7 +29,6 @@
 --langdef=taskpaper
 --langmap=taskpaper:.taskpaper
 --regex-taskpaper=/(.*):$/\1/p,project/
---regex-taskpaper=/@([a-zA-Z]+)/\1/t,tag/
 
 --langdef=coffee
 --langmap=coffee:.coffee
