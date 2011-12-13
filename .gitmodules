@@ -55,3 +55,6 @@
 [submodule ".vim/bundle/taskpaper"]
 	path = .vim/bundle/taskpaper
 	url = git://github.com/jgallen23/taskpaper.vim.git
+[submodule ".vim/bundle/ctrlp"]
+	path = .vim/bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
