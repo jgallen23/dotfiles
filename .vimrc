@@ -58,7 +58,7 @@ let g:fuf_coveragefile_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|jpg|png|gif|py
 nnoremap <silent> sd  :FufDir ~/.shortcuts/<CR>
 nnoremap <silent> cd  :FufDirWithFullCwd<CR>
 nnoremap <silent> cf  :FufFileWithCurrentBufferDir<CR>
-nnoremap <silent> cv  :FufTag<CR>
+"nnoremap <silent> cv  :FufTag<CR>
 "nnoremap <silent> <space>  :FufBuffer<CR>
 "nnoremap <silent> <tab>  :FufFile<CR>
 "nnoremap <silent> \ :FufCoverageFile<CR>
@@ -111,3 +111,8 @@ autocmd BufWinEnter,BufWritePost *.taskpaper call FindTasksByPriority(expand('%'
 let g:ctrlp_working_path_mode = 0
 nnoremap <silent> <space>  :CtrlPBuffer<CR>
 nnoremap <silent> \ :CtrlP<CR>
+let g:ctrlp_extensions = ['tag']
+nnoremap <silent> cv  :CtrlPTag<CR>
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+let g:ctrlp_match_window_bottom = 1
+let g:ctrlp_match_window_reversed = 0
