@@ -111,6 +111,7 @@ autocmd BufWinEnter,BufWritePost *.taskpaper call FindTasksByPriority(expand('%'
 let g:ctrlp_working_path_mode = 0
 nnoremap <silent> <space>  :CtrlPBuffer<CR>
 nnoremap <silent> \ :CtrlP<CR>
+nnoremap <silent> <Tab> :CtrlPCurFile<CR>
 let g:ctrlp_extensions = ['tag']
 nnoremap <silent> cv  :CtrlPTag<CR>
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
