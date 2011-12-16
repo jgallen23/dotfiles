@@ -99,7 +99,7 @@ endif
 map <leader>t :NERDTree<CR>
 
 "Tasks
-nnoremap <silent> <leader>k :e ~/Dropbox/Notes/Index.taskpaper;CWD<CR>
+"nnoremap <silent> <leader>k :e ~/Dropbox/Notes/Index.taskpaper;CWD<CR>
 
 "Redraw
 map <leader>r :redraw!<CR>
@@ -113,6 +113,6 @@ nnoremap <silent> <space>  :CtrlPBuffer<CR>
 nnoremap <silent> \ :CtrlP<CR>
 let g:ctrlp_extensions = ['tag']
 nnoremap <silent> cv  :CtrlPTag<CR>
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 0
