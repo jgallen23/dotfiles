@@ -114,6 +114,10 @@ nnoremap <silent> \ :CtrlP<CR>
 nnoremap <silent> <Tab> :CtrlPCurFile<CR>
 let g:ctrlp_extensions = ['tag']
 nnoremap <silent> cv  :CtrlPTag<CR>
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 0
+
+"easy motion
+let g:EasyMotion_mapping_w = '<leader>w'
