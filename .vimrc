@@ -33,6 +33,9 @@ set hlsearch
 set incsearch
 set cursorline
 
+"fix indent on #
+inoremap # X<BS>#
+
 set ts=2 sw=2
 
 map <leader>v :e ~/.vimrc<CR><C-W>_
@@ -114,10 +117,11 @@ nnoremap <silent> \ :CtrlP<CR>
 nnoremap <silent> <Tab> :CtrlPCurFile<CR>
 let g:ctrlp_extensions = ['tag']
 nnoremap <silent> cv  :CtrlPTag<CR>
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|compressed'
 
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 0
+command! Tasks :CtrlP ~/Dropbox/Notes
 
 "easy motion
 let g:EasyMotion_mapping_w = '<leader>w'
