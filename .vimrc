@@ -126,3 +126,7 @@ command! Tasks :CtrlP ~/Dropbox/Notes
 
 "easy motion
 let g:EasyMotion_mapping_w = '<leader>w'
+
+"snippets
+command! ReloadSnippets :call ReloadSnippets(&ft)
+command! ViewSnippets :exec(":e ".split(snippets_dir, ',')[0].&ft.".snippets")
