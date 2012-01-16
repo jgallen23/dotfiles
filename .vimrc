@@ -108,7 +108,22 @@ map <leader>t :NERDTree<CR>
 map <leader>r :redraw!<CR>
 
 "Taskpaper
-autocmd BufWinEnter,BufWritePost *.taskpaper call FindTasksByPriority(expand('%'), '[123]', 1)
+"autocmd BufWinEnter,BufWritePost *.taskpaper call FindTasksByPriority(expand('%'), '[123]', 1)
+map <silent> <leader>r :e ~/Dropbox/Notes/_personal.taskpaper<CR>
+map <silent> <leader>p :e ~/Dropbox/Notes/_projects.taskpaper<CR>
+map <silent> <leader>d :e ~/Dropbox/Notes/_dm.taskpaper<CR>
+map <silent> <leader>i :e ~/Dropbox/Notes/projects/_ideas/index.taskpaper<CR>
+fu! ShowTopTasks()
+	edit ~/Dropbox/Notes/_Personal.taskpaper
+	vsplit ~/Dropbox/Notes/_top.txt
+	vertical resize 50
+	setlocal autoread
+	autocmd CursorHold *.taskpaper checktime
+endfu
+map <silent> <leader>t :call ShowTopTasks()<CR>
+"find top
+"map <silent> <leader>k :call FindTasksByPriority(expand('%'), '.', 1)<CR>
+"map <silent> <leader>t :call FindTasksByPriority(expand('%'), '[123]', 1)<CR>
 
 "ctrlp
 let g:ctrlp_working_path_mode = 0
