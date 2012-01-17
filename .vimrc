@@ -118,9 +118,11 @@ fu! ShowTopTasks()
 	vsplit ~/Dropbox/Notes/_top.txt
 	vertical resize 50
 	setlocal autoread
+	rightbelow split ~/Dropbox/Notes/_top_week.txt
+	setlocal autoread
 	autocmd CursorHold *.taskpaper checktime
 endfu
-map <silent> <leader>t :call ShowTopTasks()<CR>
+map <silent> <leader>k :call ShowTopTasks()<CR>
 "find top
 "map <silent> <leader>k :call FindTasksByPriority(expand('%'), '.', 1)<CR>
 "map <silent> <leader>t :call FindTasksByPriority(expand('%'), '[123]', 1)<CR>
