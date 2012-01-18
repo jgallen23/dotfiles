@@ -105,16 +105,16 @@ map <leader>t :NERDTree<CR>
 "nnoremap <silent> <leader>k :e ~/Dropbox/Notes/Index.taskpaper;CWD<CR>
 
 "Redraw
-map <leader>r :redraw!<CR>
+map <leader>a :redraw!<CR>
 
 "Taskpaper
 "autocmd BufWinEnter,BufWritePost *.taskpaper call FindTasksByPriority(expand('%'), '[123]', 1)
 map <silent> <leader>r :e ~/Dropbox/Notes/_personal.taskpaper<CR>
 map <silent> <leader>p :e ~/Dropbox/Notes/_projects.taskpaper<CR>
 map <silent> <leader>d :e ~/Dropbox/Notes/_dm.taskpaper<CR>
-map <silent> <leader>i :e ~/Dropbox/Notes/projects/_ideas/index.taskpaper<CR>
-fu! ShowTopTasks()
+fu! ShowTasks()
 	edit ~/Dropbox/Notes/_Personal.taskpaper
+	cd %:p:h
 	vsplit ~/Dropbox/Notes/_top.txt
 	vertical resize 50
 	setlocal autoread
@@ -122,7 +122,9 @@ fu! ShowTopTasks()
 	setlocal autoread
 	autocmd CursorHold *.taskpaper checktime
 endfu
-map <silent> <leader>k :call ShowTopTasks()<CR>
+"map <silent> <leader>k :call ShowTasks()<CR>
+command! Tasks :call ShowTasks()
+command! FindTasks :CtrlP ~/Dropbox/Notes
 "find top
 "map <silent> <leader>k :call FindTasksByPriority(expand('%'), '.', 1)<CR>
 "map <silent> <leader>t :call FindTasksByPriority(expand('%'), '[123]', 1)<CR>
@@ -132,14 +134,13 @@ let g:ctrlp_working_path_mode = 0
 nnoremap <silent> <space>  :CtrlPBuffer<CR>
 nnoremap <silent> \ :CtrlP<CR>
 nnoremap <silent> <Tab> :CtrlPCurFile<CR>
-command! BlogFiles :CtrlP ~/Dropbox/jga.me
+command! FindBlog :CtrlP ~/Dropbox/jga.me
 let g:ctrlp_extensions = ['tag']
 nnoremap <silent> cv  :CtrlPTag<CR>
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|compressed'
 
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 0
-command! Tasks :CtrlP ~/Dropbox/Notes
 
 "easy motion
 let g:EasyMotion_mapping_w = '<leader>w'
@@ -150,3 +151,6 @@ command! EditSnippets :exec(":e ".split(snippets_dir, ',')[0].&ft.".snippets")
 
 "unit tests
 map <leader>mt :RunTests<CR>
+
+"vim room
+let g:vimroom_ctermbackground = "black"
