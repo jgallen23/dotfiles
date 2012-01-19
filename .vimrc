@@ -109,16 +109,16 @@ map <leader>a :redraw!<CR>
 
 "Taskpaper
 "autocmd BufWinEnter,BufWritePost *.taskpaper call FindTasksByPriority(expand('%'), '[123]', 1)
-map <silent> <leader>r :e ~/Dropbox/Notes/_personal.taskpaper<CR>
-map <silent> <leader>p :e ~/Dropbox/Notes/_projects.taskpaper<CR>
-map <silent> <leader>d :e ~/Dropbox/Notes/_dm.taskpaper<CR>
+map <silent> <leader>r :e ~/Dropbox/Notes/personal.taskpaper<CR>
+map <silent> <leader>p :e ~/Dropbox/Notes/projects.taskpaper<CR>
+map <silent> <leader>d :e ~/Dropbox/Notes/dm.taskpaper<CR>
 fu! ShowTasks()
-	edit ~/Dropbox/Notes/_Personal.taskpaper
+	edit ~/Dropbox/Notes/personal.taskpaper
 	cd %:p:h
-	vsplit ~/Dropbox/Notes/_top.txt
+	vsplit ~/Dropbox/Notes/top.txt
 	vertical resize 50
 	setlocal autoread
-	rightbelow split ~/Dropbox/Notes/_top_week.txt
+	rightbelow split ~/Dropbox/Notes/top_week.txt
 	setlocal autoread
 	autocmd CursorHold *.taskpaper checktime
 endfu
