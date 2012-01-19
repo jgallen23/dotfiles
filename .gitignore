@@ -3,3 +3,4 @@ fish/fish_history
 fish/fishd*
 .vim/.netrwhist
 .bash_env
+*.pyc

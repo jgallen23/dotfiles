@@ -3,7 +3,7 @@ import re
 class Node(object):
 	def get_indent_count(self):
 		i = 0
-		for c in self.text:
+		for c in self.line:
 			if c == "\t":
 				i += 1
 			else:
@@ -11,17 +11,21 @@ class Node(object):
 		return i
 
 	def get_priority(self):
-		p = re.search("\((\d)\)", self.text)
+		if self.is_note:
+			return -1
+		p = re.search("\((\d)\)", self.line)
 		if p:
 			return int(p.groups()[0])
 		else:
 			return 99
 
-	def __init__(self, text):
-		self.text = text
+	def __init__(self, line):
+		self.line = line
+		self.text = line.replace('\t', '')
 		self.indent = self.get_indent_count()
+		self.complete = True if len(re.findall('@done', line)) == 1 else False
+		self.is_note = True if (self.text and not self.text.startswith('-') and not self.text.endswith(':')) else False
 		self.priority = self.get_priority()
-		self.complete = True if len(re.findall('@done', text)) == 1 else False
 		self.children = []
 
 
@@ -65,8 +69,8 @@ def sort_tasks(node):
 
 def flatten_tasks(node):
 	txt = []
-	if node.text:
-		txt.append(node.text)
+	if node.line:
+		txt.append(node.line)
 	for child in node.children:
 		txt.append(flatten_tasks(child))
 	return '\n'.join(txt)
@@ -74,14 +78,4 @@ def flatten_tasks(node):
 def print_tasks(node):
 	txt = flatten_tasks(node)
 	print txt
-
-#if __name__ == "__main__":
-	#return
-	#file = '/Users/jga/Dropbox/Notes/personal.taskpaper'
-	##file = '/tmp/test.taskpaper'
-	#f = open(file, 'r').read()
-	#lines = f.split('\n')
-	#node = parse_tasks(lines);
-	#sort_tasks(node)
-	#print_tasks(node)
 
