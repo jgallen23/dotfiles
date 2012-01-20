@@ -33,6 +33,9 @@ set hlsearch
 set incsearch
 set cursorline
 
+"fix indent on #
+inoremap # X<BS>#
+
 set ts=2 sw=2
 
 map <leader>v :e ~/.vimrc<CR><C-W>_
@@ -102,17 +105,52 @@ map <leader>t :NERDTree<CR>
 "nnoremap <silent> <leader>k :e ~/Dropbox/Notes/Index.taskpaper;CWD<CR>
 
 "Redraw
-map <leader>r :redraw!<CR>
+map <leader>a :redraw!<CR>
 
 "Taskpaper
-autocmd BufWinEnter,BufWritePost *.taskpaper call FindTasksByPriority(expand('%'), '[123]', 1)
+"autocmd BufWinEnter,BufWritePost *.taskpaper call FindTasksByPriority(expand('%'), '[123]', 1)
+map <silent> <leader>r :e ~/Dropbox/Notes/personal.taskpaper<CR>
+map <silent> <leader>p :e ~/Dropbox/Notes/projects.taskpaper<CR>
+map <silent> <leader>d :e ~/Dropbox/Notes/dm.taskpaper<CR>
+fu! ShowTasks()
+	edit ~/Dropbox/Notes/personal.taskpaper
+	cd %:p:h
+	vsplit ~/Dropbox/Notes/top.txt
+	vertical resize 50
+	setlocal autoread
+	rightbelow split ~/Dropbox/Notes/top_week.txt
+	setlocal autoread
+	autocmd CursorHold *.taskpaper checktime
+endfu
+"map <silent> <leader>k :call ShowTasks()<CR>
+command! Tasks :call ShowTasks()
+command! FindTasks :CtrlP ~/Dropbox/Notes
+"find top
+"map <silent> <leader>k :call FindTasksByPriority(expand('%'), '.', 1)<CR>
+"map <silent> <leader>t :call FindTasksByPriority(expand('%'), '[123]', 1)<CR>
 
 "ctrlp
 let g:ctrlp_working_path_mode = 0
 nnoremap <silent> <space>  :CtrlPBuffer<CR>
 nnoremap <silent> \ :CtrlP<CR>
+nnoremap <silent> <Tab> :CtrlPCurFile<CR>
+command! FindBlog :CtrlP ~/Dropbox/jga.me
 let g:ctrlp_extensions = ['tag']
 nnoremap <silent> cv  :CtrlPTag<CR>
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|compressed'
+
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 0
+
+"easy motion
+let g:EasyMotion_mapping_w = '<leader>w'
+
+"snippets
+command! ReloadSnippets :call ReloadSnippets(&ft)
+command! EditSnippets :exec(":e ".split(snippets_dir, ',')[0].&ft.".snippets")
+
+"unit tests
+map <leader>mt :RunTests<CR>
+
+"vim room
+let g:vimroom_ctermbackground = "black"

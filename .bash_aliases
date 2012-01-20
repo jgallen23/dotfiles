@@ -23,6 +23,7 @@ gitcheck() {
 }
 
 alias chromedev="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security"
+alias timemachine="/System/Library/CoreServices/backupd.bundle/Contents/Resources/backupd-helper &"
 
 function swap_priority {
 	find . -type f | xargs sed -i '' -e "s/ ] ($1)/ ] ($2)/"
