@@ -18,4 +18,4 @@ EOF
 endfu
 
 command! SortTasks :call SortTasks()
-map <silent> <buffer> <leader>s :call SortTasks()<CR>
+map <silent> <leader>s :call SortTasks()<CR>
