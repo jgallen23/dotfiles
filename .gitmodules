@@ -66,4 +66,4 @@
 	url = git://github.com/scrooloose/syntastic.git
 [submodule ".vim/bundle/lucius"]
 	path = .vim/bundle/lucius
-	url = git://github.com/vim-scripts/Lucius.git
+	url = git://github.com/jgallen23/Lucius.git  
