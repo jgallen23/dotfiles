@@ -137,8 +137,8 @@ nnoremap <silent> <Tab> :CtrlPCurFile<CR>
 command! FindBlog :CtrlP ~/Dropbox/jga.me
 let g:ctrlp_extensions = ['tag']
 nnoremap <silent> cv  :CtrlPTag<CR>
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|compressed'
-
+let g:ctrlp_custom_ignore = 'dist\|node_modules\|DS_Store\|git\|compressed'
+let g:ctrlp_regexp_search = 1
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 0
 
