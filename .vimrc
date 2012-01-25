@@ -118,8 +118,8 @@ fu! ShowTasks()
 	vsplit ~/Dropbox/Notes/top.txt
 	vertical resize 50
 	setlocal autoread
-	rightbelow split ~/Dropbox/Notes/top_week.txt
-	setlocal autoread
+	"rightbelow split ~/Dropbox/Notes/top_week.txt
+	"setlocal autoread
 	autocmd CursorHold *.taskpaper checktime
 endfu
 "map <silent> <leader>k :call ShowTasks()<CR>
