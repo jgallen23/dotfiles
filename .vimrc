@@ -88,7 +88,7 @@ nmap <BS> :e #<CR>
 "javascript
 autocmd FileType javascript set et
 "php
-autocmd FileType php set et!
+autocmd FileType php set noexpandtab 
 
 "change cwd
 command! CWD :cd %:p:h
