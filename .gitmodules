@@ -69,4 +69,4 @@
 	url = git://github.com/jgallen23/Lucius.git  
 [submodule ".vim/bundle/color-scheme-test"]
 	path = .vim/bundle/color-scheme-test
-	url = git://github.com/rainux/Color-Scheme-Test.git
+	url = git://github.com/jgallen23/Color-Scheme-Test.git
