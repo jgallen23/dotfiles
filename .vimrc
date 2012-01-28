@@ -54,18 +54,6 @@ nmap <silent> <C-l> :wincmd l<CR>
 map gs :%s:
 map ss :s:
 
-"fuzzy finder
-map ,fr :FufRenewCache<CR>
-let g:fuf_file_exclude = '\v\~$|\.o$|\.exe$|\.bak$|\.swp$|\.pyc$|\.jpg$|\.png$|\.gif$|/media/.*|ui/compressed/'
-let g:fuf_coveragefile_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|jpg|png|gif|pyc|DS_Store|designer.cs)$|node_modules|vendor|dist|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
-nnoremap <silent> sd  :FufDir ~/.shortcuts/<CR>
-nnoremap <silent> cd  :FufDirWithFullCwd<CR>
-nnoremap <silent> cf  :FufFileWithCurrentBufferDir<CR>
-"nnoremap <silent> cv  :FufTag<CR>
-"nnoremap <silent> <space>  :FufBuffer<CR>
-"nnoremap <silent> <tab>  :FufFile<CR>
-"nnoremap <silent> \ :FufCoverageFile<CR>
-
 "indent
 vmap <Tab> >gv
 vmap <S-Tab> <gv
