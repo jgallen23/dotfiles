@@ -121,7 +121,7 @@ command! FindTasks :CtrlP ~/Dropbox/Notes
 
 "ctrlp
 let g:ctrlp_working_path_mode = 0
-nnoremap <silent> <space>  :CtrlPBuffer<CR>
+nnoremap <silent> <space>  :CtrlPMRUFiles<CR>
 nnoremap <silent> \ :CtrlP<CR>
 nnoremap <silent> <Tab> :CtrlPCurFile<CR>
 command! FindBlog :CtrlP ~/Dropbox/jga.me
