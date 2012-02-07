@@ -11,6 +11,9 @@ sshkey() { cat ~/.ssh/id_rsa.pub | ssh $@ 'cat >> .ssh/authorized_keys'; }
 
 alias free="free -m"
 alias s="screen -dR"
+function tmx {
+	tmux at -t $1 || tmux new -s $1
+}
 dj() { ./manage.py $@ --settings $DJANGO_SETTINGS_FILE; }
 alias of="open ."
 alias u='cd ..'
