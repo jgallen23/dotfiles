@@ -81,4 +81,4 @@ PS1="${SCREENTITLE}${PS1}"
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
-. ~/dotfiles/bin/z.sh
+. ~/dotfiles/bin/z/z.sh
