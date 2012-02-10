@@ -76,7 +76,7 @@ nmap <BS> :e #<CR>
 "javascript
 autocmd FileType javascript set et
 "php
-autocmd FileType php set noexpandtab 
+autocmd FileType php set noexpandtab
 "markdown
 autocmd FileType markdown set noexpandtab
 
