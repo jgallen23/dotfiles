@@ -1,11 +1,3 @@
-alias screen='export SCREENPWD=$(pwd); screen'
-#export SHELL='/bin/bash -rcfile ~/.bash_profile';
-
-case "$TERM" in 
-    'screen')
-     cd $SCREENPWD
-      ;; 
-esac
 
 #if [ -f ~/.bashrc ]; then
 	#. ~/.bashrc
@@ -59,24 +51,6 @@ branch_color ()
 }
 
 PS1='[\u] \[${c_green}\]\w\[${c_sgr0}\]\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]: '
-
-# Set the screen title
-case $TERM in
-	screen*)
-		# This is the escape sequence ESC k \w ESC \
-		#Use path as titel
-		#SCREENTITLE='\[\ek\w\e\\\]'
-		#Use program name as titel
-		SCREENTITLE='\[\ek\e\\\]'
-		;;
-	*)
-		SCREENTITLE=''
-		;;
-esac
-
-
-PS1="${SCREENTITLE}${PS1}"
-
 
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
