@@ -99,6 +99,7 @@ map <leader>a :redraw!<CR>
 
 "Taskpaper
 "autocmd BufWinEnter,BufWritePost *.taskpaper call FindTasksByPriority(expand('%'), '[123]', 1)
+au! BufRead,BufNewFile TODO setfiletype taskpaper
 map <silent> <leader>r :e ~/Dropbox/Notes/personal.taskpaper<CR>
 map <silent> <leader>p :e ~/Dropbox/Notes/projects.taskpaper<CR>
 map <silent> <leader>d :e ~/Dropbox/Notes/dm.taskpaper<CR>
