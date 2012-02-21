@@ -1,0 +1,11 @@
+#!/bin/bash
+ROOT=`dirname $0`
+cd ~
+echo $ROOT
+ln -s $ROOT/.vim .
+ln -s $ROOT/.vimrc .
+ln -s $ROOT/.gitconfig .
+ln -s $ROOT/.bash_aliases .
+ln -s $ROOT/.bash_profile .
+ln -s $ROOT/.jshintrc .
+ln -s $ROOT/.ctags .
