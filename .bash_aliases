@@ -22,6 +22,7 @@ dj() { ./manage.py $@ --settings $DJANGO_SETTINGS_FILE; }
 alias of="open ."
 alias u='cd ..'
 alias u2='cd ../..'
+alias bp='~/code/boilerplate/bp'
 
 gitcheck() {
 	for i in ~/code/*; do

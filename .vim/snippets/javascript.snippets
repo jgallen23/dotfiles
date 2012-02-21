@@ -4,33 +4,6 @@ snippet cl
 #debugger
 snippet deb
 	debugger;
-#LowPro Widget
-snippet ux
-	(function($) {
-		$.ux.behavior("${1:WidgetName}", {
-			initialize: function() {
-			}
-		}, {
-		});
-	})(jQuery);
-
-#jQuery Closure
-snippet jcl
-	(function($) {
-		${1}
-	})(jQuery);
-#PhoneGap Debug Log
-snippet dl
-	debug.log(${1:Message});
-#QUnit Test
-snippet test
-	test('${1:Message}', function() {
-	    ${2:Test}
-	});
-snippet atest
-	asyncTest('${1:Name}', function() {
-		${2:Test}
-	});
 
 snippet af
 	function(${1:Arguments}) {
@@ -70,6 +43,10 @@ snippet desc
 		${2}
 	});
 snippet it
-	it('should ${1}', function(${2:done}) {
+	it('should ${1}', function(${2}) {
 		${3}
+	});
+snippet be
+	beforeEach(function(${1}) {
+		${2}
 	});

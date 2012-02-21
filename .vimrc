@@ -9,8 +9,8 @@ if has("gui_running")
 endif
 
 set background=dark
-colorscheme lucius
 set t_Co=256
+colorscheme lucius
 
 set ignorecase
 set smartcase
@@ -72,6 +72,7 @@ let g:git_branch_status_ignore_remotes=1
 
 "go to previous file
 nmap <BS> :e #<CR>
+nmap <leader><leader> :e #<CR>
 
 "javascript
 autocmd FileType javascript set et
@@ -85,7 +86,7 @@ command! CWD :cd %:p:h
 
 "fix backspace
 if !has('gui_running')
-  set backspace=indent,eol,start
+	set backspace=indent,eol,start
 endif
 
 "NerdTree
@@ -106,10 +107,10 @@ map <silent> <leader>d :e ~/Dropbox/Notes/dm.taskpaper<CR>
 fu! ShowTasks()
 	edit ~/Dropbox/Notes/personal.taskpaper
 	cd %:p:h
-	vsplit ~/Dropbox/Notes/top.txt
+	vsplit ~/Dropbox/Notes/top/top.txt
 	vertical resize 50
 	setlocal autoread
-	"rightbelow split ~/Dropbox/Notes/top_week.txt
+	"rightbelow split ~/Dropbox/Notes/top/top_week.txt
 	"setlocal autoread
 	autocmd CursorHold *.taskpaper checktime
 endfu
