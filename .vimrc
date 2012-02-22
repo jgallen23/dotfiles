@@ -16,7 +16,7 @@ set ignorecase
 set smartcase
 set hidden
 set textwidth=0 "disable auto wrapping
-set clipboard=unnamed "mac clipboard sync
+"set clipboard=unnamed "mac clipboard sync
 set nobackup
 set noswapfile
 let mapleader=","
@@ -92,14 +92,10 @@ endif
 "NerdTree
 map <leader>t :NERDTree<CR>
 
-"Tasks
-"nnoremap <silent> <leader>k :e ~/Dropbox/Notes/Index.taskpaper;CWD<CR>
-
 "Redraw
 map <leader>a :redraw!<CR>
 
 "Taskpaper
-"autocmd BufWinEnter,BufWritePost *.taskpaper call FindTasksByPriority(expand('%'), '[123]', 1)
 au! BufRead,BufNewFile TODO setfiletype taskpaper
 map <silent> <leader>r :e ~/Dropbox/Notes/personal.taskpaper<CR>
 map <silent> <leader>p :e ~/Dropbox/Notes/projects.taskpaper<CR>
@@ -107,20 +103,42 @@ map <silent> <leader>d :e ~/Dropbox/Notes/dm.taskpaper<CR>
 fu! ShowTasks()
 	edit ~/Dropbox/Notes/personal.taskpaper
 	cd %:p:h
-	vsplit ~/Dropbox/Notes/top/top.txt
-	vertical resize 50
-	setlocal autoread
+	"vsplit ~/Dropbox/Notes/top/top.txt
+	"vertical resize 50
+	"setlocal autoread
 	"rightbelow split ~/Dropbox/Notes/top/top_week.txt
 	"setlocal autoread
-	autocmd CursorHold *.taskpaper checktime
+	"autocmd CursorHold *.taskpaper checktime
 endfu
-"map <silent> <leader>k :call ShowTasks()<CR>
 command! Tasks :call ShowTasks()
 command! FindTasks :CtrlP ~/Dropbox/Notes
-"find top
-"map <silent> <leader>k :call FindTasksByPriority(expand('%'), '.', 1)<CR>
-"map <silent> <leader>t :call FindTasksByPriority(expand('%'), '[123]', 1)<CR>
 
+function! s:taskpaper_move(project)
+	echo a:project
+	call taskpaper#move([a:project])
+endfunction
+function! s:taskpaper_setup()
+	
+	"nnoremap <buffer> <silent> <Leader>1 :<C-u>call s:taskpaper_move('Today')<CR>
+	"nnoremap <buffer> <silent> <Leader>2 :<C-u>call taskpaper#move(['Tomorrow'])<CR>
+	"nnoremap <buffer> <silent> <Leader>3 :<C-u>call taskpaper#move(['Someday'])<CR>
+	nmap <buffer> <Leader><space> :<C-u>call taskpaper#toggle_tag('done', taskpaper#date())<CR>
+	nnoremap <buffer> <silent> <Leader>0 :<C-u>call taskpaper#delete_tag('pri')<CR>
+	nnoremap <buffer> <silent> <Leader>1 :<C-u>call taskpaper#update_tag('pri', '1')<CR>
+	nnoremap <buffer> <silent> <Leader>2 :<C-u>call taskpaper#update_tag('pri', '2')<CR>
+	nnoremap <buffer> <silent> <Leader>3 :<C-u>call taskpaper#update_tag('pri', '3')<CR>
+	"nnoremap <buffer> <silent> <Leader>4 :<C-u>call taskpaper#update_tag('pri', '4')<CR>
+	"nnoremap <buffer> <silent> <Leader>5 :<C-u>call taskpaper#update_tag('pri', '5')<CR>
+	"nnoremap <buffer> <silent> <Leader>6 :<C-u>call taskpaper#update_tag('pri', '6')<CR>
+	"nnoremap <buffer> <silent> <Leader>0 :<C-u>call taskpaper#delete_tag('pri')<CR>
+
+endfunction
+
+augroup vimrc-taskpaper
+	autocmd!
+	autocmd FileType taskpaper call s:taskpaper_setup()
+augroup END
+"
 "ctrlp
 let g:ctrlp_working_path_mode = 0
 nnoremap <silent> <space>  :CtrlPMRUFiles<CR>
