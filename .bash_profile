@@ -56,3 +56,4 @@ bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
 . ~/dotfiles/bin/z/z.sh
+#export TERM=screen-256color

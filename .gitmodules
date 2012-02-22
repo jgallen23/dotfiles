@@ -58,9 +58,6 @@
 [submodule ".vim/bundle/easymotion"]
 	path = .vim/bundle/easymotion
 	url = git://github.com/Lokaltog/vim-easymotion.git
-[submodule ".vim/bundle/vim-pasta"]
-	path = .vim/bundle/vim-pasta
-	url = git://github.com/sickill/vim-pasta.git
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git

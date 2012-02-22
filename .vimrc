@@ -9,8 +9,8 @@ if has("gui_running")
 endif
 
 set background=dark
-colorscheme lucius
 set t_Co=256
+colorscheme lucius
 
 set ignorecase
 set smartcase
@@ -72,6 +72,7 @@ let g:git_branch_status_ignore_remotes=1
 
 "go to previous file
 nmap <BS> :e #<CR>
+nmap <leader><leader> :e #<CR>
 
 "javascript
 autocmd FileType javascript set et
@@ -85,40 +86,61 @@ command! CWD :cd %:p:h
 
 "fix backspace
 if !has('gui_running')
-  set backspace=indent,eol,start
+	set backspace=indent,eol,start
 endif
 
 "NerdTree
 map <leader>t :NERDTree<CR>
 
-"Tasks
-"nnoremap <silent> <leader>k :e ~/Dropbox/Notes/Index.taskpaper;CWD<CR>
-
 "Redraw
 map <leader>a :redraw!<CR>
 
 "Taskpaper
-"autocmd BufWinEnter,BufWritePost *.taskpaper call FindTasksByPriority(expand('%'), '[123]', 1)
+au! BufRead,BufNewFile TODO setfiletype taskpaper
 map <silent> <leader>r :e ~/Dropbox/Notes/personal.taskpaper<CR>
 map <silent> <leader>p :e ~/Dropbox/Notes/projects.taskpaper<CR>
 map <silent> <leader>d :e ~/Dropbox/Notes/dm.taskpaper<CR>
 fu! ShowTasks()
-	edit ~/Dropbox/Notes/personal.taskpaper
+	edit ~/Dropbox/Notes/dm.taskpaper
+	call ShowToday()
 	cd %:p:h
-	vsplit ~/Dropbox/Notes/top.txt
-	vertical resize 50
-	setlocal autoread
-	"rightbelow split ~/Dropbox/Notes/top_week.txt
+	vsplit ~/Dropbox/Notes/personal.taskpaper
+	call ShowToday()
+	"vertical resize 50
 	"setlocal autoread
-	autocmd CursorHold *.taskpaper checktime
+	"rightbelow split ~/Dropbox/Notes/top/top_week.txt
+	"setlocal autoread
+	"autocmd CursorHold *.taskpaper checktime
 endfu
-"map <silent> <leader>k :call ShowTasks()<CR>
 command! Tasks :call ShowTasks()
 command! FindTasks :CtrlP ~/Dropbox/Notes
-"find top
-"map <silent> <leader>k :call FindTasksByPriority(expand('%'), '.', 1)<CR>
-"map <silent> <leader>t :call FindTasksByPriority(expand('%'), '[123]', 1)<CR>
 
+function! TPMove(project)
+	let l = line('.')	
+	call taskpaper#move([a:project])
+	execute l
+endfunction
+function! ShowToday()
+	call taskpaper#search_project(['Today'])
+	call taskpaper#focus_project()
+endfunction
+function! s:taskpaper_setup()
+	let g:task_paper_follow_move = 0
+	noremap <silent> <up> :call SwapUp()<CR>
+	noremap <silent> <down> :call SwapDown()<CR>
+	nnoremap <buffer> <silent> <Leader>tt :<C-u>call ShowToday()<CR>
+	nnoremap <buffer> <silent> <Leader>1 :<C-u>call TPMove('Today')<CR>
+	nnoremap <buffer> <silent> <Leader>2 :<C-u>call TPMove('Tomorrow')<CR>
+	nnoremap <buffer> <silent> <Leader>3 :<C-u>call TPMove('Someday');<CR>
+	nnoremap <buffer> <silent> <Leader>4 :<C-u>call TPMove('Ideas');<CR>
+	nmap <buffer> <Leader><space> :<C-u>call taskpaper#toggle_tag('done', taskpaper#date())<CR>
+endfunction
+
+augroup vimrc-taskpaper
+	autocmd!
+	autocmd FileType taskpaper call s:taskpaper_setup()
+augroup END
+"
 "ctrlp
 let g:ctrlp_working_path_mode = 0
 nnoremap <silent> <space>  :CtrlPMRUFiles<CR>
