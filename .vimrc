@@ -16,7 +16,7 @@ set ignorecase
 set smartcase
 set hidden
 set textwidth=0 "disable auto wrapping
-"set clipboard=unnamed "mac clipboard sync
+set clipboard=unnamed "mac clipboard sync
 set nobackup
 set noswapfile
 let mapleader=","
@@ -113,25 +113,22 @@ endfu
 command! Tasks :call ShowTasks()
 command! FindTasks :CtrlP ~/Dropbox/Notes
 
-function! s:taskpaper_move(project)
-	echo a:project
+function! TPMove(project)
+	let l = line('.')	
 	call taskpaper#move([a:project])
+	execute l
+endfunction
+function! ShowToday()
+	call taskpaper#search_project(['Today'])
+	call taskpaper#focus_project()
 endfunction
 function! s:taskpaper_setup()
-	
-	"nnoremap <buffer> <silent> <Leader>1 :<C-u>call s:taskpaper_move('Today')<CR>
-	"nnoremap <buffer> <silent> <Leader>2 :<C-u>call taskpaper#move(['Tomorrow'])<CR>
-	"nnoremap <buffer> <silent> <Leader>3 :<C-u>call taskpaper#move(['Someday'])<CR>
+	nnoremap <buffer> <silent> <Leader>tt :<C-u>call ShowToday()<CR>
+	nnoremap <buffer> <silent> <Leader>1 :<C-u>call TPMove('Today')<CR>
+	nnoremap <buffer> <silent> <Leader>2 :<C-u>call TPMove('Tomorrow')<CR>
+	nnoremap <buffer> <silent> <Leader>3 :<C-u>call TPMove('Someday');<CR>
+	nnoremap <buffer> <silent> <Leader>4 :<C-u>call TPMove('Ideas');<CR>
 	nmap <buffer> <Leader><space> :<C-u>call taskpaper#toggle_tag('done', taskpaper#date())<CR>
-	nnoremap <buffer> <silent> <Leader>0 :<C-u>call taskpaper#delete_tag('pri')<CR>
-	nnoremap <buffer> <silent> <Leader>1 :<C-u>call taskpaper#update_tag('pri', '1')<CR>
-	nnoremap <buffer> <silent> <Leader>2 :<C-u>call taskpaper#update_tag('pri', '2')<CR>
-	nnoremap <buffer> <silent> <Leader>3 :<C-u>call taskpaper#update_tag('pri', '3')<CR>
-	"nnoremap <buffer> <silent> <Leader>4 :<C-u>call taskpaper#update_tag('pri', '4')<CR>
-	"nnoremap <buffer> <silent> <Leader>5 :<C-u>call taskpaper#update_tag('pri', '5')<CR>
-	"nnoremap <buffer> <silent> <Leader>6 :<C-u>call taskpaper#update_tag('pri', '6')<CR>
-	"nnoremap <buffer> <silent> <Leader>0 :<C-u>call taskpaper#delete_tag('pri')<CR>
-
 endfunction
 
 augroup vimrc-taskpaper
