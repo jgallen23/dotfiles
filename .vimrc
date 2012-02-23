@@ -170,3 +170,9 @@ let g:vimroom_ctermbackground = "black"
 let syntastic_mode_map = { 'mode': 'active',
 												 \ 'active_filetypes': ['javascript', 'css', 'html'],
 												 \ 'passive_filetypes': ['php'] }
+
+"tabs
+map <leader>< :tabprevious<CR>
+map <leader>> :tabnext<CR>
+map <leader>n :tabnew<CR>
+map <leader>l :tabclose<CR>
