@@ -102,10 +102,10 @@ map <silent> <leader>p :e ~/Dropbox/Notes/projects.taskpaper<CR>
 map <silent> <leader>d :e ~/Dropbox/Notes/dm.taskpaper<CR>
 fu! ShowTasks()
 	edit ~/Dropbox/Notes/dm.taskpaper
-	call ShowToday()
+	call taskpaper#search_tag('today')
 	cd %:p:h
 	vsplit ~/Dropbox/Notes/personal.taskpaper
-	call ShowToday()
+	call taskpaper#search_tag('today')
 	"vertical resize 50
 	"setlocal autoread
 	"rightbelow split ~/Dropbox/Notes/top/top_week.txt
@@ -120,19 +120,19 @@ function! TPMove(project)
 	call taskpaper#move([a:project])
 	execute l
 endfunction
-function! ShowToday()
-	call taskpaper#search_project(['Today'])
-	call taskpaper#focus_project()
-endfunction
 function! s:taskpaper_setup()
 	let g:task_paper_follow_move = 0
 	noremap <silent> <up> :call SwapUp()<CR>
 	noremap <silent> <down> :call SwapDown()<CR>
-	nnoremap <buffer> <silent> <Leader>tt :<C-u>call ShowToday()<CR>
+	"nnoremap <buffer> <silent> <Leader>tt :<C-u>call ShowToday()<CR>
 	nnoremap <buffer> <silent> <Leader>1 :<C-u>call TPMove('Today')<CR>
 	nnoremap <buffer> <silent> <Leader>2 :<C-u>call TPMove('Tomorrow')<CR>
 	nnoremap <buffer> <silent> <Leader>3 :<C-u>call TPMove('Someday');<CR>
 	nnoremap <buffer> <silent> <Leader>4 :<C-u>call TPMove('Ideas');<CR>
+	nnoremap <buffer> <silent> <Leader>[ :<C-u>call taskpaper#fold_projects()<CR>
+	nnoremap <buffer> <silent> <Leader>] :<C-u>call taskpaper#focus_project()<CR>
+	nnoremap <buffer> <silent> <Leader>tM :<C-u>call taskpaper#search_tag('tomorrow')<CR>
+
 	nmap <buffer> <Leader><space> :<C-u>call taskpaper#toggle_tag('done', taskpaper#date())<CR>
 endfunction
 
