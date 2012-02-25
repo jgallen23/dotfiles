@@ -78,8 +78,18 @@ nmap <leader><leader> :e #<CR>
 autocmd FileType javascript set et
 "php
 autocmd FileType php set noexpandtab
+
 "markdown
-autocmd FileType markdown set noexpandtab
+function! s:markdown_setup()
+	setlocal wrap
+	setlocal noexpandtab
+	noremap <buffer> <unique> <silent> k gk
+	noremap <buffer> <unique> <silent> j gj
+endfunction
+augroup vimrc-markdown
+	autocmd!
+	autocmd FileType markdown call s:markdown_setup()
+augroup END
 
 "change cwd
 command! CWD :cd %:p:h
@@ -124,6 +134,9 @@ function! s:taskpaper_setup()
 	let g:task_paper_follow_move = 0
 	noremap <silent> <up> :call SwapUp()<CR>
 	noremap <silent> <down> :call SwapDown()<CR>
+	nnoremap <buffer> <silent> <Leader>[ :<C-u>call taskpaper#fold_projects()<CR>
+	nnoremap <buffer> <silent> <Leader>] :<C-u>call taskpaper#focus_project()<CR>
+	nnoremap <buffer> <silent> <Leader>tM :<C-u>call taskpaper#search_tag('tomorrow')<CR>
 	"nnoremap <buffer> <silent> <Leader>tt :<C-u>call ShowToday()<CR>
 	"nnoremap <buffer> <silent> <Leader>1 :<C-u>call TPMove('Today')<CR>
 	"nnoremap <buffer> <silent> <Leader>2 :<C-u>call TPMove('Tomorrow')<CR>
