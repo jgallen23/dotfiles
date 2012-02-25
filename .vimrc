@@ -133,7 +133,7 @@ function! s:taskpaper_setup()
 	nnoremap <buffer> <silent> <Leader>] :<C-u>call taskpaper#focus_project()<CR>
 	nnoremap <buffer> <silent> <Leader>tM :<C-u>call taskpaper#search_tag('tomorrow')<CR>
 	nmap <buffer> <Leader><space> :<C-u>call taskpaper#toggle_tag('done', taskpaper#date())<CR>
-	cnoremap <buffer> <silent> <Leader>y :<C-u>call taskpaper#cycle_tags('today', 'tomorrow', '')<CR>
+	noremap <buffer> <silent> <Leader>y :<C-u>call taskpaper#cycle_tags('today', 'tomorrow', '')<CR>
 
 endfunction
 
