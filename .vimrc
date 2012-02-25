@@ -125,11 +125,6 @@ endfu
 command! Tasks :call ShowTasks()
 command! FindTasks :CtrlP ~/Dropbox/Notes
 
-function! TPMove(project)
-	let l = line('.')	
-	call taskpaper#move([a:project])
-	execute l
-endfunction
 function! s:taskpaper_setup()
 	let g:task_paper_follow_move = 0
 	noremap <silent> <up> :call SwapUp()<CR>
@@ -137,14 +132,9 @@ function! s:taskpaper_setup()
 	nnoremap <buffer> <silent> <Leader>[ :<C-u>call taskpaper#fold_projects()<CR>
 	nnoremap <buffer> <silent> <Leader>] :<C-u>call taskpaper#focus_project()<CR>
 	nnoremap <buffer> <silent> <Leader>tM :<C-u>call taskpaper#search_tag('tomorrow')<CR>
-	"nnoremap <buffer> <silent> <Leader>tt :<C-u>call ShowToday()<CR>
-	"nnoremap <buffer> <silent> <Leader>1 :<C-u>call TPMove('Today')<CR>
-	"nnoremap <buffer> <silent> <Leader>2 :<C-u>call TPMove('Tomorrow')<CR>
-	"nnoremap <buffer> <silent> <Leader>3 :<C-u>call TPMove('Someday');<CR>
-	"nnoremap <buffer> <silent> <Leader>4 :<C-u>call TPMove('Ideas');<CR>
 	nmap <buffer> <Leader><space> :<C-u>call taskpaper#toggle_tag('done', taskpaper#date())<CR>
-	nnoremap <buffer> <silent> <Leader>1 :<C-u>call taskpaper#toggle_tag('today', '')<CR>
-	nnoremap <buffer> <silent> <Leader>2 :<C-u>call taskpaper#toggle_tag('tomorrow', '')<CR>
+	nnoremap <buffer> <silent> <Leader>tt :<C-u>call taskpaper#cycle_tags('today', 'tomorrow', '')<CR>
+
 endfunction
 
 augroup vimrc-taskpaper
