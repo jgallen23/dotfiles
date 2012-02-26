@@ -110,19 +110,26 @@ au! BufRead,BufNewFile TODO setfiletype taskpaper
 map <silent> <leader>r :e ~/Dropbox/Notes/personal.taskpaper<CR>
 map <silent> <leader>p :e ~/Dropbox/Notes/projects.taskpaper<CR>
 map <silent> <leader>d :e ~/Dropbox/Notes/dm.taskpaper<CR>
-fu! ShowTasks()
-	edit ~/Dropbox/Notes/dm.taskpaper
-	call taskpaper#search_tag('today')
-	cd %:p:h
-	vsplit ~/Dropbox/Notes/personal.taskpaper
-	call taskpaper#search_tag('today')
+fu! ShowTasks(dm)
+	if a:dm
+		edit ~/Dropbox/Notes/dm.taskpaper
+		call taskpaper#search_tag('today')
+		cd %:p:h
+		vsplit ~/Dropbox/Notes/personal.taskpaper
+		call taskpaper#search_tag('today')
+	else
+		edit ~/Dropbox/Notes/personal.taskpaper
+		call taskpaper#search_tag('today')
+		cd %:p:h
+	endif
 	"vertical resize 50
 	"setlocal autoread
 	"rightbelow split ~/Dropbox/Notes/top/top_week.txt
 	"setlocal autoread
 	"autocmd CursorHold *.taskpaper checktime
 endfu
-command! Tasks :call ShowTasks()
+command! Tasks :call ShowTasks(0)
+command! TasksDM :call ShowTasks(1)
 command! FindTasks :CtrlP ~/Dropbox/Notes
 
 function! s:taskpaper_setup()
