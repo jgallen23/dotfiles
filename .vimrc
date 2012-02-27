@@ -136,6 +136,9 @@ function! s:taskpaper_setup()
 	let g:task_paper_follow_move = 0
 	noremap <silent> <up> :call SwapUp()<CR>
 	noremap <silent> <down> :call SwapDown()<CR>
+	nnoremap <buffer> <silent> <Leader>1 :<C-u>call taskpaper#swap_tag('tomorrow', 'today')<CR>
+	nnoremap <buffer> <silent> <Leader>2 :<C-u>call taskpaper#swap_tag('today', 'tomorrow')<CR>
+	nnoremap <buffer> <silent> <Leader>0 :<C-u>call taskpaper#delete_tag('today')<CR>
 	nnoremap <buffer> <silent> <Leader>[ :<C-u>call taskpaper#fold_projects()<CR>
 	nnoremap <buffer> <silent> <Leader>] :<C-u>call taskpaper#focus_project()<CR>
 	nnoremap <buffer> <silent> <Leader>tM :<C-u>call taskpaper#search_tag('tomorrow')<CR>
