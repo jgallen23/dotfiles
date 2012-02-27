@@ -78,8 +78,18 @@ nmap <leader><leader> :e #<CR>
 autocmd FileType javascript set et
 "php
 autocmd FileType php set noexpandtab 
+
 "markdown
-autocmd FileType markdown set noexpandtab
+function! s:markdown_setup()
+	setlocal wrap
+	setlocal noexpandtab
+	noremap <buffer> <unique> <silent> k gk
+	noremap <buffer> <unique> <silent> j gj
+endfunction
+augroup vimrc-markdown
+	autocmd!
+	autocmd FileType markdown call s:markdown_setup()
+augroup END
 
 "change cwd
 command! CWD :cd %:p:h
@@ -100,38 +110,41 @@ au! BufRead,BufNewFile TODO setfiletype taskpaper
 map <silent> <leader>r :e ~/Dropbox/Notes/personal.taskpaper<CR>
 map <silent> <leader>p :e ~/Dropbox/Notes/projects.taskpaper<CR>
 map <silent> <leader>d :e ~/Dropbox/Notes/dm.taskpaper<CR>
-fu! ShowTasks()
-	edit ~/Dropbox/Notes/dm.taskpaper
-	call taskpaper#search_tag('today')
-	cd %:p:h
-	vsplit ~/Dropbox/Notes/personal.taskpaper
-	call taskpaper#search_tag('today')
+fu! ShowTasks(dm)
+	if a:dm
+		edit ~/Dropbox/Notes/dm.taskpaper
+		call taskpaper#search_tag('today')
+		cd %:p:h
+		vsplit ~/Dropbox/Notes/personal.taskpaper
+		call taskpaper#search_tag('today')
+	else
+		edit ~/Dropbox/Notes/personal.taskpaper
+		call taskpaper#search_tag('today')
+		cd %:p:h
+	endif
 	"vertical resize 50
 	"setlocal autoread
 	"rightbelow split ~/Dropbox/Notes/top/top_week.txt
 	"setlocal autoread
 	"autocmd CursorHold *.taskpaper checktime
 endfu
-command! Tasks :call ShowTasks()
+command! Tasks :call ShowTasks(0)
+command! TasksDM :call ShowTasks(1)
 command! FindTasks :CtrlP ~/Dropbox/Notes
 
-function! TPMove(project)
-	let l = line('.')	
-	call taskpaper#move([a:project])
-	execute l
-endfunction
 function! s:taskpaper_setup()
 	let g:task_paper_follow_move = 0
 	noremap <silent> <up> :call SwapUp()<CR>
 	noremap <silent> <down> :call SwapDown()<CR>
-	"nnoremap <buffer> <silent> <Leader>tt :<C-u>call ShowToday()<CR>
-	"nnoremap <buffer> <silent> <Leader>1 :<C-u>call TPMove('Today')<CR>
-	"nnoremap <buffer> <silent> <Leader>2 :<C-u>call TPMove('Tomorrow')<CR>
-	"nnoremap <buffer> <silent> <Leader>3 :<C-u>call TPMove('Someday');<CR>
-	"nnoremap <buffer> <silent> <Leader>4 :<C-u>call TPMove('Ideas');<CR>
+	nnoremap <buffer> <silent> <Leader>1 :<C-u>call taskpaper#swap_tag('tomorrow', 'today')<CR>
+	nnoremap <buffer> <silent> <Leader>2 :<C-u>call taskpaper#swap_tag('today', 'tomorrow')<CR>
+	nnoremap <buffer> <silent> <Leader>0 :<C-u>call taskpaper#delete_tag('today')<CR>
+	nnoremap <buffer> <silent> <Leader>[ :<C-u>call taskpaper#fold_projects()<CR>
+	nnoremap <buffer> <silent> <Leader>] :<C-u>call taskpaper#focus_project()<CR>
+	nnoremap <buffer> <silent> <Leader>tM :<C-u>call taskpaper#search_tag('tomorrow')<CR>
 	nmap <buffer> <Leader><space> :<C-u>call taskpaper#toggle_tag('done', taskpaper#date())<CR>
-	nnoremap <buffer> <silent> <Leader>1 :<C-u>call taskpaper#toggle_tag('today', '')<CR>
-	nnoremap <buffer> <silent> <Leader>2 :<C-u>call taskpaper#toggle_tag('tomorrow', '')<CR>
+	noremap <buffer> <silent> <Leader>y :<C-u>call taskpaper#cycle_tags('today', 'tomorrow', '')<CR>
+
 endfunction
 
 augroup vimrc-taskpaper

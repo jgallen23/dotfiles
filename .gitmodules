@@ -72,4 +72,4 @@
 	url = git://github.com/rupa/z.git
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
-	url = https://github.com/ervandew/supertab.git
+	url = git://github.com/ervandew/supertab.git
