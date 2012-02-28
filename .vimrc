@@ -145,6 +145,7 @@ function! s:taskpaper_setup()
 	nnoremap <buffer> <silent> <Leader>0 :<C-u>call taskpaper#delete_tag('today')<CR>
 	nnoremap <buffer> <silent> <Leader>[ :<C-u>call taskpaper#fold_projects()<CR>
 	nnoremap <buffer> <silent> <Leader>] :<C-u>call taskpaper#focus_project()<CR>
+	nnoremap <buffer> <silent> <Leader>T :<C-u>call taskpaper#search_tag('today')<CR>
 	nnoremap <buffer> <silent> <Leader>tM :<C-u>call taskpaper#search_tag('tomorrow')<CR>
 	nnoremap <buffer> <silent> <Leader>tW :<C-u>call taskpaper#search_tag('week')<CR>
 	nmap <buffer> <Leader><space> :<C-u>call taskpaper#toggle_tag('done', taskpaper#date())<CR>
