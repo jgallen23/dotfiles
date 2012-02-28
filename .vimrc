@@ -108,14 +108,14 @@ map <leader>a :redraw!<CR>
 "Taskpaper
 au! BufRead,BufNewFile TODO setfiletype taskpaper
 map <silent> <leader>r :e ~/Dropbox/Notes/personal.taskpaper<CR>
-map <silent> <leader>p :e ~/Dropbox/Notes/projects.taskpaper<CR>
+"map <silent> <leader>p :e ~/Dropbox/Notes/projects.taskpaper<CR>
 map <silent> <leader>d :e ~/Dropbox/Notes/dm.taskpaper<CR>
 fu! ShowTasks(dm)
 		edit ~/Dropbox/Notes/personal.taskpaper
 		call taskpaper#search_tag('today')
 		cd %:p:h
 	if a:dm
-		tabnew ~/Dropbox/Notes/dm.taskpaper
+		tabnew dm.taskpaper
 		call taskpaper#search_tag('today')
 		tabprevious
 	endif
@@ -188,7 +188,5 @@ let syntastic_mode_map = { 'mode': 'active',
 												 \ 'passive_filetypes': ['php'] }
 
 "tabs
-map <leader>< :tabprevious<CR>
-map <leader>> :tabnext<CR>
-map <leader>n :tabnew<CR>
-map <leader>l :tabclose<CR>
+map <leader>{ :tabprevious<CR>
+map <leader>} :tabnext<CR>
