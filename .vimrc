@@ -111,16 +111,13 @@ map <silent> <leader>r :e ~/Dropbox/Notes/personal.taskpaper<CR>
 map <silent> <leader>p :e ~/Dropbox/Notes/projects.taskpaper<CR>
 map <silent> <leader>d :e ~/Dropbox/Notes/dm.taskpaper<CR>
 fu! ShowTasks(dm)
-	if a:dm
-		edit ~/Dropbox/Notes/dm.taskpaper
-		call taskpaper#search_tag('today')
-		cd %:p:h
-		vsplit ~/Dropbox/Notes/personal.taskpaper
-		call taskpaper#search_tag('today')
-	else
 		edit ~/Dropbox/Notes/personal.taskpaper
 		call taskpaper#search_tag('today')
 		cd %:p:h
+	if a:dm
+		tabnew ~/Dropbox/Notes/dm.taskpaper
+		call taskpaper#search_tag('today')
+		tabprevious
 	endif
 	"vertical resize 50
 	"setlocal autoread
@@ -132,18 +129,26 @@ command! Tasks :call ShowTasks(0)
 command! TasksDM :call ShowTasks(1)
 command! FindTasks :CtrlP ~/Dropbox/Notes
 
+function! GoToProject()
+	set nofoldenable
+	call taskpaper#go_to_project()
+	call taskpaper#focus_project()
+endfunction
+
 function! s:taskpaper_setup()
 	let g:task_paper_follow_move = 0
 	noremap <silent> <up> :call SwapUp()<CR>
 	noremap <silent> <down> :call SwapDown()<CR>
-	nnoremap <buffer> <silent> <Leader>1 :<C-u>call taskpaper#swap_tag('tomorrow', 'today')<CR>
-	nnoremap <buffer> <silent> <Leader>2 :<C-u>call taskpaper#swap_tag('today', 'tomorrow')<CR>
+	nnoremap <buffer> <silent> <Leader>1 :<C-u>call taskpaper#swap_tags(['today','tomorrow','week'], ['today'])<CR>
+	nnoremap <buffer> <silent> <Leader>2 :<C-u>call taskpaper#swap_tags(['today','tomorrow','week'], ['tomorrow'])<CR>
+	nnoremap <buffer> <silent> <Leader>3 :<C-u>call taskpaper#swap_tags(['today','tomorrow','week'], ['week'])<CR>
 	nnoremap <buffer> <silent> <Leader>0 :<C-u>call taskpaper#delete_tag('today')<CR>
 	nnoremap <buffer> <silent> <Leader>[ :<C-u>call taskpaper#fold_projects()<CR>
 	nnoremap <buffer> <silent> <Leader>] :<C-u>call taskpaper#focus_project()<CR>
 	nnoremap <buffer> <silent> <Leader>tM :<C-u>call taskpaper#search_tag('tomorrow')<CR>
+	nnoremap <buffer> <silent> <Leader>tM :<C-u>call taskpaper#search_tag('week')<CR>
 	nmap <buffer> <Leader><space> :<C-u>call taskpaper#toggle_tag('done', taskpaper#date())<CR>
-	noremap <buffer> <silent> <Leader>y :<C-u>call taskpaper#cycle_tags('today', 'tomorrow', '')<CR>
+	noremap <buffer> <silent> <Leader>j :<C-u>call GoToProject()<CR>
 
 endfunction
 
