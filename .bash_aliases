@@ -36,4 +36,4 @@ alias timemachine="/System/Library/CoreServices/backupd.bundle/Contents/Resource
 function swap_priority {
 	find . -type f | xargs sed -i '' -e "s/ ] ($1)/ ] ($2)/"
 }
-complete -W "$(echo $(grep '^ssh ' .bash_history | sort -u | sed 's/^ssh //'))" ssh
+complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u | sed 's/^ssh //'))" ssh
