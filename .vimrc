@@ -111,14 +111,12 @@ map <silent> <leader>r :e ~/Dropbox/Notes/personal.taskpaper<CR>
 "map <silent> <leader>p :e ~/Dropbox/Notes/projects.taskpaper<CR>
 map <silent> <leader>d :e ~/Dropbox/Notes/dm.taskpaper<CR>
 fu! ShowTasks(dm)
-		edit ~/Dropbox/Notes/personal.taskpaper
-		call taskpaper#search_tag('today')
-		cd %:p:h
-	if a:dm
-		tabnew dm.taskpaper
-		call taskpaper#search_tag('today')
-		tabprevious
-	endif
+	edit ~/Dropbox/Notes/personal.taskpaper
+	call taskpaper#search_tag('today')
+	cd %:p:h
+	tabnew dm.taskpaper
+	call taskpaper#search_tag('today')
+	tabprevious
 	"vertical resize 50
 	"setlocal autoread
 	"rightbelow split ~/Dropbox/Notes/top/top_week.txt

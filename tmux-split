@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-PWD=`pwd`
-if [ $1 == "-c" ]; then
-	tmux new-window
-else
-	tmux split-window $1
-fi
-tmux send-keys " cd $PWD;clear"
-tmux send-keys "Enter"
