@@ -135,6 +135,7 @@ endfunction
 
 function! s:taskpaper_setup()
 	let g:task_paper_follow_move = 0
+	let g:task_paper_search_hide_done = 1 
 	noremap <silent> <up> :call SwapUp()<CR>
 	noremap <silent> <down> :call SwapDown()<CR>
 	nnoremap <buffer> <silent> <Leader>1 :<C-u>call taskpaper#swap_tags(['today','tomorrow','week'], ['today'])<CR>
