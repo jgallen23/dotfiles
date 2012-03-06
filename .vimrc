@@ -75,6 +75,7 @@ nmap <BS> :e #<CR>
 nmap <leader><leader> :e #<CR>
 
 "javascript
+au! BufRead,BufNewFile *.json setfiletype javascript
 autocmd FileType javascript set et
 "php
 autocmd FileType php set noexpandtab
