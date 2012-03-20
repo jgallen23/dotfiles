@@ -115,9 +115,6 @@ fu! ShowTasks(dm)
 	edit ~/Dropbox/Notes/personal.taskpaper
 	call taskpaper#search_tag('today')
 	cd %:p:h
-	tabnew dm.taskpaper
-	call taskpaper#search_tag('today')
-	tabprevious
 	"vertical resize 50
 	"setlocal autoread
 	"rightbelow split ~/Dropbox/Notes/top/top_week.txt
