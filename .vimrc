@@ -16,7 +16,7 @@ set ignorecase
 set smartcase
 set hidden
 set textwidth=0 "disable auto wrapping
-set clipboard=unnamed "mac clipboard sync
+"set clipboard=unnamed "mac clipboard sync
 set nobackup
 set noswapfile
 let mapleader=","
@@ -125,9 +125,15 @@ command! Tasks :call ShowTasks(0)
 command! TasksDM :call ShowTasks(1)
 command! FindTasks :CtrlP ~/Dropbox/Notes
 
-function! GoToProject()
+function! SearchForProject()
 	set nofoldenable
 	call taskpaper#go_to_project()
+	call taskpaper#focus_project()
+endfunction
+
+function! GoToProject(project)
+	set nofoldenable
+	call taskpaper#search_project(split(a:project, ':'))
 	call taskpaper#focus_project()
 endfunction
 
@@ -147,7 +153,11 @@ function! s:taskpaper_setup()
 	nnoremap <buffer> <silent> <Leader>tM :<C-u>call taskpaper#search_tag('tomorrow')<CR>
 	nnoremap <buffer> <silent> <Leader>tW :<C-u>call taskpaper#search_tag('week')<CR>
 	nmap <buffer> <Leader><space> :<C-u>call taskpaper#toggle_tag('done', taskpaper#date())<CR>
-	noremap <buffer> <silent> <Leader>j :<C-u>call GoToProject()<CR>
+	noremap <buffer> <silent> <Leader>j :<C-u>call SearchForProject()<CR>
+	nnoremap <buffer> <silent> <Tab> :<C-u>call SearchForProject()<CR>
+	nnoremap <buffer> <silent> <leader>pp :<C-u>call GoToProject('Personal')<CR>
+	nnoremap <buffer> <silent> <leader><up> :<C-u>call taskpaper#move_to_top()<CR>
+	nnoremap <buffer> <silent> <leader><down> :<C-u>call taskpaper#move_to_bottom()<CR>
 
 endfunction
 
