@@ -2,9 +2,9 @@
 
 for i in ~/dotfiles/.vim/bundle/*; do
 	echo $i
-	if [ -f "$i/.git" ]; then
+	if [ -d "$i/.git" ]; then
 		cd $i
 		git fetch origin
-		git log origin/master... --oneline
+		git log origin/master... --oneline | wc -l
 	fi
 done
