@@ -146,12 +146,15 @@ function! s:taskpaper_setup()
 	nnoremap <buffer> <silent> <Leader>2 :<C-u>call taskpaper#swap_tags(['today','tomorrow','week'], ['tomorrow'])<CR>
 	nnoremap <buffer> <silent> <Leader>3 :<C-u>call taskpaper#swap_tags(['today','tomorrow','week'], ['week'])<CR>
 	nnoremap <buffer> <silent> <Leader>0 :<C-u>call taskpaper#delete_tags(['today', 'tomorrow', 'week'])<CR>
+	nnoremap <buffer> <silent> <Leader>e :<C-u>call taskpaper#toggle_tag('easy', '')<CR>
+	nnoremap <buffer> <silent> <Leader>n :<C-u>call taskpaper#toggle_tag('next', '')<CR>
 	nnoremap <buffer> <silent> [ :<C-u>call taskpaper#fold_projects()<CR>
 	nnoremap <buffer> <silent> ] :<C-u>call taskpaper#focus_project()<CR>
 	nnoremap <buffer> <silent> T :<C-u>call taskpaper#search_tag('today')<CR>
 	nnoremap <buffer> <silent> W :call taskpaper#search_tag('\(today\\|tomorrow\\|week\)')<CR>
 	nnoremap <buffer> <silent> <Leader>tM :<C-u>call taskpaper#search_tag('tomorrow')<CR>
-	nnoremap <buffer> <silent> <Leader>tW :<C-u>call taskpaper#search_tag('week')<CR>
+	nnoremap <buffer> <silent> <Leader>tE :<C-u>call taskpaper#search_tag('easy')<CR>
+	nnoremap <buffer> <silent> <Leader>tN :<C-u>call taskpaper#search_tag('next')<CR>
 	nmap <buffer> <Leader><space> :<C-u>call taskpaper#toggle_tag('done', taskpaper#date())<CR>
 	noremap <buffer> <silent> <Leader>j :<C-u>call SearchForProject()<CR>
 	nnoremap <buffer> <silent> <Tab> :<C-u>call SearchForProject()<CR>
