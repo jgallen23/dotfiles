@@ -16,7 +16,7 @@ set ignorecase
 set smartcase
 set hidden
 set textwidth=0 "disable auto wrapping
-set clipboard=unnamed "mac clipboard sync
+"set clipboard=unnamed "mac clipboard sync
 set nobackup
 set noswapfile
 let mapleader=","
@@ -115,14 +115,25 @@ fu! ShowTasks(dm)
 	edit ~/Dropbox/Notes/personal.taskpaper
 	call taskpaper#search_tag('today')
 	cd %:p:h
+	"vertical resize 50
+	"setlocal autoread
+	"rightbelow split ~/Dropbox/Notes/top/top_week.txt
+	"setlocal autoread
+	"autocmd CursorHold *.taskpaper checktime
 endfu
 command! Tasks :call ShowTasks(0)
 command! TasksDM :call ShowTasks(1)
 command! FindTasks :CtrlP ~/Dropbox/Notes
 
-function! GoToProject()
+function! SearchForProject()
 	set nofoldenable
 	call taskpaper#go_to_project()
+	call taskpaper#focus_project()
+endfunction
+
+function! GoToProject(project)
+	set nofoldenable
+	call taskpaper#search_project(split(a:project, ':'))
 	call taskpaper#focus_project()
 endfunction
 
@@ -135,14 +146,21 @@ function! s:taskpaper_setup()
 	nnoremap <buffer> <silent> <Leader>2 :<C-u>call taskpaper#swap_tags(['today','tomorrow','week'], ['tomorrow'])<CR>
 	nnoremap <buffer> <silent> <Leader>3 :<C-u>call taskpaper#swap_tags(['today','tomorrow','week'], ['week'])<CR>
 	nnoremap <buffer> <silent> <Leader>0 :<C-u>call taskpaper#delete_tags(['today', 'tomorrow', 'week'])<CR>
-	nnoremap <buffer> <silent> <Leader>[ :<C-u>call taskpaper#fold_projects()<CR>
-	nnoremap <buffer> <silent> <Leader>] :<C-u>call taskpaper#focus_project()<CR>
-	nnoremap <buffer> <silent> <Leader>T :<C-u>call taskpaper#search_tag('today')<CR>
-	nnoremap <buffer> <silent> <Leader>W :call taskpaper#search_tag('\(today\\|tomorrow\\|week\)')<CR>
+	nnoremap <buffer> <silent> <Leader>e :<C-u>call taskpaper#toggle_tag('easy', '')<CR>
+	nnoremap <buffer> <silent> <Leader>n :<C-u>call taskpaper#toggle_tag('next', '')<CR>
+	nnoremap <buffer> <silent> [ :<C-u>call taskpaper#fold_projects()<CR>
+	nnoremap <buffer> <silent> ] :<C-u>call taskpaper#focus_project()<CR>
+	nnoremap <buffer> <silent> T :<C-u>call taskpaper#search_tag('today')<CR>
+	nnoremap <buffer> <silent> W :call taskpaper#search_tag('\(today\\|tomorrow\\|week\)')<CR>
 	nnoremap <buffer> <silent> <Leader>tM :<C-u>call taskpaper#search_tag('tomorrow')<CR>
-	nnoremap <buffer> <silent> <Leader>tW :<C-u>call taskpaper#search_tag('week')<CR>
+	nnoremap <buffer> <silent> <Leader>tE :<C-u>call taskpaper#search_tag('easy')<CR>
+	nnoremap <buffer> <silent> <Leader>tN :<C-u>call taskpaper#search_tag('next')<CR>
 	nmap <buffer> <Leader><space> :<C-u>call taskpaper#toggle_tag('done', taskpaper#date())<CR>
-	noremap <buffer> <silent> <Leader>j :<C-u>call GoToProject()<CR>
+	noremap <buffer> <silent> <Leader>j :<C-u>call SearchForProject()<CR>
+	nnoremap <buffer> <silent> <Tab> :<C-u>call SearchForProject()<CR>
+	nnoremap <buffer> <silent> <leader>pp :<C-u>call GoToProject('Personal')<CR>
+	nnoremap <buffer> <silent> <leader><up> :<C-u>call taskpaper#move_to_top()<CR>
+	nnoremap <buffer> <silent> <leader><down> :<C-u>call taskpaper#move_to_bottom()<CR>
 
 endfunction
 
@@ -159,8 +177,8 @@ nnoremap <silent> <Tab> :CtrlPCurFile<CR>
 command! FindBlog :CtrlP ~/Dropbox/jga.me
 let g:ctrlp_extensions = ['tag']
 nnoremap <silent> cv  :CtrlPTag<CR>
-let g:ctrlp_custom_ignore = 'dist\|node_modules\|DS_Store\|git\|compressed'
-let g:ctrlp_regexp_search = 1
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|compressed'
+let g:ctrlp_regexp_search = 0
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 0
 

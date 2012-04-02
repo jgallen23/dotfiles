@@ -4,7 +4,7 @@ function! MyGrep(...)
   let pattern = join(a:000, " ") 
   let dir = '*'
 
-  let exclude = 'grep -v ".git"'
+  let exclude = 'grep -v ".git\|node_modules\|_compressed"'
   let cmd = 'grep '.options.' "'.pattern.'" '.dir. '| '.exclude
   let cmd_output = system(cmd)
   if cmd_output == ""
