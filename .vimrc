@@ -29,7 +29,8 @@ set cmdheight=1
 set laststatus=2
 set statusline=[%l,%c\ %P%M]\ [%{getcwd()}%*\][%{GitBranchInfoTokens()[0]}]\ %f\ %r%h%w
 set number
-set hlsearch
+set nohlsearch
+nnoremap <leader>hl :set hlsearch!<CR>
 set incsearch
 set cursorline
 
