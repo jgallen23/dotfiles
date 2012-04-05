@@ -29,7 +29,8 @@ set cmdheight=1
 set laststatus=2
 set statusline=[%l,%c\ %P%M]\ [%{getcwd()}%*\][%{GitBranchInfoTokens()[0]}]\ %f\ %r%h%w
 set number
-set hlsearch
+set nohlsearch
+nnoremap <leader>hl :set hlsearch!<CR>
 set incsearch
 set cursorline
 
@@ -171,13 +172,16 @@ augroup END
 "
 "ctrlp
 let g:ctrlp_working_path_mode = 0
-nnoremap <silent> <space>  :CtrlPMRUFiles<CR>
+nnoremap <silent> <space>  :CtrlPBuffer<CR>
 nnoremap <silent> \ :CtrlP<CR>
 nnoremap <silent> <Tab> :CtrlPCurFile<CR>
 command! FindBlog :CtrlP ~/Dropbox/jga.me
 let g:ctrlp_extensions = ['tag']
 nnoremap <silent> cv  :CtrlPTag<CR>
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|compressed'
+let g:ctrlp_custom_ignore = {
+	\ 'dir':  'node_modules$\|\.git$\|compressed$',
+	\ 'file': '\.DS_Store$\|\.jpg$\|\.png$\|\.jpeg$\|\.gif$\|\.svg$'
+	\ }
 let g:ctrlp_regexp_search = 0
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 0
