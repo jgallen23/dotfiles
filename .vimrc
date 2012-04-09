@@ -206,3 +206,6 @@ let syntastic_mode_map = { 'mode': 'active',
 "tabs
 map <leader>{ :tabprevious<CR>
 map <leader>} :tabnext<CR>
+
+"paste
+nmap <leader>p :set paste!<BAR>:set paste?<CR>
