@@ -163,7 +163,12 @@ function! s:taskpaper_setup()
 	nnoremap <buffer> <silent> <leader><up> :<C-u>call taskpaper#move_to_top()<CR>
 	nnoremap <buffer> <silent> <leader><down> :<C-u>call taskpaper#move_to_bottom()<CR>
 
+
 endfunction
+let g:task_paper_styles={
+	\ 'next': 'ctermfg=167', 
+	\ 'today': 'ctermfg=150'
+	\ }
 
 augroup vimrc-taskpaper
 	autocmd!
