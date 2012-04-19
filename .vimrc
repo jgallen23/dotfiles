@@ -216,3 +216,9 @@ map <leader>} :tabnext<CR>
 
 "paste
 nmap <leader>p :set paste!<BAR>:set paste?<CR>
+
+"indent guides
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
+"let g:indent_guides_guide_size = 1
