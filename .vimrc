@@ -103,6 +103,7 @@ endif
 
 "NerdTree
 map <leader>t :NERDTree<CR>
+map <leader>f :NERDTreeFind<CR>
 
 "Redraw
 map <leader>a :redraw!<CR>
