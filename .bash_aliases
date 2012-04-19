@@ -24,6 +24,7 @@ alias of="open ."
 alias u='cd ..'
 alias u2='cd ../..'
 alias bp='~/code/boilerplate/bp'
+alias tasks='~/Dropbox/Notes/scripts/tmux.sh'
 
 gitcheck() {
 	for i in ~/code/*; do

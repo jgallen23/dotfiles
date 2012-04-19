@@ -160,6 +160,8 @@ function! s:taskpaper_setup()
 	noremap <buffer> <silent> <Leader>j :<C-u>call SearchForProject()<CR>
 	nnoremap <buffer> <silent> <Tab> :<C-u>call SearchForProject()<CR>
 	nnoremap <buffer> <silent> <leader>pp :<C-u>call GoToProject('Personal')<CR>
+	nnoremap <buffer> <silent> <leader>pk :<C-u>call GoToProject('Kindspark:Next')<CR>
+	nnoremap <buffer> <silent> <leader>pv :<C-u>call GoToProject('Visits')<CR>
 	nnoremap <buffer> <silent> <leader><up> :<C-u>call taskpaper#move_to_top()<CR>
 	nnoremap <buffer> <silent> <leader><down> :<C-u>call taskpaper#move_to_bottom()<CR>
 
