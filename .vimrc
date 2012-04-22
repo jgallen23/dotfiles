@@ -103,6 +103,7 @@ endif
 
 "NerdTree
 map <leader>t :NERDTree<CR>
+map <leader>f :NERDTreeFind<CR>
 
 "Redraw
 map <leader>a :redraw!<CR>
@@ -152,7 +153,7 @@ function! s:taskpaper_setup()
 	nnoremap <buffer> <silent> [ :<C-u>call taskpaper#fold_projects()<CR>
 	nnoremap <buffer> <silent> ] :<C-u>call taskpaper#focus_project()<CR>
 	nnoremap <buffer> <silent> T :<C-u>call taskpaper#search_tag('today')<CR>
-	nnoremap <buffer> <silent> W :call taskpaper#search_tag('\(today\\|tomorrow\\|week\)')<CR>
+	nnoremap <buffer> <silent> W :call taskpaper#search_tag('\(tomorrow\\|week\)')<CR>
 	nnoremap <buffer> <silent> <Leader>tM :<C-u>call taskpaper#search_tag('tomorrow')<CR>
 	nnoremap <buffer> <silent> <Leader>tE :<C-u>call taskpaper#search_tag('easy')<CR>
 	nnoremap <buffer> <silent> <Leader>tN :<C-u>call taskpaper#search_tag('next')<CR>
@@ -160,10 +161,17 @@ function! s:taskpaper_setup()
 	noremap <buffer> <silent> <Leader>j :<C-u>call SearchForProject()<CR>
 	nnoremap <buffer> <silent> <Tab> :<C-u>call SearchForProject()<CR>
 	nnoremap <buffer> <silent> <leader>pp :<C-u>call GoToProject('Personal')<CR>
+	nnoremap <buffer> <silent> <leader>pk :<C-u>call GoToProject('Kindspark:Next')<CR>
+	nnoremap <buffer> <silent> <leader>pv :<C-u>call GoToProject('Visits')<CR>
 	nnoremap <buffer> <silent> <leader><up> :<C-u>call taskpaper#move_to_top()<CR>
 	nnoremap <buffer> <silent> <leader><down> :<C-u>call taskpaper#move_to_bottom()<CR>
 
+
 endfunction
+let g:task_paper_styles={
+	\ 'next': 'ctermfg=167', 
+	\ 'today': 'ctermfg=150'
+	\ }
 
 augroup vimrc-taskpaper
 	autocmd!
@@ -206,3 +214,12 @@ let syntastic_mode_map = { 'mode': 'active',
 "tabs
 map <leader>{ :tabprevious<CR>
 map <leader>} :tabnext<CR>
+
+"paste
+nmap <leader>p :set paste!<BAR>:set paste?<CR>
+
+"indent guides
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
+"let g:indent_guides_guide_size = 1
