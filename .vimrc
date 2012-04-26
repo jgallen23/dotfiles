@@ -27,7 +27,7 @@ set guioptions-=T
 set smartindent
 set cmdheight=1
 set laststatus=2
-set statusline=[%l,%c\ %P%M]\ [%{getcwd()}%*\][%{GitBranchInfoTokens()[0]}]\ %f\ %r%h%w
+set statusline=[%l,%c\ %P%M]\ [%{getcwd()}%*\]%{fugitive#statusline()}\ %f\ %r%h%w
 set number
 set nohlsearch
 nnoremap <leader>hl :set hlsearch!<CR>
@@ -165,6 +165,7 @@ function! s:taskpaper_setup()
 	nnoremap <buffer> <silent> <leader>pv :<C-u>call GoToProject('Visits')<CR>
 	nnoremap <buffer> <silent> <leader><up> :<C-u>call taskpaper#move_to_top()<CR>
 	nnoremap <buffer> <silent> <leader><down> :<C-u>call taskpaper#move_to_bottom()<CR>
+	au CursorHold personal.taskpaper :w
 
 
 endfunction
@@ -223,3 +224,6 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
 "let g:indent_guides_guide_size = 1
+
+"fugitive
+map <leader>gs :Gstatus<CR>
