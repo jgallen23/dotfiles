@@ -226,4 +226,19 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
 "let g:indent_guides_guide_size = 1
 
 "fugitive
-map <leader>gs :Gstatus<CR>
+function! GitWriteCommit()
+	w
+	bd
+endfunction
+function! s:fugitive_setup()
+	map <leader>w :call GitWriteCommit()<CR>
+endfunction
+function! GitShowStatus()
+	execute 'Gstatus'
+	res +20
+endfunction
+map <leader>gs :call GitShowStatus()<CR>
+augroup vimrc-git
+	autocmd!
+	autocmd FileType gitcommit call s:fugitive_setup()
+augroup END
