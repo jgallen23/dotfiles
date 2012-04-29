@@ -1,9 +1,6 @@
 [submodule ".vim/bundle/vim-colors-solarized"]
 	path = .vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule ".vim/bundle/vim-git-branch-info"]
-	path = .vim/bundle/vim-git-branch-info
-	url = git://github.com/taq/vim-git-branch-info.git
 [submodule ".vim/bundle/ZoomWin"]
 	path = .vim/bundle/ZoomWin
 	url = git://github.com/vim-scripts/ZoomWin.git
