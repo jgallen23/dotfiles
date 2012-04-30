@@ -171,6 +171,8 @@ function! s:taskpaper_setup()
 endfunction
 let g:task_paper_styles={
 	\ 'next': 'ctermfg=167', 
+	\ 'tomorrow': 'ctermfg=182', 
+	\ 'week': 'ctermfg=187', 
 	\ 'today': 'ctermfg=150'
 	\ }
 
