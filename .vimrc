@@ -240,6 +240,7 @@ function! GitShowStatus()
 	res +20
 endfunction
 map <leader>gs :call GitShowStatus()<CR>
+map <leader>gp :Git push<CR>
 augroup vimrc-git
 	autocmd!
 	autocmd FileType gitcommit call s:fugitive_setup()
