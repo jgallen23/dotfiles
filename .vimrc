@@ -171,6 +171,8 @@ function! s:taskpaper_setup()
 endfunction
 let g:task_paper_styles={
 	\ 'next': 'ctermfg=167', 
+	\ 'tomorrow': 'ctermfg=182', 
+	\ 'week': 'ctermfg=187', 
 	\ 'today': 'ctermfg=150'
 	\ }
 
@@ -238,6 +240,8 @@ function! GitShowStatus()
 	res +20
 endfunction
 map <leader>gs :call GitShowStatus()<CR>
+map <leader>gp :Git push<CR>
+map <leader>gd :Git diff<CR>
 augroup vimrc-git
 	autocmd!
 	autocmd FileType gitcommit call s:fugitive_setup()
