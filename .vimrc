@@ -233,7 +233,7 @@ function! GitWriteCommit()
 	bd
 endfunction
 function! s:fugitive_setup()
-	map <leader>w :call GitWriteCommit()<CR>
+	map <buffer> <leader>w :call GitWriteCommit()<CR>
 endfunction
 function! GitShowStatus()
 	execute 'Gstatus'
