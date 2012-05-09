@@ -248,3 +248,6 @@ augroup vimrc-git
 	autocmd!
 	autocmd FileType gitcommit call s:fugitive_setup()
 augroup END
+
+"remotepb
+let g:remotepb_server = "gregamel@imac"
