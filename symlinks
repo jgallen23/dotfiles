@@ -1,11 +1,12 @@
 #!/bin/bash
-ROOT=`dirname $0`
+CWD=`pwd`
 cd ~
-echo $ROOT
-ln -s $ROOT/.vim .
-ln -s $ROOT/.vimrc .
-ln -s $ROOT/.gitconfig .
-ln -s $ROOT/.bash_aliases .
-ln -s $ROOT/.bash_profile .
-ln -s $ROOT/.jshintrc .
-ln -s $ROOT/.ctags .
+echo $CWD
+ln -s $CWD/.vim ~/
+ln -s $CWD/.vimrc ~/ 
+ln -s $CWD/.gitconfig ~/
+ln -s $CWD/.bash_aliases ~/
+ln -s $CWD/.bash_profile ~/
+ln -s $CWD/.jshintrc ~/
+ln -s $CWD/.ctags ~/
+ln -s $CWD/.tmux.conf ~/

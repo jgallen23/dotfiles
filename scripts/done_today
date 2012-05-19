@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+DATE=`date +%Y-%m-%d`
+TASKS=~/Dropbox/Notes/personal.taskpaper
+
+
+all() {
+	echo "Completed $DATE:"
+	echo "----------------"
+	grep "@done($DATE)" $TASKS | tr -d '\011' | sed -e "s/@project(\(.*\))/[\1]/" | sed -e "s/@.*[@|\[]/[/g"
+}
+
+search() {
+	keyword=$1
+	echo $keyword
+	echo "$keyword Tasks Completed $DATE:"
+	echo "----------------"
+	grep "@done($DATE)" $TASKS | grep -i "@project($keyword" | tr -d '\011' | sed -e "s/@project(\(.*\))/[\1]/" | sed -e "s/@.*[@|\[]/[/g"
+}
+
+while test $# -ne 0; do
+  arg=$1
+  shift
+  case $arg in
+		-d|--date)
+			DATE=$1
+			;;
+		-o|--offset)
+			DATE=`date -v$1 +%Y-%m-%d`
+			;;
+		-y|--yesterday)
+			DATE=`date -v-1d +%Y-%m-%d`
+			;;
+		-m|--month)
+			DATE="`date +%Y-%m`-.."
+			;;
+		-s|--search)
+			search $1
+			exit
+			;;
+	esac
+done
+all
+
+
