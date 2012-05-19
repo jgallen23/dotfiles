@@ -39,3 +39,8 @@ function swap_priority {
 	find . -type f | xargs sed -i '' -e "s/ ] ($1)/ ] ($2)/"
 }
 complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u | sed 's/^ssh //'))" ssh
+
+cdf() {
+	DIR=`find . -type d | grep -m 1 $1`
+	pushd $DIR
+}
