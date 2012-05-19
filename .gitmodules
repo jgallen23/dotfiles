@@ -7,9 +7,6 @@
 [submodule ".vim/bundle/vim-stylus"]
 	path = .vim/bundle/vim-stylus
 	url = git://github.com/wavded/vim-stylus.git
-[submodule ".vim/bundle/css3"]
-	path = .vim/bundle/css3
-	url = git://github.com/vim-scripts/css3.git
 [submodule ".vim/bundle/nerdcommenter"]
 	path = .vim/bundle/nerdcommenter
 	url = git://github.com/jgallen23/The-NERD-Commenter.git
@@ -70,3 +67,6 @@
 [submodule ".vim/bundle/remotepb"]
 	path = .vim/bundle/remotepb
 	url = git://github.com/jgallen23/remotepb.git
+[submodule ".vim/bundle/vim-css3-syntax"]
+	path = .vim/bundle/vim-css3-syntax
+	url = git://github.com/hail2u/vim-css3-syntax.git
