@@ -44,3 +44,8 @@ cdf() {
 	DIR=`find . -type d | grep -m 1 $1`
 	pushd $DIR
 }
+
+github() {
+	git clone git@github.com:/jgallen23/$1.git
+}
+
