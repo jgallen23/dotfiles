@@ -16,7 +16,7 @@ set ignorecase
 set smartcase
 set hidden
 set textwidth=0 "disable auto wrapping
-"set clipboard=unnamed "mac clipboard sync
+set clipboard=unnamed "mac clipboard sync
 set nobackup
 set noswapfile
 let mapleader=","
@@ -116,6 +116,7 @@ nnoremap <silent> <Tab> :CtrlPCurFile<CR>
 command! FindBlog :CtrlP ~/Dropbox/jga.me
 let g:ctrlp_extensions = ['tag']
 nnoremap <silent> cv  :CtrlPTag<CR>
+nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
 let g:ctrlp_custom_ignore = {
 	\ 'dir':  'node_modules$\|\.git$\|compressed$',
 	\ 'file': '\.DS_Store$\|\.jpg$\|\.png$\|\.jpeg$\|\.gif$\|\.svg$'
@@ -130,9 +131,6 @@ let g:EasyMotion_mapping_w = '<leader>w'
 "snippets
 command! ReloadSnippets :call ReloadSnippets(&ft)
 command! EditSnippets :exec(":e ".split(snippets_dir, ',')[0].&ft.".snippets")
-
-"unit tests
-map <leader>mt :RunTests<CR>
 
 "vim room
 let g:vimroom_ctermbackground = "black"
