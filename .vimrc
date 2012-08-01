@@ -37,7 +37,9 @@ set cursorline
 "fix indent on #
 inoremap # X<BS>#
 
-set ts=2 sw=2
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 map <leader>v :e ~/.vimrc<CR><C-W>_
 map <leader>b :Explore<CR>
@@ -80,6 +82,7 @@ au! BufRead,BufNewFile *.json setfiletype javascript
 autocmd FileType javascript set et
 "php
 autocmd FileType php set noexpandtab
+"php
 
 "markdown
 function! s:markdown_setup()
@@ -131,6 +134,7 @@ let g:EasyMotion_mapping_w = '<leader>w'
 "snippets
 command! ReloadSnippets :call ReloadSnippets(&ft)
 command! EditSnippets :exec(":e ".split(snippets_dir, ',')[0].&ft.".snippets")
+let g:snippets_dir = "~/.vim/snips/"
 
 "vim room
 let g:vimroom_ctermbackground = "black"

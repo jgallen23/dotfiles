@@ -73,3 +73,9 @@
 [submodule ".vim/bundle/sparkup"]
 	path = .vim/bundle/sparkup
 	url = git://github.com/jgallen23/sparkup.git
+[submodule ".vim/bundle/matchtag"]
+	path = .vim/bundle/matchtag
+	url = git://github.com/gregsexton/MatchTag
+[submodule ".vim/bundle/vim-matchit"]
+	path = .vim/bundle/vim-matchit
+	url = git://github.com/edsono/vim-matchit.git
