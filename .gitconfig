@@ -4,6 +4,7 @@
 [alias]
 	st=status
 	c=commit
+	co=checkout
 	;ca=commit -a
 	a=add
     au=!git add -u && git st
