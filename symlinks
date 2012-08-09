@@ -10,3 +10,4 @@ ln -s $CWD/.bash_profile ~/
 ln -s $CWD/.jshintrc ~/
 ln -s $CWD/.ctags ~/
 ln -s $CWD/.tmux.conf ~/
+ln -s $CWD/bin ~/
