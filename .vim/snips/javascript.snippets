@@ -42,20 +42,40 @@ snippet dox
 	 * @return {${5:string}} ${6:description} 
 	 * @api ${7:public}
 	 */
-snippet desc
-	describe('${1}', function() {
-		${2}
-	});
-snippet it
-	it('should ${1}', function(${2}) {
-		${3}
-	});
 
 snippet pro
 	${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
 		${4:// body...}
 	};
-snippet be
-	beforeEach(function(${1}) {
+
+snippet suite
+	suite('${1}', function() {
 		${2}
 	});
+
+snippet test
+	test('${1}', function(${2:done}) {
+		${3}
+	});
+snippet req
+	var $1 = require('${1}');
+
+snippet package
+	{
+		"name": "${1}",
+		"description": "${2}",
+		"homepage": "${3}",
+		"author": "Greg Allen <@jgaui> (http://jga.me)",
+		"version": "0.0.1",
+		"repository": {
+			"type": "git",
+			"url": "https://github.com/jgallen23/${4}.git"
+		},
+		"dependencies": {
+		},
+		"devDependencies": {
+		},
+		"main": "${5}",
+		"bin": {
+		}
+	}
