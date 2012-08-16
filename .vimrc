@@ -28,11 +28,11 @@ set smartindent
 set cmdheight=1
 set laststatus=2
 set statusline=[%l,%c\ %P%M]\ [%{getcwd()}%*\]%{fugitive#statusline()}\ %f\ %r%h%w
-set number
 set nohlsearch
 nnoremap <leader>hl :set hlsearch!<CR>
 set incsearch
 set cursorline
+set relativenumber
 
 "fix indent on #
 inoremap # X<BS>#
