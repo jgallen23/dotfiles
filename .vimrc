@@ -140,8 +140,8 @@ let g:snippets_dir = "~/.vim/snips/"
 let g:vimroom_ctermbackground = "black"
 
 let syntastic_mode_map = { 'mode': 'active',
-												 \ 'active_filetypes': ['javascript', 'css', 'html'],
-												 \ 'passive_filetypes': ['php'] }
+												 \ 'active_filetypes': ['javascript', 'css'],
+												 \ 'passive_filetypes': ['php', 'html'] }
 
 "tabs
 map <leader>{ :tabprevious<CR>
