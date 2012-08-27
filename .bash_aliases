@@ -18,6 +18,7 @@ function t {
 		tmux at -t $1 || tmux new -s $1
 	fi
 }
+alias tm='t main'
 alias ta='t all'
 dj() { ./manage.py $@ --settings $DJANGO_SETTINGS_FILE; }
 alias of="open ."
