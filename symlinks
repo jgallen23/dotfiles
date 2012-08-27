@@ -7,6 +7,7 @@ ln -s $CWD/.vimrc ~/
 ln -s $CWD/.gitconfig ~/
 ln -s $CWD/.bash_aliases ~/
 ln -s $CWD/.bash_profile ~/
+ln -s $CWD/.inputrc ~/
 ln -s $CWD/.jshintrc ~/
 ln -s $CWD/.ctags ~/
 ln -s $CWD/.tmux.conf ~/
