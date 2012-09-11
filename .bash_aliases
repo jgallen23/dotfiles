@@ -20,12 +20,9 @@ function t {
 }
 alias tm='t main'
 alias ta='t all'
-dj() { ./manage.py $@ --settings $DJANGO_SETTINGS_FILE; }
 alias of="open ."
 alias u='cd ..'
 alias u2='cd ../..'
-alias bp='~/code/boilerplate/bp'
-alias tasks='vim -c Tasks'
 
 gitcheck() {
 	for i in ~/code/*; do
@@ -36,9 +33,6 @@ gitcheck() {
 alias chromedev="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security"
 alias timemachine="/System/Library/CoreServices/backupd.bundle/Contents/Resources/backupd-helper &"
 
-function swap_priority {
-	find . -type f | xargs sed -i '' -e "s/ ] ($1)/ ] ($2)/"
-}
 complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u | sed 's/^ssh //'))" ssh
 
 cdf() {
