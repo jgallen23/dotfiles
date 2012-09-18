@@ -44,3 +44,14 @@ github() {
 	git clone git@github.com:/jgallen23/$1.git
 }
 
+ss() {
+  ssh gregamel@gregamel.local "/usr/local/bin/phantomjs ~/Dropbox/Scripts/render.js $1 ~/Dropbox/ScreenShots/ss.png"
+}
+
+tab() {
+  PWD=`pwd`
+  DIR=`basename $PWD`
+  echo -ne "\033]0;$DIR\007"
+}
+f(){ if [ "$PWD" != "$LPWD" ];then LPWD="$PWD"; tab; fi }; 
+export PROMPT_COMMAND=f;
