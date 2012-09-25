@@ -12,15 +12,10 @@
 --regex-js=/[jQuery|$].jgawidget\(\"(.*)\"/\1/g,jgawidget/
 --regex-js=/[jQuery|$].ux.behavior\(\"(.*)\"/\1/x,ux/
 
---langdef=aspx
---langmap=aspx:.aspx
---regex-aspx=/id ?= ?.([a-zA-Z_0-9]*)./\1/i,id/
---regex-aspx=/class ?= ?.([a-zA-Z_0-9]*)./\1/c,class/
-
 --langdef=html2
 --langmap=html2:.html
---regex-html2=/ id ?= ?.([a-zA-Z_0-9]*)./\1/i,id/
---regex-html2=/ class ?= ?.([a-zA-Z_0-9]*)./\1/c,class/
+--regex-html2=/ id ?= ?.([-a-zA-Z_0-9]*)./\1/i,id/
+--regex-html2=/ class ?= ?.([-a-zA-Z_0-9]*)./\1/c,class/
 
 --langdef=objc
 --langmap=objc:.m.h
@@ -29,8 +24,3 @@
 --langdef=taskpaper
 --langmap=taskpaper:.taskpaper
 --regex-taskpaper=/(.*):$/\1/p,project/
-
---langdef=coffee
---langmap=coffee:.coffee
---regex-coffee=/^[ \t]*([A-Za-z.]+)[ \t]+=.*->.*$/\1/f,function/
---regex-coffee=/^[ \t]*([A-Za-z.]+)[ \t]+=[^->\n]*$/\1/v,variable/
