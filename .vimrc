@@ -45,7 +45,7 @@ set expandtab
 map <leader>v :e ~/.vimrc<CR><C-W>_
 map <leader>b :Explore<CR>
 map <silent> <leader>vr :source ~/.vimrc<CR>
-map <leader>g :MyGrep 
+map <leader>gr :MyGrep 
 map <leader>e :RunCode<CR>
 
 "move around windows better
@@ -84,6 +84,7 @@ autocmd FileType javascript set et
 "php
 autocmd FileType php set noexpandtab
 "php
+au! BufRead,BufNewFile *.handlebars setfiletype html
 
 "markdown
 function! s:markdown_setup()

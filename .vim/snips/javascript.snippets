@@ -54,28 +54,43 @@ snippet suite
 	});
 
 snippet test
-	test('${1}', function(${2:done}) {
+	test('${1}', function() {
+		${2}
+	});
+snippet testa
+	test('${1}', function(done) {
+		${2}
+	});
+snippet desc
+	describe('${1}', function() {
+		${2}
+	});
+snippet it
+	it('${1}', function(${2:done}) {
 		${3}
 	});
 snippet req
-	var $1 = require('${1}');
+	var ${1} = require('$1');
 
 snippet package
 	{
-		"name": "${1}",
+		"name": "${1:name}",
 		"description": "${2}",
-		"homepage": "${3}",
+		"homepage": "https://github.com/jgallen23/$1",
 		"author": "Greg Allen <@jgaui> (http://jga.me)",
 		"version": "0.0.1",
 		"repository": {
 			"type": "git",
-			"url": "https://github.com/jgallen23/${4}.git"
+			"url": "https://github.com/jgallen23/$1.git"
 		},
 		"dependencies": {
 		},
 		"devDependencies": {
 		},
-		"main": "${5}",
+		"main": "./lib/$1.js",
+		"scripts": {
+			"test": "mocha"
+		},
 		"bin": {
 		}
 	}
