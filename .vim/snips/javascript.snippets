@@ -86,6 +86,7 @@ snippet package
 		"dependencies": {
 		},
 		"devDependencies": {
+			"mocha": "*"
 		},
 		"main": "./lib/$1.js",
 		"scripts": {
@@ -93,4 +94,32 @@ snippet package
 		},
 		"bin": {
 		}
+	}
+
+snippet bin
+	#!/usr/bin/env node
+
+	var fs = require('fs');
+	var version = JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version
+
+	var opt = require('optimist')
+		.usage('Dist '+version+'\n$0 [opts]')
+		.options('i', {
+			alias: 'input',
+			describe: 'Input file'
+		})
+		.options('c', {
+			alias: 'copyright',
+			describe: 'Copyright file'
+		})
+		.options('o', {
+			alias: 'output',
+			describe: 'Output directory'
+		})
+
+
+	var argv = opt.argv
+
+	if (argv.help) {
+		return opt.showHelp();
 	}

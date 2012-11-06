@@ -164,7 +164,7 @@ function! GitWriteCommit()
 	bd
 endfunction
 function! s:fugitive_setup()
-	map <buffer> W :call GitWriteCommit()<CR>
+	map <silent> <buffer> W :call GitWriteCommit()<CR>
 	map <buffer> au :Git add -u<CR>
 	map <buffer> dc :Git diff --cached<CR>
 endfunction
