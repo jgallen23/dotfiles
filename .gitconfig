@@ -38,3 +38,7 @@
 	changed = green
 	untracked = cyan
 
+[branch]
+	autosetupmerge = true
+[core]
+	pager = less -r

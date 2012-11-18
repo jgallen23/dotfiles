@@ -34,6 +34,7 @@ set incsearch
 set cursorline
 set relativenumber
 set mouse=a
+set list listchars=tab:→\ ,trail:·
 
 "fix indent on #
 inoremap # X<BS>#
@@ -123,7 +124,7 @@ let g:ctrlp_extensions = ['tag']
 nnoremap <silent> cv  :CtrlPTag<CR>
 nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
 let g:ctrlp_custom_ignore = {
-	\ 'dir':  'node_modules$\|\.git$\|compressed$',
+	\ 'dir':  'node_modules$\|\.git$\|compressed$\|_compressed$\|_compiled$',
 	\ 'file': '\.DS_Store$\|\.jpg$\|\.png$\|\.jpeg$\|\.gif$\|\.svg$'
 	\ }
 let g:ctrlp_regexp_search = 0
