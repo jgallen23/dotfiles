@@ -1,5 +1,6 @@
 
 set -x CLICOLOR 1
+setenv EDITOR vim
 
 function parse_git_branch
   # git branch outputs lines, the current branch is prefixed with a *
@@ -63,4 +64,8 @@ end
 
 function github
   git clone git@github.com:/jgallen23/$1.git
+end
+
+function u
+  cd ..
 end
