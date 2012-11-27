@@ -9,8 +9,9 @@ if has("gui_running")
 endif
 
 set background=dark
-set t_Co=256
-colorscheme lucius
+"set t_Co=256
+"let base16colorspace=256
+colorscheme base16-default
 
 set ignorecase
 set smartcase
@@ -110,6 +111,7 @@ endif
 "NerdTree
 map <leader>t :NERDTree<CR>
 map <leader>f :NERDTreeFind<CR>
+let NERDTreeWinSize=25
 
 "Redraw
 map <leader>a :redraw!<CR>
