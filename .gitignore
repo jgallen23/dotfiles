@@ -5,4 +5,5 @@ fish/fishd*
 .bash_env
 *.pyc
 .vim/bundle/*
+.vim/bundle-old
 !.vim/bundle/vundle
