@@ -3,10 +3,6 @@ source ~/.vim/bundles.vim
 syntax on
 filetype plugin indent on
 
-if has("gui_running")
-  set guifont=Monaco:h12
-endif
-
 set background=dark
 "set t_Co=256
 "let base16colorspace=256
@@ -36,16 +32,12 @@ set relativenumber
 set mouse=a
 set list listchars=tab:→\ ,trail:·
 
-"fix indent on #
-inoremap # X<BS>#
-
 set tabstop=2
 set shiftwidth=2
 set expandtab
 
 map <leader>v :e ~/.vimrc<CR><C-W>_
 map <leader>b :Explore<CR>
-map <silent> <leader>vr :source ~/.vimrc<CR>
 map <leader>gr :MyGrep 
 map <leader>e :RunCode<CR>
 
@@ -69,12 +61,6 @@ vmap <left> <gv
 noremap H ^ 
 noremap L g_
 
-"git branch
-let g:git_branch_status_head_current=1 
-let g:git_branch_status_nogit=""
-let g:git_branch_status_text=" " 
-let g:git_branch_status_ignore_remotes=1
-
 "go to previous file
 nmap <BS> :e #<CR>
 nmap <leader><leader> :e #<CR>
@@ -84,20 +70,8 @@ au! BufRead,BufNewFile *.json setfiletype javascript
 autocmd FileType javascript set et
 "php
 autocmd FileType php set noexpandtab
-"php
-au! BufRead,BufNewFile *.handlebars setfiletype html
 
-"markdown
-function! s:markdown_setup()
-	setlocal wrap
-	setlocal noexpandtab
-	noremap <buffer> <unique> <silent> k gk
-	noremap <buffer> <unique> <silent> j gj
-endfunction
-augroup vimrc-markdown
-	autocmd!
-	autocmd FileType markdown call s:markdown_setup()
-augroup END
+au! BufRead,BufNewFile *.handlebars setfiletype html
 
 "change cwd
 command! CWD :cd %:p:h
@@ -107,96 +81,18 @@ if !has('gui_running')
 	set backspace=indent,eol,start
 endif
 
-"NerdTree
-map <leader>t :NERDTree<CR>
-map <leader>f :NERDTreeFind<CR>
-let NERDTreeWinSize=25
-
 "Redraw
 map <leader>a :redraw!<CR>
-
-"ctrlp
-let g:ctrlp_working_path_mode = 0
-nnoremap <silent> <space>  :CtrlPBuffer<CR>
-nnoremap <silent> \ :CtrlP<CR>
-nnoremap <silent> <Tab> :CtrlPCurFile<CR>
-command! FindBlog :CtrlP ~/Dropbox/jga.me
-let g:ctrlp_extensions = ['tag']
-nnoremap <silent> cv  :CtrlPTag<CR>
-nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
-let g:ctrlp_custom_ignore = {
-	\ 'dir':  'node_modules$\|\.git$\|compressed$\|_compressed$\|_compiled$',
-	\ 'file': '\.DS_Store$\|\.jpg$\|\.png$\|\.jpeg$\|\.gif$\|\.svg$'
-	\ }
-let g:ctrlp_regexp_search = 0
-let g:ctrlp_match_window_bottom = 1
-let g:ctrlp_match_window_reversed = 0
-
-"easy motion
-let g:EasyMotion_mapping_w = '<leader>w'
-
-"snippets
-command! ReloadSnippets :call ReloadSnippets(&ft)
-command! EditSnippets :exec(":e ".split(snippets_dir, ',')[0].&ft.".snippets")
-let g:snippets_dir = "~/.vim/snips/"
-
-"vim room
-let g:vimroom_ctermbackground = "black"
-
-let syntastic_mode_map = { 'mode': 'active',
-												 \ 'active_filetypes': ['javascript', 'css'],
-												 \ 'passive_filetypes': ['php', 'html'] }
-
-"tabs
-map <leader>{ :tabprevious<CR>
-map <leader>} :tabnext<CR>
 
 "paste
 nmap <leader>p :set paste!<BAR>:set paste?<CR>
 
-"indent guides
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
-"let g:indent_guides_guide_size = 1
+source ~/.vim/config/snippets.vim
+source ~/.vim/config/nerdtree.vim
+source ~/.vim/config/ctrlp.vim
+source ~/.vim/config/syntastic.vim
+source ~/.vim/config/easymotion.vim
+source ~/.vim/config/fugitive.vim
+source ~/.vim/config/markdown.vim
+source ~/.vim/config/tabs.vim
 
-"fugitive
-function! GitWriteCommit()
-	w
-	bd
-endfunction
-function! s:fugitive_setup()
-	map <silent> <buffer> W :call GitWriteCommit()<CR>
-	map <buffer> au :Git add -u<CR>
-	map <buffer> dc :Git diff --cached<CR>
-endfunction
-function! GitShowStatus()
-	execute 'Gstatus'
-	res +20
-endfunction
-map <leader>gs :call GitShowStatus()<CR>
-map <leader>gp :Git push<CR>
-map <leader>gd :Git diff<CR>
-augroup vimrc-git
-	autocmd!
-	autocmd FileType gitcommit call s:fugitive_setup()
-augroup END
-
-"remotepb
-let g:remotepb_server = "gregamel@imac"
-
-"tagbar
-let g:tagbar_sort = 0
-let g:tagbar_compact = 1
-let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-let g:tagbar_singleclick = 1
-let g:tagbar_type_html = {
-    \ 'ctagstype' : 'html2',
-    \ 'kinds'     : [
-        \ 'c:class',
-        \ 'i:id'
-    \ ]
-\ }
-let g:tagbar_autoshowtag = 1
-nnoremap <silent> <leader>r :TagbarToggle<CR>
-nnoremap <silent> <leader>s :TagbarShowTag<CR>
