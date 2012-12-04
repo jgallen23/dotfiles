@@ -95,4 +95,5 @@ source ~/.vim/config/easymotion.vim
 source ~/.vim/config/fugitive.vim
 source ~/.vim/config/markdown.vim
 source ~/.vim/config/tabs.vim
+source ~/.vim/config/dwm.vim
 

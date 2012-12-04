@@ -13,3 +13,4 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_regexp_search = 0
 let g:ctrlp_match_window_bottom = 1
 let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_show_hidden = 1

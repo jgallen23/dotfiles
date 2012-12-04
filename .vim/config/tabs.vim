@@ -1,2 +1,1 @@
-map <leader>{ :tabprevious<CR>
-map <leader>} :tabnext<CR>
+map <leader>n :tabnew<CR>
