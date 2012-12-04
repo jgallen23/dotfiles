@@ -88,7 +88,6 @@ map <leader>a :redraw!<CR>
 nmap <leader>p :set paste!<BAR>:set paste?<CR>
 
 source ~/.vim/config/snippets.vim
-source ~/.vim/config/nerdtree.vim
 source ~/.vim/config/ctrlp.vim
 source ~/.vim/config/syntastic.vim
 source ~/.vim/config/easymotion.vim
