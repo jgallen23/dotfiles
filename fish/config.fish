@@ -59,7 +59,7 @@ else
 end  
 
 function v
-  ls -lah
+  ls -lah $argv
 end
 
 function github
@@ -68,4 +68,8 @@ end
 
 function u
   cd ..
+end
+
+function u2
+  cd ../..
 end
