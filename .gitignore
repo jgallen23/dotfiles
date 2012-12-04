@@ -4,3 +4,4 @@ fish/fishd*
 .vim/.netrwhist
 .bash_env
 *.pyc
+.vim/bundle
