@@ -6,6 +6,7 @@ function! s:fugitive_setup()
 	map <silent> <buffer> W :call GitWriteCommit()<CR>
 	map <buffer> au :Git add -u<CR>
 	map <buffer> dc :Git diff --cached<CR>
+	map <buffer> di :Git diff<CR>
 endfunction
 function! GitShowStatus()
 	execute 'Gstatus'
