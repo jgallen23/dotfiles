@@ -7,4 +7,4 @@ nnoremap <C-K> <C-W>W
 nmap <C-N> <Plug>DWMNew
 nmap <C-C> <Plug>DWMClose
 nmap <C-X> <Plug>DWMFocus
-nmap <C-M> <Plug>DWMRotateClockwise
+nmap <C-B> <Plug>DWMRotateClockwise
