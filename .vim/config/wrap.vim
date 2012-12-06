@@ -1,1 +1,1 @@
-map <leader>r :set nowrap!<CR>
+map <leader>w :set nowrap!<CR>
