@@ -20,6 +20,7 @@
   cmp=!sh -c 'git log --left-right --name-only --oneline --no-merges $0...'
   br=!sh -c 'git checkout --no-track -b $0 origin/prod'
   su=submodule update --init
+  unmerged=branch --no-merged
 [push]
   default = current
 [color]
