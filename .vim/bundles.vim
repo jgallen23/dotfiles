@@ -22,5 +22,6 @@ Bundle 'chriskempson/base16-vim'
 Bundle 'spolu/dwm.vim'
 Bundle 'ervandew/supertab'
 Bundle 'jgallen23/grep.vim'
+Bundle 'jgallen23/runcode.vim'
 
 filetype plugin indent on     " required!

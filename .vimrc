@@ -16,4 +16,5 @@ source ~/.vim/config/projects.vim
 source ~/.vim/config/wrap.vim
 source ~/.vim/config/nerdcommenter.vim
 source ~/.vim/config/zoomwin.vim
+source ~/.vim/config/runcode.vim
 
