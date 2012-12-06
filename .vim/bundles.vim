@@ -20,7 +20,6 @@ Bundle 'gregsexton/MatchTag'
 Bundle 'edsono/vim-matchit'
 Bundle 'chriskempson/base16-vim'
 Bundle 'spolu/dwm.vim'
-Bundle 'vim-scripts/ZoomWin'
 Bundle 'ervandew/supertab'
 
 filetype plugin indent on     " required!
