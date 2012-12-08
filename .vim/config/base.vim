@@ -77,3 +77,6 @@ map <leader>a :redraw!<CR>
 
 "paste
 nmap <leader>p :set paste!<BAR>:set paste?<CR>
+
+"buffer delete
+map <leader>q :bd<CR>
