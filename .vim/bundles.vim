@@ -24,5 +24,6 @@ Bundle 'ervandew/supertab'
 Bundle 'jgallen23/grep.vim'
 Bundle 'jgallen23/runcode.vim'
 Bundle 'jgallen23/vim-bufsurf'
+Bundle 'groenewege/vim-less'
 
 filetype plugin indent on     " required!
