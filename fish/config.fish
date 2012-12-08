@@ -63,7 +63,7 @@ function v
 end
 
 function github
-  git clone git@github.com:/jgallen23/$1.git
+  git clone git@github.com:/jgallen23/$argv.git
 end
 
 function u
