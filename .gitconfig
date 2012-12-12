@@ -21,6 +21,7 @@
   br=!sh -c 'git checkout --no-track -b $0 origin/prod'
   su=submodule update --init
   unmerged=branch -a --no-merged
+  merged=branch -a --merged
 [push]
   default = current
 [color]
