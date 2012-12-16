@@ -33,7 +33,6 @@ set expandtab
 
 map <leader>v :e ~/.vimrc<CR><C-W>_
 map <leader>b :Explore<CR>
-map <leader>gr :MyGrep 
 map <leader>e :RunCode<CR>
 
 "move around windows better
