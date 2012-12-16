@@ -73,3 +73,7 @@ end
 function u2
   cd ../..
 end
+
+function mark
+  /Applications/Marked.app/Contents/Resources/mark $argv
+end
