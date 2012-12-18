@@ -18,4 +18,5 @@ source ~/.vim/config/nerdcommenter.vim
 source ~/.vim/config/runcode.vim
 source ~/.vim/config/bufsurf.vim
 source ~/.vim/config/grep.vim
+source ~/.vim/config/php.vim
 
