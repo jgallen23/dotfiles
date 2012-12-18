@@ -77,3 +77,15 @@ end
 function mark
   /Applications/Marked.app/Contents/Resources/mark $argv
 end
+
+function t
+  if set -q $argv
+    tmux ls
+  else
+    tmux at -t $argv; or tmux new -s $argv
+  end
+end
+
+function tm
+  t main
+end
