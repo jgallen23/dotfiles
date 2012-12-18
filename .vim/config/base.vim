@@ -1,7 +1,5 @@
 set background=dark
-"set t_Co=256
-"let base16colorspace=256
-colorscheme base16-default
+colorscheme base16-tomorrow
 
 set ignorecase
 set smartcase
