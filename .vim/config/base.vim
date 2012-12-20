@@ -55,9 +55,6 @@ noremap L g_
 
 "javascript
 au! BufRead,BufNewFile *.json setfiletype javascript
-autocmd FileType javascript set et
-"php
-autocmd FileType php set noexpandtab
 
 au! BufRead,BufNewFile *.handlebars setfiletype html
 
