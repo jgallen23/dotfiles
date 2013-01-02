@@ -4,7 +4,7 @@ nnoremap <silent> \ :CtrlP<CR>
 let g:ctrlp_extensions = ['tag']
 nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
 let g:ctrlp_custom_ignore = {
-	\ 'dir':  'node_modules$\|\.git$\|compressed$\|_compressed$\|_compiled$',
+	\ 'dir':  'node_modules$\|\.git$\|compressed$\|_compressed$\|_compiled$\|components$',
 	\ 'file': '\.DS_Store$\|\.jpg$\|\.png$\|\.jpeg$\|\.gif$\|\.svg$'
 	\ }
 let g:ctrlp_regexp_search = 0
