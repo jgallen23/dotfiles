@@ -74,3 +74,6 @@ nmap <leader>p :set paste!<BAR>:set paste?<CR>
 
 "buffer delete
 map <leader>q :bd<CR>
+
+"map W to save
+command! W w
