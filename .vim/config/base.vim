@@ -77,3 +77,4 @@ map <leader>q :bd<CR>
 
 "map W to save
 command! W w
+command! Wqa wqa
