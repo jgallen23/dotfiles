@@ -2,6 +2,8 @@
 set -x CLICOLOR 1
 setenv EDITOR vim
 
+set PATH ~/bin $PATH
+
 function parse_git_branch
   # git branch outputs lines, the current branch is prefixed with a *
   set -l branch (git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/') 
@@ -29,7 +31,12 @@ function fish_prompt -d "Write out the prompt"
     printf ' %s%s%s' (set_color normal) (parse_git_branch)
   end
   printf '%s> ' (set_color normal)
+
+  if test $TMUX
+    tmux rename-window (basename (pwd))
+  end
 end
+
 
 # Load custom settings for current hostname
 set HOST_SPECIFIC_FILE ~/.config/fish/(hostname).fish
