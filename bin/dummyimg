@@ -1,0 +1,3 @@
+#!/bin/bash
+
+wget http://dummyimage.com/$1x$2/000/fff.png -O $1x$2.png
