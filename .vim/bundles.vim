@@ -25,5 +25,6 @@ Bundle 'jgallen23/grep.vim'
 Bundle 'jgallen23/runcode.vim'
 Bundle 'jgallen23/vim-bufsurf'
 Bundle 'groenewege/vim-less'
+Bundle 'mattn/zencoding-vim'
 
 filetype plugin indent on     " required!
