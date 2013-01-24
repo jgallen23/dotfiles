@@ -13,8 +13,8 @@
   ps=push
   d=diff --color
   dc=diff --color --cached
-  lg=log --graph --oneline --no-merges --pretty=format:'%Cred%h%Creset - %s %Cgreen(%an - %ci)%Creset %C(yellow)%d%Creset' --abbrev-commit
-  lf=log --name-only --oneline --no-merges --pretty=format:'%Cred%h%Creset - %s %Cgreen(%an - %ci)%Creset %C(yellow)%d%Creset' --abbrev-commit
+  lg=log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%an - %cr)%Creset %C(yellow)%d%Creset' --abbrev-commit --date=relative
+  lf=log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%an - %cr)%Creset %C(yellow)%d%Creset' --abbrev-commit --date=relative --name-only
   lbare=log --oneline --no-merges --pretty=format:'%s %d'
   lb=!git l --branches
   cmp=!sh -c 'git log --left-right --name-only --oneline --no-merges $0...'
