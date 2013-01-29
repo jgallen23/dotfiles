@@ -20,4 +20,5 @@ source ~/.vim/config/bufsurf.vim
 source ~/.vim/config/grep.vim
 source ~/.vim/config/php.vim
 source ~/.vim/config/zencoding.vim
+source ~/.vim/config/relative.vim
 
