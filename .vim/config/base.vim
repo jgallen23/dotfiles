@@ -39,10 +39,6 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
-"search
-map gs :%s:
-map ss :s:
-
 "indent
 vmap <Tab> >gv
 vmap <S-Tab> <gv

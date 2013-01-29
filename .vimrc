@@ -7,7 +7,7 @@ source ~/.vim/config/base.vim
 source ~/.vim/config/snippets.vim
 source ~/.vim/config/ctrlp.vim
 source ~/.vim/config/syntastic.vim
-source ~/.vim/config/easymotion.vim
+"source ~/.vim/config/easymotion.vim
 source ~/.vim/config/fugitive.vim
 source ~/.vim/config/markdown.vim
 source ~/.vim/config/tabs.vim
@@ -21,4 +21,5 @@ source ~/.vim/config/grep.vim
 source ~/.vim/config/php.vim
 source ~/.vim/config/zencoding.vim
 source ~/.vim/config/relative.vim
+source ~/.vim/config/search.vim
 
