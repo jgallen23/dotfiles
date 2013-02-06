@@ -38,6 +38,9 @@ nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
+nmap <silent> <C-c> :wincmd c<CR>
+nmap <silent> <C-n> :wincmd v<CR>
+nmap <silent> <C-m> :wincmd s<CR>
 
 "indent
 vmap <Tab> >gv
