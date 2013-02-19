@@ -96,3 +96,7 @@ end
 function tm
   t main
 end
+
+function cdf
+  pushd (find . -type d | grep -m 1 $argv)
+end
