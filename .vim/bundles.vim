@@ -26,5 +26,6 @@ Bundle 'jgallen23/vim-bufsurf'
 Bundle 'groenewege/vim-less'
 Bundle 'mattn/zencoding-vim'
 Bundle 'goldfeld/vim-seek'
+Bundle 'pzich/phtmlSwitch-vim'
 
 filetype plugin indent on     " required!
