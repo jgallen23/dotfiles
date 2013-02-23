@@ -24,6 +24,8 @@ set cursorline
 set relativenumber
 set mouse=a
 set list listchars=tab:→\ ,trail:·
+"center screen
+set so=999
 
 set tabstop=2
 set shiftwidth=2
