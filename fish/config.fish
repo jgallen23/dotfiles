@@ -2,7 +2,7 @@
 set -x CLICOLOR 1
 setenv EDITOR vim
 
-set PATH ~/bin $PATH
+set PATH ~/bin ~/dotfiles/git-extras/bin $PATH
 
 function parse_git_branch
   # git branch outputs lines, the current branch is prefixed with a *
