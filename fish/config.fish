@@ -32,9 +32,9 @@ function fish_prompt -d "Write out the prompt"
   end
   printf '%s> ' (set_color normal)
 
-  if test $TMUX
-    tmux rename-window (basename (pwd))
-  end
+  #if test $TMUX
+  #  tmux rename-window (basename (pwd))
+  #end
 end
 
 
