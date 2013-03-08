@@ -80,3 +80,5 @@ map <leader>q :bd<CR>
 "map W to save
 command! W w
 command! Wqa wqa
+
+let g:netrw_home=$HOME
