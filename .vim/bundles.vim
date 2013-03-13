@@ -27,5 +27,6 @@ Bundle 'groenewege/vim-less'
 Bundle 'mattn/zencoding-vim'
 Bundle 'goldfeld/vim-seek'
 Bundle 'pzich/phtmlSwitch-vim'
+Bundle 'duff/vim-bufonly'
 
 filetype plugin indent on     " required!
