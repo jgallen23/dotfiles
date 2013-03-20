@@ -2,7 +2,8 @@ let g:ctrlp_working_path_mode = 0
 nnoremap <silent> <space>  :CtrlPBuffer<CR>
 nnoremap <silent> \ :CtrlP<CR>
 nnoremap <silent> <Tab> :CtrlPCurFile<CR>
-let g:ctrlp_extensions = ['tag']
+
+"let g:ctrlp_extensions = ['tag']
 nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
 let g:ctrlp_custom_ignore = {
 	\ 'dir':  'node_modules$\|\.git$',
