@@ -55,3 +55,7 @@ tab() {
 }
 f(){ if [ "$PWD" != "$LPWD" ];then LPWD="$PWD"; tab; fi }; 
 export PROMPT_COMMAND=f;
+
+update-time() {
+  sudo ntpdate pool.ntp.org
+}
