@@ -10,12 +10,15 @@ if [ -f ~/.bash_env ]; then
 fi
 
 source ~/dotfiles/git-completion.bash
+source ~/dotfiles/git-extras/etc/bash_completion.sh
 
 export PATH=~/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
 export PYTHONPATH=/System/Library/Frameworks/Python.framework/Versions/2.6/Extras/lib/python:/Library/Python/2.6/site-packages:$PYTHONPATH
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
+CDPATH=$CDPATH:~:$HOME/code
+shopt -s cdspell
 
 c_cyan=`tput setaf 6`
 c_red=`tput setaf 1`
