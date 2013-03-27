@@ -59,3 +59,12 @@ export PROMPT_COMMAND=f;
 update-time() {
   sudo ntpdate pool.ntp.org
 }
+
+gi() {
+  if [ $# -eq 1 ]; then
+    npm i -D grunt-$*
+  else
+    local IFS=,;
+    eval npm i -D grunt-{"$*"};
+  fi
+}
