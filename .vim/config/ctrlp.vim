@@ -1,7 +1,7 @@
 let g:ctrlp_working_path_mode = 0
 nnoremap <silent> <space>  :CtrlPBuffer<CR>
 nnoremap <silent> \ :CtrlP<CR>
-nnoremap <silent> <Tab> :CtrlPCurFile<CR>
+nmap <silent> <leader>f :CtrlPCurFile<CR>
 
 "let g:ctrlp_extensions = ['tag']
 nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
