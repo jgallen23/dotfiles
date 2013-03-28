@@ -6,7 +6,7 @@ alias scpr="rsync --partial --progress --rsh=ssh"
 alias grephist='history | grep'
 alias grepps='ps aux | grep'
 
-sshkey() { cat ~/.ssh/id_rsa.pub | ssh $@ 'cat >> .ssh/authorized_keys'; }
+sshkey() { cat ~/.ssh/id_rsa.pub | ssh $@ 'mkdir -p ~/.ssh && cat >> .ssh/authorized_keys'; }
 
 alias free="free -m"
 alias s="screen -dR"
