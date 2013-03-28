@@ -54,7 +54,7 @@ tab() {
   echo -ne "\033]0;$DIR\007"
 }
 f(){ if [ "$PWD" != "$LPWD" ];then LPWD="$PWD"; tab; fi }; 
-export PROMPT_COMMAND=f;
+#export PROMPT_COMMAND=f;
 
 update-time() {
   sudo ntpdate pool.ntp.org

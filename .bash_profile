@@ -59,6 +59,12 @@ branch_color ()
 
 PS1='[\u] \[${c_green}\]\w\[${c_sgr0}\]\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]: '
 
+export HISTCONTROL=ignoredups:erasedups
+HISTFILESIZE=1000000000 HISTSIZE=1000000
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
