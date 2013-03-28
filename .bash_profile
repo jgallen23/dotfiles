@@ -69,3 +69,8 @@ bind '"\e[B":history-search-forward'
 
 #. ~/dotfiles/bin/z/z.sh
 #export TERM=screen-256color
+
+#if ssh and not in tmux, run tmux
+if [ -n $SSH_TTY ] && [ -z $TMUX ] && [ -f /usr/bin/tmux ]; then
+  tm
+fi
