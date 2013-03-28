@@ -1,4 +1,3 @@
-HISTFILESIZE=1000000000 HISTSIZE=1000000
 set HOSTNAME=`hostname`
 alias v='ls -lah'
 alias lv='ls -lah'
