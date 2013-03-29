@@ -1,0 +1,13 @@
+#!/bin/bash
+
+ARG=$1
+NAME=$2
+GUI="nogui"
+
+case $ARG in
+  list)
+    /Applications/VMware\ Fusion.app/Contents/Library/vmrun -T fusion $ARG
+    exit;;
+esac
+
+/Applications/VMware\ Fusion.app/Contents/Library/vmrun -T fusion $ARG $HOME/Documents/Virtual\ Machines.localized/$NAME.vmwarevm/$NAME.vmx $GUI
