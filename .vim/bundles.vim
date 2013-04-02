@@ -29,5 +29,6 @@ Bundle 'goldfeld/vim-seek'
 Bundle 'pzich/phtmlSwitch-vim'
 Bundle 'duff/vim-bufonly'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'kchmck/vim-coffee-script'
 
 filetype plugin indent on     " required!
