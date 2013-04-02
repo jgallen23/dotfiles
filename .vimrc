@@ -23,4 +23,5 @@ source ~/.vim/config/zencoding.vim
 source ~/.vim/config/relative.vim
 source ~/.vim/config/search.vim
 source ~/.vim/config/applescript.vim
+source ~/.vim/config/jade.vim
 
