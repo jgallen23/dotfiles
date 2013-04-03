@@ -5,8 +5,11 @@ NAME=$2
 GUI="nogui"
 
 case $ARG in
-  list)
-    /Applications/VMware\ Fusion.app/Contents/Library/vmrun -T fusion $ARG
+  list|ls)
+    ls -l $HOME/Documents/Virtual\ Machines.localized
+    exit;;
+  status)
+    /Applications/VMware\ Fusion.app/Contents/Library/vmrun -T fusion list
     exit;;
   stop)
     ARG="suspend"
