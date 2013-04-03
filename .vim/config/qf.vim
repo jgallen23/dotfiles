@@ -4,7 +4,7 @@ function! QFOpenAndClose()
 endfunction
 
 function! s:qf_setup()
-	noremap <buffer> <unique> <silent> o :call QFOpenAndClose()<CR>
+	noremap <buffer> <silent> o :call QFOpenAndClose()<CR>
 endfunction
 augroup vimrc-qf
 	autocmd!
