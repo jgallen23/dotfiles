@@ -3,7 +3,7 @@ let g:ctrlp_working_path_mode = 0
 "let g:ctrlp_extensions = ['tag']
 nnoremap <silent> <leader>fm :CtrlPMRUFiles<CR>
 let g:ctrlp_custom_ignore = {
-	\ 'dir':  'node_modules$\|\.git$\|\.meteor$',
+	\ 'dir':  'node_modules$\|\.git$\|\.meteor$\|\.svn',
 	\ 'file': '\.DS_Store$\|\.jpg$\|\.png$\|\.jpeg$\|\.gif$\|\.svg$'
 	\ }
 let g:ctrlp_regexp_search = 0
