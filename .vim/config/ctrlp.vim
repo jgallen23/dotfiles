@@ -1,7 +1,6 @@
 let g:ctrlp_working_path_mode = 0
 
 "let g:ctrlp_extensions = ['tag']
-nnoremap <silent> <leader>fm :CtrlPMRUFiles<CR>
 let g:ctrlp_custom_ignore = {
 	\ 'dir':  'node_modules$\|\.git$\|\.meteor$\|\.svn$',
 	\ 'file': '\.DS_Store$\|\.jpg$\|\.png$\|\.jpeg$\|\.gif$\|\.svg$'
@@ -25,8 +24,10 @@ endfunction
 command! FindReadme :call s:ctrlp_populate("readme")
 
 command! FindSameFile :call s:ctrlp_populate(expand('%:t:r'))
+nnoremap <silent> <leader>fm :CtrlPMRUFiles<CR>
 nmap <silent> <leader>fs :FindSameFile<CR>
 nmap <silent> <leader>fn :CtrlP node_modules<CR>
 nmap <silent> <leader>fc :CtrlPCurFile<CR>
+nmap <silent> <leader>fd :CtrlPDir<CR>
 nnoremap <silent> <space>  :CtrlPBuffer<CR>
 nnoremap <silent> \ :CtrlP<CR>
