@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+URL=http://lorempixel.com/$1/$2/$3/$4
+OUT=$1x$2$3$4.jpg
+wget $URL -O $OUT
