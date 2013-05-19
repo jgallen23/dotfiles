@@ -82,3 +82,4 @@ command! W w
 command! Wqa wqa
 
 let g:netrw_home=$HOME
+

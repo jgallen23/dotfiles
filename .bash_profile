@@ -74,3 +74,5 @@ bind '"\e[B":history-search-forward'
 if [ -n $SSH_TTY ] && [ -z $TMUX ] && [ -f /usr/bin/tmux ]; then
   tm
 fi
+
+#source ~/dotfiles/powerline/powerline/bindings/bash/powerline.sh

@@ -7,3 +7,6 @@
 [submodule "git-extras"]
 	path = git-extras
 	url = git://github.com/jgallen23/git-extras.git
+[submodule "powerline"]
+	path = powerline
+	url = git://github.com/Lokaltog/powerline.git
