@@ -12,3 +12,5 @@ ln -s $CWD/.jshintrc ~/
 ln -s $CWD/.ctags ~/
 ln -s $CWD/.tmux.conf ~/
 ln -s $CWD/bin ~/
+mkdir -p ~/.config
+ln -s $CWD/powerline-config ~/.config/powerline
