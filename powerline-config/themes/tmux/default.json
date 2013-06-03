@@ -8,7 +8,6 @@
 			"before": "ⓦ  "
 		},
 		"date": {
-			"before": "⌚ "
 		},
 		"email_imap_alert": {
 			"before": "✉ ",
@@ -20,6 +19,10 @@
 	},
 	"segments": {
 		"right": [
+			{
+				"module": "test",
+				"name": "testing"
+			},
 			{
 				"name": "date"
 			},

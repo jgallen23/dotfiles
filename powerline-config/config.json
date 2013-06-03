@@ -11,7 +11,10 @@
 				"soft": " "
 			}
 		},
-		"spaces": 1
+		"spaces": 1,
+		"paths": [
+      "/Users/jga/dotfiles/powerline-config/segments/"
+    ]
 	},
 	"ext": {
 		"ipython": {
