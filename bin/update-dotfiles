@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd ~/dotfiles && git pull origin master && git submodule update --init && ./symlinks
-vim +BundleInstall +BundleUpdate +qa
+vim +BundleClean +BundleInstall +BundleUpdate +qa
