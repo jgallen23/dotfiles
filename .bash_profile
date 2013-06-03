@@ -17,7 +17,7 @@ if [ -f /usr/local/bin/grunt ]; then
 fi
 
 export PATH=~/bin:~/dotfiles/git-extras/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
-export PYTHONPATH=/System/Library/Frameworks/Python.framework/Versions/2.6/Extras/lib/python:/Library/Python/2.6/site-packages:$PYTHONPATH
+export PYTHONPATH=~/dotfiles/powerline:/System/Library/Frameworks/Python.framework/Versions/2.6/Extras/lib/python:/Library/Python/2.6/site-packages:$PYTHONPATH
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
