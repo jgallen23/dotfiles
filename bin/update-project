@@ -1,0 +1,4 @@
+#!/bin/sh
+
+vimdiff Gruntfile.js ~/code/grunt-init-bower/root/Gruntfile.js
+vimdiff package.json ~/code/grunt-init-bower/root/package.json
