@@ -59,6 +59,14 @@ branch_color ()
 
 PS1='[\u@$(hostname)] \[${c_green}\]\w\[${c_sgr0}\]\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]: '
 
+f(){ 
+  if [ -n "$TMUX" ] && [ "$PWD" != "$LPWD" ];then 
+    LPWD="$PWD";
+    tmux rename-window ${PWD//*\//}; 
+  fi 
+};
+export PROMPT_COMMAND=f;
+
 export HISTCONTROL=ignoredups:erasedups
 HISTFILESIZE=1000000000 HISTSIZE=1000000
 shopt -s histappend
