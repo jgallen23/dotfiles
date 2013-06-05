@@ -60,9 +60,14 @@ branch_color ()
 PS1='[\u@$(hostname)] \[${c_green}\]\w\[${c_sgr0}\]\[$(branch_color)\]$(parse_git_branch)\[${c_sgr0}\]: '
 
 f(){ 
-  if [ -n "$TMUX" ] && [ "$PWD" != "$LPWD" ];then 
+  if [ -n "$TMUX" ] && [ "$PWD" != "$LPWD" ] && [ "$TMUX_FIXED" != "1" ];then 
     LPWD="$PWD";
-    tmux rename-window ${PWD//*\//}; 
+    WINDOW_NAME=`tmux lsw -F '#{window_name}|#{window_active}'`
+    if grep -q "\*|1" <<< "$WINDOW_NAME"; then
+      TMUX_FIXED="1"
+    else
+      tmux rename-window ${PWD//*\//};
+    fi
   fi 
 };
 export PROMPT_COMMAND=f;
