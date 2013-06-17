@@ -32,5 +32,6 @@ Bundle 'duff/vim-bufonly'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/nerdtree'
 
 filetype plugin indent on     " required!
