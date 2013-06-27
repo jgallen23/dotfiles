@@ -1,4 +1,9 @@
 #!/bin/sh
 
-vimdiff Gruntfile.js ~/code/grunt-init-bower/root/Gruntfile.js
-vimdiff package.json ~/code/grunt-init-bower/root/package.json
+TYPE=$1
+if [ -z "$TYPE" ]; then
+  TYPE="bower"
+fi
+
+vimdiff Gruntfile.js ~/code/grunt-init-$TYPE/root/Gruntfile.js
+vimdiff package.json ~/code/grunt-init-$TYPE/root/package.json
