@@ -89,3 +89,6 @@ bind '"\e[B":history-search-forward'
 #fi
 
 #source ~/dotfiles/powerline/powerline/bindings/bash/powerline.sh
+
+export LC_ALL=en_US.utf-8 
+export LANG="$LC_ALL"
