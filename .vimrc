@@ -28,4 +28,5 @@ source ~/.vim/config/applescript.vim
 source ~/.vim/config/jade.vim
 source ~/.vim/config/qf.vim
 source ~/.vim/config/ultisnips.vim
+source ~/.vim/config/javascriptfolds.vim
 
