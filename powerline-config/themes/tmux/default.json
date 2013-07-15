@@ -1,28 +1,13 @@
 {
 	"default_module": "powerline.segments.common",
 	"segment_data": {
-		"uptime": {
-			"before": "⇑  "
-		},
-		"external_ip": {
-			"before": "ⓦ  "
-		},
 		"date": {
 		},
-		"email_imap_alert": {
-			"before": "✉ ",
-			"args": {
-				"username": "",
-				"password": ""
-			}
-		}
+    "vms_running": {
+    }
 	},
 	"segments": {
 		"right": [
-			{
-				"module": "test",
-				"name": "testing"
-			},
 			{
 				"name": "date"
 			},
