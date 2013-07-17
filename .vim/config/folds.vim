@@ -10,3 +10,7 @@ function! JavaScriptFold()
 endfunction
 au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
+
+
+autocmd Syntax html,css,less setlocal foldmethod=indent
+autocmd Syntax javascript,html,css,less normal zR
