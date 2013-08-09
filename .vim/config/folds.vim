@@ -7,10 +7,14 @@ function! JavaScriptFold()
         return substitute(getline(v:foldstart), '{.*', '{...}', '')
     endfunction
     setl foldtext=FoldText()
+    normal zR
 endfunction
 au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 
 
 autocmd Syntax html,css,less setlocal foldmethod=indent
-autocmd Syntax javascript,html,css,less normal zR
+autocmd Syntax html,css,less normal zR
+
+
+map zy :normal zMzv<CR>
