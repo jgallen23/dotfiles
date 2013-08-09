@@ -21,7 +21,7 @@ export PYTHONPATH=~/dotfiles/powerline:/System/Library/Frameworks/Python.framewo
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
-CDPATH=$CDPATH:~:$HOME/code
+CDPATH=$CDPATH:~:$HOME/code:$HOME/clients
 shopt -s cdspell
 
 c_cyan=`tput setaf 6`
