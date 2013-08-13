@@ -33,5 +33,6 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'kchmck/vim-coffee-script'
 "Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/nerdtree'
+Bundle 'jgallen23/Color-Scheme-Test'
 
 filetype plugin indent on     " required!
