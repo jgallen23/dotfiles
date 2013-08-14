@@ -1,6 +1,7 @@
 set HOSTNAME=`hostname`
 alias v='ls -lah'
 alias lv='ls -lah'
+alias lat='ls -laht | less'
 alias scpr="rsync --partial --progress --rsh=ssh"
 
 alias grephist='history | grep'
@@ -63,6 +64,7 @@ update-time() {
 function gi() {
   npm install --save-dev grunt-"$@"
 }
+
 
 # Install a grunt-contrib plugin and save to devDependencies
 function gci() {
