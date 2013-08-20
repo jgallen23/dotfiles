@@ -3,7 +3,7 @@ source ~/.vim/bundles.vim
 syntax on
 filetype plugin indent on
 
-source ~/.vim/config/powerline.vim
+"source ~/.vim/config/powerline.vim
 source ~/.vim/config/base.vim
 "source ~/.vim/config/snippets.vim
 source ~/.vim/config/ctrlp.vim
