@@ -1,0 +1,26 @@
+#!/bin/bash
+
+proj=$1
+
+if [ -z "$proj" ]; then
+  echo "name/repo required"
+  exit 1
+fi
+echo $proj
+
+arr=(${proj/\// })
+name=${arr[0]}
+repo=${arr[1]}
+
+git clone git@github.com:$proj.git
+
+cd $repo
+git submodule update --init --recursive
+
+if [ -f "package.json" ]; then
+  npm install
+fi
+
+if [ -f "bower.json" ]; then
+  bower install
+fi
