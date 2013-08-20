@@ -1,5 +1,9 @@
 set background=dark
-colorscheme base16-tomorrow
+if hostname() == "localhost"
+  colorscheme ir_black
+else
+  colorscheme base16-tomorrow
+endif
 
 set ignorecase
 set smartcase
