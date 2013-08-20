@@ -12,9 +12,15 @@ arr=(${proj/\// })
 name=${arr[0]}
 repo=${arr[1]}
 
-git clone git@github.com:$proj.git
+if [ -d "$repo" ]; then
+  echo "$repo exists, updating..."
+  cd $repo
+  git pull
+else
+  git clone git@github.com:$proj.git
+  cd $repo
+fi
 
-cd $repo
 git submodule update --init --recursive
 
 if [ -f "package.json" ]; then
