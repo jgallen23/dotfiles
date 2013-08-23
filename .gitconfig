@@ -22,6 +22,7 @@
   su=submodule update --init --recursive
   unmerged=branch -a --no-merged
   merged=branch -a --merged
+  sup=branch --set-upstream master origin/master
 [push]
   default = current
 [color]
