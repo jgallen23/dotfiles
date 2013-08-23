@@ -15,7 +15,7 @@ repo=${arr[1]}
 if [ -d "$repo" ]; then
   echo "$repo exists, updating..."
   cd $repo
-  git pull
+  git fetch
 else
   git clone git@github.com:$proj.git
   cd $repo
