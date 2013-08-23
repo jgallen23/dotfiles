@@ -16,5 +16,7 @@ au FileType javascript setl fen
 autocmd Syntax html,css,less setlocal foldmethod=indent
 autocmd Syntax html,css,less normal zR
 
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 
 map zy :normal zMzv<CR>
