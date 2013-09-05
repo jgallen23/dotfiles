@@ -2,31 +2,46 @@
 
 proj=$1
 
-if [ -z "$proj" ]; then
-  echo "name/repo required"
-  exit 1
-fi
-echo $proj
+update_repo() {
+  git checkout master
 
-arr=(${proj/\// })
-name=${arr[0]}
-repo=${arr[1]}
+  git pull origin master
 
-if [ -d "$repo" ]; then
-  echo "$repo exists, updating..."
-  cd $repo
-  git fetch
+  echo "updating submodules"
+  git submodule update --init --recursive
+
+  if [ -f "package.json" ]; then
+    echo "updating node_modules"
+    npm install && npm update
+  fi
+
+  if [ -f "bower.json" ]; then
+    echo "updating bower"
+    bower install && bower update
+  fi
+}
+
+if [ -d ".git" ]; then
+  echo "updating repo"
+  git pull
+  update_repo
 else
-  git clone git@github.com:$proj.git
-  cd $repo
-fi
 
-git submodule update --init --recursive
+  if [ -z "$proj" ]; then
+    echo "name/repo required"
+    exit 1
+  fi
+  echo $proj
 
-if [ -f "package.json" ]; then
-  npm install
-fi
+  arr=(${proj/\// })
+  name=${arr[0]}
+  repo=${arr[1]}
 
-if [ -f "bower.json" ]; then
-  bower install
+  if [ ! -d "$repo" ]; then
+    git clone git@github.com:$proj.git
+    cd $repo
+  fi
+
+  update_repo
+
 fi
