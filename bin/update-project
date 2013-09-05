@@ -7,3 +7,4 @@ fi
 
 vimdiff Gruntfile.js ~/code/grunt-init-$TYPE/root/Gruntfile.js
 vimdiff package.json ~/code/grunt-init-$TYPE/root/package.json
+vimdiff bower.json ~/code/grunt-init-$TYPE/root/bower.json
