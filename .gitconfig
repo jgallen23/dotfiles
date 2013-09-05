@@ -23,6 +23,10 @@
   unmerged=branch -a --no-merged
   merged=branch -a --merged
   sup=branch --set-upstream master origin/master
+  pr = "!f() { git fetch -fu origin refs/pull/$1/head:pr/$1; } ; f"
+  prr = "!f() { git fetch -fu $1 refs/pull/$2/head:pr/$2; } ; f"
+  pru = "!f() { git fetch -fu upstream refs/pull/$1/head:pr/$1; } ; f"
+  pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 [push]
   default = current
 [color]
@@ -45,3 +49,5 @@
   autosetupmerge = true
 [core]
   pager = less -r
+[github]
+	user = jgallen23
