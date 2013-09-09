@@ -26,7 +26,15 @@ alias u2='cd ../..'
 
 gitcheck() {
 	for i in ~/code/*; do
-		(cd $i && (echo $i; git status -s))
+    echo
+    echo $i
+    cd $i
+    if [ -d ".git" ]; then
+      git fetch -q
+      git status -s
+    else
+      echo 'git not setup'
+    fi
 	done
 }
 
