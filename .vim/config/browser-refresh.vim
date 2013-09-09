@@ -1,9 +1,9 @@
 function! g:BrowserRefresh()
-  let tmp = system("browser-refresh")
+  let tmp = system("browser-refresh -b chrome-canary")
 endfunc
 
 function! g:BrowserRefreshCSS()
-  let tmp = system("browser-refresh --css")
+  let tmp = system("browser-refresh -b chrome-canary --css")
 endfunc
 
 map <silent> <leader>r :call g:BrowserRefresh()<CR>
