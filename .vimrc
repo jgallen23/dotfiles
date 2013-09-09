@@ -29,4 +29,5 @@ source ~/.vim/config/jade.vim
 source ~/.vim/config/qf.vim
 source ~/.vim/config/ultisnips.vim
 source ~/.vim/config/folds.vim
+source ~/.vim/config/browser-refresh.vim
 
