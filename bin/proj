@@ -19,6 +19,11 @@ update_repo() {
     echo "updating bower"
     bower install && bower update
   fi
+
+  if [ -f "Gruntfile.js" ]; then
+    echo "running grunt"
+    grunt
+  fi
 }
 
 if [ -d ".git" ]; then
@@ -31,11 +36,15 @@ else
     echo "name/repo required"
     exit 1
   fi
-  echo $proj
 
   arr=(${proj/\// })
   name=${arr[0]}
   repo=${arr[1]}
+
+  if [ -z "$repo" ]; then
+    echo "name/repo required"
+    exit 1
+  fi
 
   if [ ! -d "$repo" ]; then
     git clone git@github.com:$proj.git
