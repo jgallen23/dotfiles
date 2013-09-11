@@ -31,8 +31,7 @@ var addColumns = function(columns) {
 
 }
 
-if (url.indexOf('reports') != -1 && url.indexOf('#users') != -1) {
-
+var run = function() {
   addColumns(['Paid', 'Revenue', 'Personal Paid']);
 
   var r = { 'user-539189': 32, 'user-539188': 75, 'user-562949': 65, 'user-539190': 65, 'user-539185': 80, 'user-334881': 0 }
@@ -67,4 +66,19 @@ if (url.indexOf('reports') != -1 && url.indexOf('#users') != -1) {
   footer.append('<td class="td-billable-amount">'+formatToCurrency(totalPaid)+'</td>');
   footer.append('<td class="td-billable-amount">'+formatToCurrency(totalRev)+'</td>');
   footer.append('<td class="td-billable-amount">'+formatToCurrency(totalPersonalPaid)+'</td>');
+
+  $('.staff-img').hide();
 }
+
+if (url.indexOf('reports') != -1) {
+  if ($('#users-table').length != 0) {
+    run();
+  }
+  window.addEventListener('hashchange', function() {
+    if (window.location.hash === '#users') {
+      run();
+    }
+  });
+}
+
+
