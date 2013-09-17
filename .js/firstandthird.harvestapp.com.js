@@ -34,7 +34,7 @@ var addColumns = function(columns) {
 var run = function() {
   addColumns(['Paid', 'Revenue', 'Personal Paid']);
 
-  var r = { 'user-539189': 32, 'user-539188': 75, 'user-562949': 65, 'user-539190': 65, 'user-539185': 80, 'user-334881': 0 }
+  var r = { 'user-539189': 32, 'user-539188': 75, 'user-562949': 75, 'user-539190': 65, 'user-539185': 80, 'user-334881': 0 }
 
   var users = $('.r2-sort-row');
   var totalPaid = 0;
@@ -82,3 +82,10 @@ if (url.indexOf('reports') != -1) {
 }
 
 
+//$.ajax({
+  //dataType: 'json',
+  //url: '/projects/',
+  //success: function() {
+    //console.log(arguments);
+  //}
+//});
