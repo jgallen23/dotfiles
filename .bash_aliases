@@ -78,3 +78,5 @@ function gi() {
 function gci() {
   npm install --save-dev grunt-contrib-"$@"
 }
+
+alias fc="fd -r ~/code"

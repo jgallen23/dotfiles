@@ -93,3 +93,4 @@ bind '"\e[B":history-search-forward'
 export LC_ALL=en_US.utf-8 
 export LANG="$LC_ALL"
 source ~/dotfiles/nvm/nvm.sh
+eval "$(~/dotfiles/vendor/fa/bin/fa --init)"

@@ -16,3 +16,6 @@
 [submodule "dotjs"]
 	path = dotjs
 	url = https://github.com/defunkt/dotjs
+[submodule "vendor/fa"]
+	path = vendor/fa
+	url = git@github.com:firstandthird/fa.git
