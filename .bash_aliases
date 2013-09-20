@@ -80,3 +80,4 @@ function gci() {
 }
 
 alias fc="fd -r ~/code"
+alias f="fat"
