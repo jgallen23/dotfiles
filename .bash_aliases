@@ -24,20 +24,6 @@ alias of="open ."
 alias u='cd ..'
 alias u2='cd ../..'
 
-gitcheck() {
-	for i in ~/code/*; do
-    echo
-    echo $i
-    cd $i
-    if [ -d ".git" ]; then
-      git fetch -q
-      git status -s
-    else
-      echo 'git not setup'
-    fi
-	done
-}
-
 alias chromedev="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security"
 alias timemachine="/System/Library/CoreServices/backupd.bundle/Contents/Resources/backupd-helper &"
 

@@ -1,0 +1,32 @@
+#!/bin/bash
+
+
+check_dir() {
+  DIR=$1
+  echo
+  echo $DIR
+  echo '-----------------------------'
+  echo ''
+  cd $DIR
+  if [ -d ".git" ]; then
+    git fetch -q
+    echo "Commits not pushed to master"
+    echo "---------------------------"
+    git log origin/master..master
+    echo "Modified files"
+    echo "--------------"
+    git status -s
+  else
+    echo 'git not initialized'
+  fi
+}
+
+recursive_check() {
+  DIR=$1
+  for i in $DIR/*; do
+    check_dir $i
+  done
+}
+
+check_dir ~/dotfiles/
+recursive_check ~/code
