@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DIR=~/code
+echo "Github Issues"
+echo "============="
+
+for i in $DIR/*; do
+
+  cd $i
+  if [ -d ".git" ]; then
+    echo ""
+    ghi list
+  fi
+
+done
