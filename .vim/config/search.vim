@@ -1,3 +1,3 @@
-map <leader>g :%s:
-map <leader>s :s:
+"map <leader>g :%s:
+"map <leader>s :s:
 

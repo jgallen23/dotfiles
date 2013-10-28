@@ -1,1 +1,1 @@
-map <leader>n :tabnew<CR>
+"map <leader>n :tabnew<CR>
