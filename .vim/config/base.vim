@@ -91,3 +91,5 @@ let g:netrw_home=$HOME
 map <leader>o :set cursorcolumn!<CR>
 
 set previewheight=25
+
+autocmd VimEnter * NERDTree | wincmd p
