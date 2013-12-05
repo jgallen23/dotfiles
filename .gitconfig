@@ -15,7 +15,7 @@
   dc=diff --color --cached
   dw=diff --color-words
   dwc=diff --color-words --cached
-  lg=log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%an - %cr)%Creset %C(yellow)%d%Creset' --abbrev-commit --date=relative
+  lg=log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%an - %cr)%Creset %C(yellow)%d%Creset' --abbrev-commit --date=relative
   lf=log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%an - %cr)%Creset %C(yellow)%d%Creset' --abbrev-commit --date=relative --name-only
   lbare=log --oneline --no-merges --pretty=format:'%s %d'
   lb=!git l --branches
