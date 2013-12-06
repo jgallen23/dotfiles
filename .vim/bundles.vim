@@ -7,7 +7,8 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-markdown'
+"Bundle 'tpope/vim-markdown'
+Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-fugitive'
 Bundle 'SirVer/ultisnips'
 Bundle 'jgallen23/vim-javascript'
