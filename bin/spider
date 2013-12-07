@@ -1,6 +1,7 @@
 #!/bin/bash
 
-wget --spider -r -l1 $1 2>&1 \
+echo "Spidering $1... (this may take awhile)"
+wget --spider -r $1 2>&1 \
   | grep '^--' | awk '{ print $3 }' \
   | grep -v '\.\(css\|js\|png\|gif\|jpg\|ico\|txt\)' \
   | sort | uniq
