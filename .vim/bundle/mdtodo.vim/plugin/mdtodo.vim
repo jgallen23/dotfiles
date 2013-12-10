@@ -14,6 +14,22 @@ function! mdtodo#done_down()
   sort /++/
 endfunction
 
+function! mdtodo#add_tag(tag)
+  let tag = ' #' . a:tag
+  let cur_line = getline(".")
+  let new_line = cur_line . tag
+  call setline(".", new_line)
+  return 1
+endfunction
+
+function! mdtodo#remove_tag(tag)
+  let tag = ' #' . a:tag
+  let cur_line = getline(".")
+  let new_line = substitute(cur_line, tag, "", "g")
+  call setline('.', new_line)
+  return 1
+endfunction
+
 function! mdtodo#syntax()
   syn match mdtodoActiveItem /^\s*--\s/
   hi link mdtodoActiveItem Keyword
