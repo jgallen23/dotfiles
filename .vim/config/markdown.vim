@@ -21,6 +21,11 @@ function! s:markdown_setup()
   noremap <silent> <leader>tw :TodoWeek<CR>
   noremap <silent> <leader>ta :TodoAll<CR>
   noremap <silent> <leader>tn :TodoNext<CR>
+
+  noremap <silent> <leader>an :call mdtodo#toggle_tag('next')<CR>
+  noremap <silent> <leader>aw :call mdtodo#remove_tag('today') \| call mdtodo#add_tag('week')<CR>
+  noremap <silent> <leader>at :call mdtodo#remove_tag('week') \| call mdtodo#add_tag('today')<CR>
+
   setlocal list listchars=tab:\ \ ,trail:·
 endfunction
 
