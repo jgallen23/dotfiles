@@ -32,9 +32,35 @@ function! mdtodo#syntax()
 
 endfunction
 
+function! mdtodo#newline(offset)
+  let lnum = line('.')
+  let line = getline('.')
+  let startlnum = lnum+a:offset
+  call append(startlnum, '')
+  execute startlnum+1
+  if line =~# "[-+][-+] "
+    call setline(startlnum+1, "-- ")
+    execute "normal A"
+  endif
+  return "\<End>"
+
+endfunction
+
+function! mdtodo#mapping()
+  if mapcheck("o", "n") == ''
+    nmap <silent> <buffer> o :call mdtodo#newline(0)<CR>
+    nmap <silent> <buffer> O :call mdtodo#newline(-1)<CR>
+  endif
+  if mapcheck("\<CR>", "i") == ''
+    imap <silent> <buffer> <CR> :call mdtodo#newline()<CR>
+  endif
+
+endfunction
+
 
 function! mdtodo#init()
   map <buffer> <silent> <leader><space> :call mdtodo#toggle()<CR>
+  call mdtodo#mapping()
   call mdtodo#syntax()
 endfunction
 
