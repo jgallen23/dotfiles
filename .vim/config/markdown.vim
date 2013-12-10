@@ -1,5 +1,6 @@
 command! TodoToday call Grep('^\s*--\s.*#today')
 command! TodoWeek call Grep('^\s*--\s.*#week')
+command! TodoNext call Grep('^\s*--\s.*#next')
 command! TodoAll call Grep('^\s*--\s')
 command! Todos call s:open_todos()
 
@@ -19,6 +20,7 @@ function! s:markdown_setup()
   noremap <silent> <leader>tt :TodoToday<CR>
   noremap <silent> <leader>tw :TodoWeek<CR>
   noremap <silent> <leader>ta :TodoAll<CR>
+  noremap <silent> <leader>tn :TodoNext<CR>
   setlocal list listchars=tab:\ \ ,trail:·
 endfunction
 
