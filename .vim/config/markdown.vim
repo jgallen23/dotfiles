@@ -19,6 +19,7 @@ function! s:markdown_setup()
   noremap <silent> <leader>tt :TodoToday<CR>
   noremap <silent> <leader>tw :TodoWeek<CR>
   noremap <silent> <leader>ta :TodoAll<CR>
+  setlocal list listchars=tab:\ \ ,trail:·
 endfunction
 
 augroup vimrc-markdown
