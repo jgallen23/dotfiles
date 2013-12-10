@@ -19,7 +19,15 @@ function! mdtodo#syntax()
   hi link mdtodoActiveItem Identifier
   syn match mdtodoCompleteItem /^\s*++\s.*$/
   hi link mdtodoCompleteItem Comment
-  syn cluster mkdNonListItem contains=htmlItalic,htmlBold,htmlBoldItalic,mkdFootnotes,mkdID,mkdURL,mkdLink,mkdLinkDef,mkdLineBreak,mkdBlockquote,mkdCode,mkdIndentCode,mkdListItem,mkdRule,htmlH1,htmlH2,htmlH3,htmlH4,htmlH5,htmlH6,mdtodoActiveItem,mdtodoCompleteItem
+
+  syn match mdtodoToday /#today/
+  hi link mdtodoToday Search
+  syn match mdtodoWeek /#week/
+  hi link mdtodoWeek Keyword
+  syn match mdtodoNext /#next/
+  hi link mdtodoNext Label
+
+  syn cluster mkdNonListItem contains=htmlItalic,htmlBold,htmlBoldItalic,mkdFootnotes,mkdID,mkdURL,mkdLink,mkdLinkDef,mkdLineBreak,mkdBlockquote,mkdCode,mkdIndentCode,mkdListItem,mkdRule,htmlH1,htmlH2,htmlH3,htmlH4,htmlH5,htmlH6,mdtodoActiveItem,mdtodoCompleteItem,mdtodoToday
   setlocal comments=b:*,b:+,b:-,b:--
 
 endfunction
