@@ -1,6 +1,13 @@
 command! TodoToday call Grep('^\s*--\s.*#today')
 command! TodoWeek call Grep('^\s*--\s.*##week')
 command! TodoAll call Grep('^\s*--\s')
+command! Todos call s:open_todos()
+
+function! s:open_todos()
+  execute 'cd '.resolve(expand('~/Dropbox/Notes'))
+  e tasks/computer.md
+  NERDTree
+endfunction
 
 function! s:markdown_setup()
 	setlocal wrap
