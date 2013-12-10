@@ -3,6 +3,7 @@ command! TodoWeek call Grep('^\s*--\s.*#week')
 command! TodoNext call Grep('^\s*--\s.*#next')
 command! TodoAll call Grep('^\s*--\s')
 command! Todos call s:open_todos()
+command! TodoArchive call marktodo#done_down()
 
 function! s:open_todos()
   execute 'cd '.resolve(expand('~/Dropbox/Notes'))
@@ -22,9 +23,9 @@ function! s:markdown_setup()
   noremap <silent> <leader>ta :TodoAll<CR>
   noremap <silent> <leader>tn :TodoNext<CR>
 
-  noremap <silent> <leader>an :call mdtodo#toggle_tag('next')<CR>
-  noremap <silent> <leader>aw :call mdtodo#remove_tag('today') \| call mdtodo#add_tag('week')<CR>
-  noremap <silent> <leader>at :call mdtodo#remove_tag('week') \| call mdtodo#add_tag('today')<CR>
+  noremap <silent> <leader>an :call marktodo#toggle_tag('next')<CR>
+  noremap <silent> <leader>aw :call marktodo#remove_tag('today') \| call marktodo#add_tag('week')<CR>
+  noremap <silent> <leader>at :call marktodo#remove_tag('week') \| call marktodo#add_tag('today')<CR>
 
   setlocal list listchars=tab:\ \ ,trail:·
 endfunction

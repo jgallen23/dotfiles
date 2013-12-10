@@ -33,6 +33,6 @@ Bundle 'jgallen23/Color-Scheme-Test'
 Bundle 'mikewest/vimroom'
 Bundle 'int3/vim-extradite'
 Bundle 'itspriddle/vim-marked'
-Bundle 'jgallen23/mdtodo.vim'
+Bundle 'jgallen23/marktodo.vim'
 
 filetype plugin indent on     " required!
