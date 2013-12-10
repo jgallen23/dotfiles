@@ -16,18 +16,22 @@ endfunction
 
 function! mdtodo#syntax()
   syn match mdtodoActiveItem /^\s*--\s/
-  hi link mdtodoActiveItem Identifier
+  hi link mdtodoActiveItem Keyword
   syn match mdtodoCompleteItem /^\s*++\s.*$/
   hi link mdtodoCompleteItem Comment
 
-  syn match mdtodoToday /#today/
-  hi link mdtodoToday Search
-  syn match mdtodoWeek /#week/
-  hi link mdtodoWeek Keyword
-  syn match mdtodoNext /#next/
+  syn match mdtodoTodayLine /#today/
+  syn match mdtodoToday +--\%(.*#today\)\@=+
+  hi link mdtodoToday Identifier
+  syn match mdtodoWeek +--\%(.*#week\)\@=+
+  hi link mdtodoWeek Label
+  syn match mdtodoNext +--\%(.*#next\)\@=+
   hi link mdtodoNext Search
 
-  syn cluster mkdNonListItem contains=htmlItalic,htmlBold,htmlBoldItalic,mkdFootnotes,mkdID,mkdURL,mkdLink,mkdLinkDef,mkdLineBreak,mkdBlockquote,mkdCode,mkdIndentCode,mkdListItem,mkdRule,htmlH1,htmlH2,htmlH3,htmlH4,htmlH5,htmlH6,mdtodoActiveItem,mdtodoCompleteItem,mdtodoToday,mdtodoWeek,mdtodoNext
+  syn match mdtodoTag /#\w\+/
+  hi link mdtodoTag Comment
+
+  syn cluster mkdNonListItem contains=htmlItalic,htmlBold,htmlBoldItalic,mkdFootnotes,mkdID,mkdURL,mkdLink,mkdLinkDef,mkdLineBreak,mkdBlockquote,mkdCode,mkdIndentCode,mkdListItem,mkdRule,htmlH1,htmlH2,htmlH3,htmlH4,htmlH5,htmlH6,mdtodoActiveItem,mdtodoCompleteItem,mdtodoToday,mdtodoWeek,mdtodoNext,mdtodoTag
   setlocal comments=b:*,b:+,b:-,b:--
 
 endfunction
