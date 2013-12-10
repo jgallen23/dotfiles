@@ -30,6 +30,17 @@ function! mdtodo#remove_tag(tag)
   return 1
 endfunction
 
+function! mdtodo#toggle_tag(tag)
+  let tag = ' #' . a:tag
+  let cur_line = getline(".")
+  if cur_line =~# tag
+    call mdtodo#remove_tag(a:tag)
+  else
+    call mdtodo#add_tag(a:tag)
+  endif
+  return 1
+endfunction
+
 function! mdtodo#syntax()
   syn match mdtodoActiveItem /^\s*--\s/
   hi link mdtodoActiveItem Keyword
