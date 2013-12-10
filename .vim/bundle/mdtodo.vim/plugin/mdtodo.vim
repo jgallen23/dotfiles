@@ -1,4 +1,4 @@
-
+command! TodoArchive call mdtodo#done_down()
 
 function! mdtodo#toggle()
   let line = getline(".")
@@ -8,6 +8,10 @@ function! mdtodo#toggle()
     let line = substitute(line, "++ ", "-- " ,"g")
   endif
   call setline(".", line)
+endfunction
+
+function! mdtodo#done_down()
+  sort /++/
 endfunction
 
 function! mdtodo#syntax()
