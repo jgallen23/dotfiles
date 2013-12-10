@@ -1,5 +1,5 @@
 command! TodoToday call Grep('^\s*--\s.*#today')
-command! TodoWeek call Grep('^\s*--\s.*##week')
+command! TodoWeek call Grep('^\s*--\s.*#week')
 command! TodoAll call Grep('^\s*--\s')
 command! Todos call s:open_todos()
 
