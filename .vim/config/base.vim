@@ -17,6 +17,9 @@ let maplocalleader="<"
 set ruler
 set wrap!
 set guioptions-=T
+set guioptions-=r
+set guioptions-=L
+
 set smartindent
 set cmdheight=1
 set laststatus=2
