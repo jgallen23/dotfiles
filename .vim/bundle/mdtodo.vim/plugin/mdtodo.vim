@@ -25,7 +25,7 @@ function! mdtodo#syntax()
   syn match mdtodoWeek /#week/
   hi link mdtodoWeek Keyword
   syn match mdtodoNext /#next/
-  hi link mdtodoNext Label
+  hi link mdtodoNext Search
 
   syn cluster mkdNonListItem contains=htmlItalic,htmlBold,htmlBoldItalic,mkdFootnotes,mkdID,mkdURL,mkdLink,mkdLinkDef,mkdLineBreak,mkdBlockquote,mkdCode,mkdIndentCode,mkdListItem,mkdRule,htmlH1,htmlH2,htmlH3,htmlH4,htmlH5,htmlH6,mdtodoActiveItem,mdtodoCompleteItem,mdtodoToday,mdtodoWeek,mdtodoNext
   setlocal comments=b:*,b:+,b:-,b:--
