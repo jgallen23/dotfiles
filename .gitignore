@@ -7,4 +7,5 @@ fish/fishd*
 .vim/bundle/*
 .vim/bundle-old
 !.vim/bundle/vundle
+!.vim/bundle/mdtodo.vim
 .vim/view
