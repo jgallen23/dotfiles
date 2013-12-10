@@ -67,4 +67,8 @@ function gci() {
 
 alias fc="fd -r ~/code -d 1"
 alias fl="fd -r ~/clients -d 2"
-alias notes="cd ~/Dropbox/Notes && vim"
+function notes() {
+  cd ~/Dropbox/Notes
+  tmux rename-window "notes"
+  vim tasks/computer.md
+}
