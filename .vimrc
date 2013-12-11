@@ -11,7 +11,6 @@ source ~/.vim/config/syntastic.vim
 source ~/.vim/config/fugitive.vim
 source ~/.vim/config/markdown.vim
 source ~/.vim/config/tabs.vim
-source ~/.vim/config/projects.vim
 source ~/.vim/config/wrap.vim
 source ~/.vim/config/nerdcommenter.vim
 source ~/.vim/config/nerdtree.vim
@@ -26,4 +25,4 @@ source ~/.vim/config/qf.vim
 source ~/.vim/config/ultisnips.vim
 source ~/.vim/config/folds.vim
 source ~/.vim/config/browser-refresh.vim
-
+source ~/.vim/config/projects.vim
