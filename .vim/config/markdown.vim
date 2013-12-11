@@ -14,8 +14,8 @@ endfunction
 function! s:markdown_setup()
 	setlocal wrap
 	setlocal noexpandtab
-  noremap <buffer> <unique> <silent> k gk
-  noremap <buffer> <unique> <silent> j gj
+  noremap <buffer> <silent> k gk
+  noremap <buffer> <silent> j gj
   noremap <silent> <up> :call SwapUp()<CR>
   noremap <silent> <down> :call SwapDown()<CR>
   noremap <silent> <leader>tt :TodoToday<CR>
