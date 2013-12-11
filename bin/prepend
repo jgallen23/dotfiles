@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cat - $1 > /tmp/prepend.tmp && mv /tmp/prepend.tmp $1
