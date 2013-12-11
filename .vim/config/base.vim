@@ -96,3 +96,6 @@ map <leader>o :set cursorcolumn!<CR>
 set previewheight=25
 
 autocmd VimEnter * NERDTree | wincmd p
+command! SyntaxMe echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+      \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+      \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"
