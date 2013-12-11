@@ -18,14 +18,14 @@ function! s:markdown_setup()
   noremap <buffer> <silent> j gj
   noremap <silent> <up> :call SwapUp()<CR>
   noremap <silent> <down> :call SwapDown()<CR>
-  noremap <silent> <leader>tt :TodoToday<CR>
-  noremap <silent> <leader>tw :TodoWeek<CR>
-  noremap <silent> <leader>ta :TodoAll<CR>
-  noremap <silent> <leader>tn :TodoNext<CR>
+  noremap <silent> <leader>st :TodoToday<CR>
+  noremap <silent> <leader>sw :TodoWeek<CR>
+  noremap <silent> <leader>sa :TodoAll<CR>
+  noremap <silent> <leader>sn :TodoNext<CR>
 
-  noremap <silent> <leader>an :call marktodo#toggle_tag('next')<CR>
-  noremap <silent> <leader>aw :call marktodo#remove_tag('today') \| call marktodo#add_tag('week')<CR>
-  noremap <silent> <leader>at :call marktodo#remove_tag('week') \| call marktodo#add_tag('today')<CR>
+  noremap <silent> <leader>tn :call marktodo#toggle_tag('next')<CR>
+  noremap <silent> <leader>tw :call marktodo#remove_tag('today') \| call marktodo#add_tag('week')<CR>
+  noremap <silent> <leader>tt :call marktodo#remove_tag('week') \| call marktodo#add_tag('today')<CR>
 
   setlocal list listchars=tab:\ \ ,trail:·
 endfunction
