@@ -68,5 +68,5 @@ function gci() {
 alias fc="fd -r ~/code -d 1"
 alias fl="fd -r ~/clients -d 2"
 function notes() {
-  ./Dropbox/Notes/scripts/tmux
+  ~/Dropbox/Notes/scripts/tmux
 }
