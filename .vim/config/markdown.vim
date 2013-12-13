@@ -27,6 +27,8 @@ function! s:markdown_setup()
   noremap <silent> <leader>tw :call marktodo#remove_tag('today') \| call marktodo#add_tag('week')<CR>
   noremap <silent> <leader>tt :call marktodo#remove_tag('week') \| call marktodo#add_tag('today')<CR>
 
+  nmap <CR> :OpenUrl<CR>
+
   setlocal list listchars=tab:\ \ ,trail:·
 endfunction
 
