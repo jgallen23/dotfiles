@@ -16,8 +16,8 @@ function! s:markdown_setup()
 	setlocal noexpandtab
   noremap <buffer> <silent> k gk
   noremap <buffer> <silent> j gj
-  noremap <silent> <up> :call SwapUp()<CR>
-  noremap <silent> <down> :call SwapDown()<CR>
+  noremap <buffer> <silent> <up> :call SwapUp()<CR>
+  noremap <buffer> <silent> <down> :call SwapDown()<CR>
   noremap <silent> <leader>ft :TodoToday<CR>
   noremap <silent> <leader>fw :TodoWeek<CR>
   noremap <silent> <leader>fa :TodoAll<CR>
@@ -27,7 +27,7 @@ function! s:markdown_setup()
   noremap <silent> <leader>tw :call marktodo#remove_tag('today') \| call marktodo#add_tag('week')<CR>
   noremap <silent> <leader>tt :call marktodo#remove_tag('week') \| call marktodo#add_tag('today')<CR>
 
-  nmap <CR> :OpenUrl<CR>
+  nmap <buffer> <CR> :OpenUrl<CR>
 
   setlocal list listchars=tab:\ \ ,trail:·
 endfunction
