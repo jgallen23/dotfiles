@@ -34,5 +34,6 @@ Bundle 'mikewest/vimroom'
 Bundle 'int3/vim-extradite'
 Bundle 'itspriddle/vim-marked'
 Bundle 'jgallen23/marktodo.vim'
+Bundle 'vim-scripts/visSum.vim'
 
 filetype plugin indent on     " required!
