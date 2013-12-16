@@ -22,6 +22,7 @@ function! s:markdown_setup()
   noremap <silent> <leader>fw :TodoWeek<CR>
   noremap <silent> <leader>fa :TodoAll<CR>
   noremap <silent> <leader>fn :TodoNext<CR>
+  noremap <silent> <leader>a :TodoArchive<CR>
 
   noremap <silent> <leader>tn :call marktodo#toggle_tag('next')<CR>
   noremap <silent> <leader>tw :call marktodo#remove_tag('today') \| call marktodo#toggle_tag('week')<CR>
