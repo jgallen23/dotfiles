@@ -1,9 +1,14 @@
-command! TodoToday call Grep('^\s*--\s.*#today')
-command! TodoWeek call Grep('^\s*--\s.*#week')
-command! TodoNext call Grep('^\s*--\s.*#next')
+function! s:search(tag)
+  call Grep('^\s*--\s.*#'.a:tag)
+endfunction
+command! TodoToday call s:search('today')
+command! TodoWeek call s:search('week')
+command! TodoNext call s:search('next')
 command! TodoAll call Grep('^\s*--\s')
 command! Todos call s:open_todos()
 command! TodoArchive call marktodo#done_down()
+
+command! -nargs=1 TodoSearchTag call s:search(<f-args>)
 
 function! s:open_todos()
   execute 'cd '.resolve(expand('~/Dropbox/Notes'))
