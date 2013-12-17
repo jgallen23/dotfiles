@@ -9,7 +9,7 @@ set ignorecase
 set smartcase
 set hidden
 set textwidth=0 "disable auto wrapping
-"set clipboard=unnamed "mac clipboard sync
+set clipboard=unnamed "mac clipboard sync
 set nobackup
 set noswapfile
 let mapleader=","
