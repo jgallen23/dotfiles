@@ -93,5 +93,6 @@ bind '"\e[B":history-search-forward'
 export LC_ALL=en_US.utf-8 
 export LANG="$LC_ALL"
 source ~/dotfiles/nvm/nvm.sh
+[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 FA_INTERACTIVE=1
 eval "$(~/dotfiles/vendor/fa/bin/fa --init)"
