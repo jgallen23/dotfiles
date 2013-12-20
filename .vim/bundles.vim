@@ -35,5 +35,6 @@ Bundle 'int3/vim-extradite'
 Bundle 'itspriddle/vim-marked'
 Bundle 'jgallen23/marktodo.vim'
 Bundle 'vim-scripts/visSum.vim'
+Bundle 'dhruvasagar/vim-table-mode'
 
 filetype plugin indent on     " required!
