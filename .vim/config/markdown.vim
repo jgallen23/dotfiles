@@ -42,4 +42,4 @@ augroup vimrc-markdown
 	autocmd!
 	autocmd FileType mkd call s:markdown_setup()
 augroup END
-autocmd Syntax mkd normal zR
+let g:vim_markdown_folding_disabled=1
