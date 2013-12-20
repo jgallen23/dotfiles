@@ -1,3 +1,3 @@
-"map <leader>t :NERDTree<CR>
-"map <leader>f :NERDTreeFind<CR>
+map <leader>nt :NERDTree<CR>
+map <leader>nf :NERDTreeFind<CR>
 let NERDTreeWinSize=25
