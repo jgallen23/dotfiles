@@ -2,7 +2,7 @@ let g:ctrlp_working_path_mode = 0
 
 "let g:ctrlp_extensions = ['tag']
 let g:ctrlp_custom_ignore = {
-	\ 'dir':  'node_modules$\|\.git$\|\.meteor$\|\.svn$',
+	\ 'dir':  'node_modules$\|\.git$\|\.meteor$\|\.svn$\|dist$',
 	\ 'file': '\.DS_Store$\|\.jpg$\|\.png$\|\.jpeg$\|\.gif$\|\.svg$'
 	\ }
 let g:ctrlp_regexp_search = 0
