@@ -72,7 +72,3 @@ function notes() {
   tmux rename-window "notes*"
   vim tasks/computer.md
 }
-function notes-now() {
-  ~/Dropbox/Notes/scripts/now
-  notes
-}
