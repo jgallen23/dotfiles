@@ -52,6 +52,9 @@ nmap <silent> <C-c> :wincmd c<CR>
 nmap <silent> <C-y> :wincmd v<CR>
 nmap <silent> <C-n> :wincmd s<CR>
 
+nmap <silent> <C-x> :bp\|bd #<CR>
+
+
 "indent
 vmap <Tab> >gv
 vmap <S-Tab> <gv
