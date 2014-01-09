@@ -15,3 +15,9 @@ augroup vimrc-git
 	autocmd!
 	autocmd FileType gitcommit call s:fugitive_setup()
 augroup END
+
+
+command! Gd Git! diff --no-ext-diff
+command! Gdc Git! diff --no-ext-diff --cached
+
+
