@@ -1,6 +1,7 @@
 function! GitWriteCommit()
 	w
 	bd
+  Gstatus
 endfunction
 function! s:fugitive_setup()
 	map <silent> <buffer> W :call GitWriteCommit()<CR>
