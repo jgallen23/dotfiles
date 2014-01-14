@@ -51,7 +51,6 @@ function! s:markdown_setup()
 
 
   nmap <buffer> <CR> :OpenUrl<CR>
-  au BufWritePost *.md :TodoSearch
 
   setlocal list listchars=tab:\ \ ,trail:·
 endfunction
@@ -60,4 +59,5 @@ augroup vimrc-markdown
 	autocmd!
 	autocmd FileType mkd call s:markdown_setup()
 augroup END
+au BufWritePost *.md :TodoSearch
 let g:vim_markdown_folding_disabled=1
