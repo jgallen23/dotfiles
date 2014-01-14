@@ -1,12 +1,26 @@
-function! s:search(tag)
-  call Grep('^\s*--\s.*#'.a:tag)
+let g:marktodo_search = ''
+
+function! s:default_search()
+  if g:marktodo_search != ''
+    call s:search(g:marktodo_search)
+  endif
 endfunction
+
+function! s:search(tag)
+  let g:marktodo_search = a:tag
+  call Grep('^\s*--\s.*#'.a:tag)
+  wincmd k
+endfunction
+
 command! TodoToday call s:search('today')
 command! TodoWeek call s:search('week')
 command! TodoNext call s:search('next')
 command! TodoAll call Grep('^\s*--\s')
 command! Todos call s:open_todos()
 command! TodoArchive call marktodo#done_down()
+command! TodoSearch call s:default_search()
+
+
 
 command! -nargs=1 TodoSearchTag call s:search(<f-args>)
 
@@ -33,7 +47,11 @@ function! s:markdown_setup()
   noremap <silent> <leader>tw :call marktodo#remove_tag('today') \| call marktodo#toggle_tag('week')<CR>
   noremap <silent> <leader>tt :call marktodo#remove_tag('week') \| call marktodo#toggle_tag('today')<CR>
 
+  noremap <silent> <leader>s :TodoSearch<CR>
+
+
   nmap <buffer> <CR> :OpenUrl<CR>
+  au BufWritePost *.md :TodoSearch
 
   setlocal list listchars=tab:\ \ ,trail:·
 endfunction
