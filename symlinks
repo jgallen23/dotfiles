@@ -12,6 +12,7 @@ ln -s $CWD/.jshintrc ~/
 ln -s $CWD/.ctags ~/
 ln -s $CWD/.tmux.conf ~/
 ln -s $CWD/bin ~/
+ln -s $CWD/.gh.json ~/
 rm -rf ~/.nvm
 ln -s $CWD/nvm ~/.nvm
 mkdir -p ~/.config
