@@ -53,6 +53,7 @@ function! s:markdown_setup()
   nmap <buffer> <CR> :OpenUrl<CR>
 
   setlocal list listchars=tab:\ \ ,trail:·
+  setlocal spell
 endfunction
 
 augroup vimrc-markdown
