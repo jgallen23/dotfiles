@@ -12,6 +12,10 @@ function! s:search(tag)
   wincmd k
 endfunction
 
+function! s:update_search()
+  call system("./scripts/searches")
+endfunction
+
 command! TodoToday call s:search('today')
 command! TodoWeek call s:search('week')
 command! TodoNext call s:search('next')
@@ -19,6 +23,7 @@ command! TodoAll call Grep('^\s*--\s')
 command! Todos call s:open_todos()
 command! TodoArchive call marktodo#done_down()
 command! TodoSearch call s:default_search()
+command! TodoUpdateSearch call s:update_search()
 
 
 
@@ -47,7 +52,7 @@ function! s:markdown_setup()
   noremap <silent> <leader>tw :call marktodo#remove_tag('today') \| call marktodo#toggle_tag('week')<CR>
   noremap <silent> <leader>tt :call marktodo#remove_tag('week') \| call marktodo#toggle_tag('today')<CR>
 
-  noremap <silent> <leader>s :TodoSearch<CR>
+  noremap <silent> <leader>s :TodoUpdateSearch<CR>
 
 
   nmap <buffer> <CR> :OpenUrl<CR>
