@@ -49,8 +49,9 @@ function! s:markdown_setup()
   noremap <silent> <leader>a :TodoArchive<CR>
 
   noremap <silent> <leader>tn :call marktodo#toggle_tag('next')<CR>
-  noremap <silent> <leader>tw :call marktodo#remove_tag('today') \| call marktodo#toggle_tag('week')<CR>
-  noremap <silent> <leader>tt :call marktodo#remove_tag('week') \| call marktodo#toggle_tag('today')<CR>
+  noremap <silent> <leader>tw :call marktodo#remove_tag('tomorrow') \| call marktodo#remove_tag('today') \| call marktodo#toggle_tag('week')<CR>
+  noremap <silent> <leader>tt :call marktodo#remove_tag('tomorrow') \| call marktodo#remove_tag('week') \| call marktodo#toggle_tag('today')<CR>
+  noremap <silent> <leader>tm :call marktodo#remove_tag('today') \| call marktodo#remove_tag('week') \| call marktodo#toggle_tag('tomorrow')<CR>
 
   noremap <silent> <leader>s :TodoUpdateSearch<CR>
 
