@@ -103,3 +103,5 @@ command! SyntaxMe echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '
 nnoremap ; :
 
 autocmd FileType gitcommit setlocal spell
+
+iab <expr> dts strftime("%Y.%m.%d")
