@@ -37,5 +37,6 @@ Bundle 'jgallen23/marktodo.vim'
 Bundle 'vim-scripts/visSum.vim'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'tpope/vim-vinegar'
+Bundle 'jgallen23/openurl.vim'
 
 filetype plugin indent on     " required!
