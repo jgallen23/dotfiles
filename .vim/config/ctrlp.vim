@@ -12,6 +12,7 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_max_height = 20
 let g:ctrlp_by_filename = 1
 let g:ctrlp_use_caching = 1
+let g:ctrlp_switch_buffer = 'e'
 
 command! CNM :CtrlP node_modules
 
@@ -31,3 +32,5 @@ nmap <silent> <leader>fc :CtrlPCurFile<CR>
 nmap <silent> <leader>fd :CtrlPDir<CR>
 nnoremap <silent> <space>  :CtrlPBuffer<CR>
 nnoremap <silent> \ :CtrlP<CR>
+
+command! FindNotes :CtrlP ~/Dropbox/Notes
