@@ -2,7 +2,8 @@ set background=dark
 if hostname() == "localhost"
   colorscheme ir_black
 else
-  colorscheme base16-ocean
+  "colorscheme base16-ocean
+  colorscheme lucius
 endif
 
 set ignorecase
