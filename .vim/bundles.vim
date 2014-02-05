@@ -7,8 +7,13 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'bling/vim-airline'
+
+"colorschemes
 "Bundle 'baskerville/bubblegum'
-Bundle 'jonathanfilip/vim-lucius'
+"Bundle 'jonathanfilip/vim-lucius'
+"Bundle '29decibel/codeschool-vim-theme'
+Bundle 'w0ng/vim-hybrid'
+
 Bundle 'scrooloose/nerdcommenter'
 "Bundle 'tpope/vim-markdown'
 Bundle 'plasticboy/vim-markdown'

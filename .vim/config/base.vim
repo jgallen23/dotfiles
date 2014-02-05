@@ -3,7 +3,9 @@ if hostname() == "localhost"
   colorscheme ir_black
 else
   "colorscheme base16-ocean
-  colorscheme lucius
+  "set t_Co=256
+  "let g:hybrid_use_iTerm_colors = 1
+  colorscheme hybrid
 endif
 
 set ignorecase
