@@ -61,7 +61,7 @@ vmap <right> >gv
 vmap <left> <gv
 
 "start end of line
-noremap H ^ 
+noremap H ^
 noremap L g_
 
 "javascript
@@ -73,9 +73,14 @@ au BufNewFile,BufRead *.ejs set filetype=html
 "change cwd
 command! CWD :cd %:p:h
 
+function! s:notes()
+  cd ~/Dropbox/Notes
+endfunction
+command! Notes call s:notes()
+
 "fix backspace
 if !has('gui_running')
-	set backspace=indent,eol,start
+  set backspace=indent,eol,start
 endif
 
 "Redraw
