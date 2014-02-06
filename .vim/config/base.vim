@@ -113,3 +113,5 @@ nnoremap ; :
 autocmd FileType gitcommit setlocal spell
 
 iab <expr> dts strftime("%Y.%m.%d")
+
+nmap <leader>s :set spell!<BAR>:set spell?<CR>
