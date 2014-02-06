@@ -33,4 +33,5 @@ nmap <silent> <leader>fd :CtrlPDir<CR>
 nnoremap <silent> <space>  :CtrlPBuffer<CR>
 nnoremap <silent> \ :CtrlP<CR>
 
-command! FindNotes :CtrlP ~/Dropbox/Notes
+command! FindNotes :CtrlP ~/Dropbox/Notes/
+command! FindDotfiles :CtrlP ~/.vim/
