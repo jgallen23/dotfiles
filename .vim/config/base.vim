@@ -26,7 +26,7 @@ set guioptions-=L
 set smartindent
 set cmdheight=1
 set laststatus=2
-set statusline=[%l,%c\ %P%M]\ [%{getcwd()}%*\]%{fugitive#statusline()}\ %f\ %r%h%w
+"set statusline=[%l,%c\ %P%M]\ [%{getcwd()}%*\]%{fugitive#statusline()}\ %f\ %r%h%w
 set guifont=Source\ Code\ Pro\ for\ Powerline:h14
 set nohlsearch
 nnoremap <leader>hl :set hlsearch!<CR>
@@ -42,7 +42,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-map <leader>v :e ~/.vimrc<CR><C-W>_
+"map <leader>v :e ~/.vimrc<CR><C-W>_
 map <leader>b :Explore<CR>
 map <leader>e :RunCode<CR>
 
@@ -114,4 +114,4 @@ autocmd FileType gitcommit setlocal spell
 
 iab <expr> dts strftime("%Y.%m.%d")
 
-nmap <leader>s :set spell!<BAR>:set spell?<CR>
+nmap <leader>s :setlocal spell!<BAR>:setlocal spell?<CR>
