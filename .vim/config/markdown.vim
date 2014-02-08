@@ -9,7 +9,6 @@ endfunction
 function! s:search(tag)
   let g:marktodo_search = a:tag
   call Grep('^\s*--\s.*#'.a:tag)
-  wincmd k
 endfunction
 
 function! s:update_search()
