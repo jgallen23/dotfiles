@@ -70,5 +70,5 @@ alias fl="fd -r ~/clients -d 2"
 function notes() {
   cd ~/Dropbox/Notes
   tmux rename-window "notes*"
-  vim tasks/computer.md
+  vim 2-computer.md
 }
