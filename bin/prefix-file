@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PREFIX=$1
+for filename in *; do 
+  if [ -f "$filename" ]; then
+    new_filename=$PREFIX$filename
+    echo "Renaming $filename to $new_filename"
+    mv "$filename" "$new_filename"
+  fi
+done
