@@ -19,6 +19,7 @@ command! TodoToday call s:search('today')
 command! TodoWeek call s:search('week')
 command! TodoNext call s:search('next')
 command! TodoiPad call s:search('ipad')
+command! TodoTomorrow call s:search('tomorrow')
 command! TodoAll call Grep('^\s*--\s')
 command! Todos call s:open_todos()
 command! TodoArchive call marktodo#done_down()
@@ -47,6 +48,7 @@ function! s:markdown_setup()
   noremap <silent> <leader>fa :TodoAll<CR>
   noremap <silent> <leader>fn :TodoNext<CR>
   noremap <silent> <leader>fi :TodoiPad<CR>
+  noremap <silent> <leader>fm :TodoTomorrow<CR>
   noremap <silent> <leader>a :TodoArchive<CR>
   noremap <silent> <leader>u :TodoUpdateSearch<CR>
 
