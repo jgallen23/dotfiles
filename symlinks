@@ -15,5 +15,3 @@ ln -s $CWD/bin ~/
 ln -s $CWD/.gh.json ~/
 rm -rf ~/.nvm
 ln -s $CWD/nvm ~/.nvm
-mkdir -p ~/.config
-ln -s $CWD/powerline-config ~/.config/powerline
