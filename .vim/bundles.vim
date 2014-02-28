@@ -46,5 +46,6 @@ Bundle 'vim-scripts/visSum.vim'
 Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'tpope/vim-vinegar'
 Bundle 'jgallen23/openurl.vim'
+Bundle 'vim-scripts/Decho'
 
 filetype plugin indent on     " required!
