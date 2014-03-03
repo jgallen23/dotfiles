@@ -4,12 +4,15 @@ DOTFILES_DIRECTORY="${HOME}/dotfiles"
 DOTFILES_TARBALL_PATH="https://github.com/jgallen23/dotfiles/tarball/master"
 DOTFILES_GIT_REMOTE="git@github.com:jgallen23/dotfiles.git"
 
+cd $DOTFILES_DIRECTORY
+
+# Load utils
+source $DOTFILES_DIRECTORY/lib/utils
+
 link() {
   # Force create/replace the symlink.
   ln -fs "${DOTFILES_DIRECTORY}/${1}" "${HOME}/${2}"
 }
-
-cd $DOTFILES_DIRECTORY
 
 # Symlinks
 link bin bin
@@ -24,3 +27,14 @@ link conf/tmux.conf .tmux.conf
 link conf/gitconfig .gitconfig
 link conf/gh.json .gh.json
 link vendor/nvm .nvm
+
+# OSX Defaults
+#. $DOTFILES_DIRECTORY/lib/osx
+
+# Brew
+echo "Homebrew..."
+if ! type_exists 'brew'; then
+  echo "Installing Homebrew..."
+  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+fi
+brew bundle ${DOTFILES_DIRECTORY}/lib/brewfile

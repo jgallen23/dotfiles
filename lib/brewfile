@@ -1,0 +1,30 @@
+# Make sure we’re using the latest Homebrew
+update
+
+# Upgrade any already-installed formulae
+upgrade
+
+install phantomjs
+install wget
+install tmux
+install vim
+install htop
+
+tap phinze/cask
+install brew-cask
+
+# Cask
+cask install google-chrome
+cask install alfred
+cask install dropbox
+cask install onepassword
+cask install iterm2
+cask install keyremap4macbook
+cask install pckeyboardhack
+cask install bartender
+cask install cloudup
+cask install vagrant
+cask install virtualbox
+
+# Remove outdated versions from the cellar
+cleanup
