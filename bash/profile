@@ -1,4 +1,6 @@
 
+export DOTFILES=~/dotfiles
+
 #if [ -f ~/.bashrc ]; then
 	#. ~/.bashrc
 #fi
