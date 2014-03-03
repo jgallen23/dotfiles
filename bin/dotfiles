@@ -15,8 +15,8 @@ link() {
 }
 
 # Symlinks
-link bin bin
-link vim .vim
+link bin/ bin
+link vim/ .vim
 link vim/vimrc .vimrc
 link bash/aliases .bash_aliases
 link bash/profile .bash_profile
@@ -26,7 +26,9 @@ link conf/ctags .ctags
 link conf/tmux.conf .tmux.conf
 link conf/gitconfig .gitconfig
 link conf/gh.json .gh.json
-link vendor/nvm .nvm
+link vendor/nvm/ .nvm
+
+source ~/.bash_profile
 
 # OSX Defaults
 #. $DOTFILES_DIRECTORY/lib/osx
