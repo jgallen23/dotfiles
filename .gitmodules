@@ -1,9 +1,6 @@
 [submodule "bin/z"]
 	path = bin/z
 	url = git://github.com/rupa/z.git
-[submodule ".vim/bundle/vundle"]
-	path = .vim/bundle/vundle
-	url = git://github.com/gmarik/vundle.git
 [submodule "git-extras"]
 	path = git-extras
 	url = git://github.com/jgallen23/git-extras.git

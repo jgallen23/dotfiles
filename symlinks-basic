@@ -1,9 +1,0 @@
-#!/bin/bash
-
-CWD=`pwd`
-cd ~
-ln -s $CWD/.bash_aliases ~/
-ln -s $CWD/.bash_profile ~/
-ln -s $CWD/.inputrc ~/
-ln -s $CWD/.jshintrc ~/
-ln -s $CWD/bin ~/

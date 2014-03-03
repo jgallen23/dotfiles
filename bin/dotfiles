@@ -1,0 +1,26 @@
+#!/bin/bash
+
+DOTFILES_DIRECTORY="${HOME}/dotfiles"
+DOTFILES_TARBALL_PATH="https://github.com/jgallen23/dotfiles/tarball/master"
+DOTFILES_GIT_REMOTE="git@github.com:jgallen23/dotfiles.git"
+
+link() {
+  # Force create/replace the symlink.
+  ln -fs "${DOTFILES_DIRECTORY}/${1}" "${HOME}/${2}"
+}
+
+cd $DOTFILES_DIRECTORY
+
+# Symlinks
+link bin bin
+link vim .vim
+link vim/vimrc .vimrc
+link bash/aliases .bash_aliases
+link bash/profile .bash_profile
+link bash/inputrc .inputrc
+link conf/jshintrc .jshintrc
+link conf/ctags .ctags
+link conf/tmux.conf .tmux.conf
+link conf/gitconfig .gitconfig
+link conf/gh.json .gh.json
+link vendor/nvm .nvm
