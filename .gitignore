@@ -1,11 +1,8 @@
 .DS_Store
-fish/fish_history
-fish/fishd*
-.vim/.netrwhist
 .bash_env
 *.pyc
-.vim/bundle/*
-.vim/bundle-old
-!.vim/bundle/vundle
-!.vim/bundle/mdtodo.vim
-.vim/view
+vim/.netrwhist
+vim/bundle
+!vim/bundle/vundle
+vim/bundle-old
+vim/view
