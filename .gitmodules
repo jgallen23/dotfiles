@@ -1,6 +1,3 @@
-[submodule "bin/z"]
-	path = bin/z
-	url = git://github.com/rupa/z.git
 [submodule "git-extras"]
 	path = git-extras
 	url = git://github.com/jgallen23/git-extras.git
