@@ -10,14 +10,13 @@ if [ -f ~/.bash_env ]; then
 fi
 
 source ~/dotfiles/git-completion.bash
-source ~/dotfiles/git-extras/etc/bash_completion.sh
+source ~/dotfiles/vendor/git-extras/etc/bash_completion.sh
 
 if [ -f /usr/local/bin/grunt ]; then
   eval "$(grunt --completion=bash)"
 fi
 
-export PATH=~/bin:~/dotfiles/git-extras/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
-export PYTHONPATH=~/dotfiles/powerline:/System/Library/Frameworks/Python.framework/Versions/2.6/Extras/lib/python:/Library/Python/2.6/site-packages:$PYTHONPATH
+export PATH=~/bin:~/dotfiles/vendor/git-extras/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
