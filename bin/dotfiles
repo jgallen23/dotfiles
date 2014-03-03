@@ -44,3 +44,6 @@ brew bundle ${DOTFILES_DIRECTORY}/lib/brewfile
 # Fonts
 cp ${DOTFILES_DIRECTORY}/lib/fonts/*.ttf ~/Library/Fonts/
 
+# Keyboard Remap
+. $DOTFILES_DIRECTORY/lib/keyremap
+
