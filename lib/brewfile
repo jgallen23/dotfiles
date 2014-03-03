@@ -9,6 +9,9 @@ install wget
 install tmux
 install vim
 install htop
+install reattach-to-user-namespace
+install terminal-notifier
+install watch
 
 tap phinze/cask
 install brew-cask
@@ -25,6 +28,7 @@ cask install bartender
 cask install cloudup
 cask install vagrant
 cask install virtualbox
+cask install skype
 
 # Remove outdated versions from the cellar
 cleanup
