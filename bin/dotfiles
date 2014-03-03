@@ -40,3 +40,7 @@ if ! type_exists 'brew'; then
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 fi
 brew bundle ${DOTFILES_DIRECTORY}/lib/brewfile
+
+# Fonts
+cp ${DOTFILES_DIRECTORY}/lib/fonts/*.ttf ~/Library/Fonts/
+
