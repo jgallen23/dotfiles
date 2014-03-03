@@ -31,7 +31,7 @@ link vendor/nvm/ .nvm
 source ~/.bash_profile
 
 # OSX Defaults
-#. $DOTFILES_DIRECTORY/lib/osx
+. $DOTFILES_DIRECTORY/lib/osx
 
 # Brew
 echo "Homebrew..."
