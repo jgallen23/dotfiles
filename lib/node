@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if ! type_exists 'node'; then
+  nvm install v0.10.26
+  nvm alias default v0.10.26
+  npm install -g grunt-cli nodemon david gh
+fi
