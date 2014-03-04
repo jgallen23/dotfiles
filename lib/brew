@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "Homebrew..."
+if ! type_exists 'brew'; then
+  echo "Installing Homebrew..."
+  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+fi
+brew bundle ${DOTFILES}/lib/brewfile
