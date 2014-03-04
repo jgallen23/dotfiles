@@ -29,6 +29,7 @@ cask install cloudup
 cask install vagrant
 cask install virtualbox
 cask install skype
+cask install sequel-pro
 
 # Remove outdated versions from the cellar
 cleanup
