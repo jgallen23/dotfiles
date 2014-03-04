@@ -1,49 +1,103 @@
 #!/bin/bash
 
-DOTFILES_DIRECTORY="${HOME}/dotfiles"
-DOTFILES_TARBALL_PATH="https://github.com/jgallen23/dotfiles/tarball/master"
-DOTFILES_GIT_REMOTE="git@github.com:jgallen23/dotfiles.git"
+if [ -z "$DOTFILES" ]; then
+  export DOTFILES="$HOME/dotfiles"
+fi
 
-cd $DOTFILES_DIRECTORY
+cd $DOTFILES
 
-# Load utils
-source $DOTFILES_DIRECTORY/lib/utils
+usage() {
+  cat <<-EOF
 
-link() {
-  # Force create/replace the symlink.
-  ln -fs "${DOTFILES_DIRECTORY}/${1}" "${HOME}/${2}"
+  Usage: dotfiles [options]
+
+  Options:
+
+    --symlinks           setup symlinks
+    --osx                write osx defaults
+    --brew               install and setup homebrew and apps
+    --remap              configure keyremap4mac
+    --node               install and setup node and libs
+    -h, --help           output help information
+
+
+EOF
 }
 
-# Symlinks
-link bin/ bin
-link vim/ .vim
-link vim/vimrc .vimrc
-link bash/aliases .bash_aliases
-link bash/profile .bash_profile
-link bash/inputrc .inputrc
-link conf/jshintrc .jshintrc
-link conf/ctags .ctags
-link conf/tmux.conf .tmux.conf
-link conf/gitconfig .gitconfig
-link conf/gh.json .gh.json
-link vendor/nvm/ .nvm
 
-source ~/.bash_profile
+if [ $# == 0 ]; then
+  SYMLINKS=1
+  OSX=1
+  BREW=1
+  REMAP=1
+  NODE=1
+fi
+
+while test $# -ne 0; do
+  arg=$1
+  shift
+  case $arg in
+    -h|--help)
+      usage
+      exit
+      ;;
+    --symlinks)
+      SYMLINKS=1
+      ;;
+    --osx)
+      OSX=1
+      ;;
+    --brew)
+      BREW=1
+      ;;
+    --fonts)
+      FONTS=1
+      ;;
+    --remap)
+      REMAP=1
+      ;;
+    --node)
+      NODE=1
+      ;;
+  esac
+done
+
+# Load utils
+source $DOTFILES/lib/utils
+
+# Symlinks
+if [ "$SYMLINKS" == 1 ]; then
+  echo "Creating Symlinks..."
+  . $DOTFILES/lib/symlinks
+  source ~/.bash_profile
+fi
 
 # OSX Defaults
-. $DOTFILES_DIRECTORY/lib/osx
+if [ "$OSX" == 1 ]; then
+  echo "Setting Mac OSX Defaults..."
+  . $DOTFILES/lib/osx
+fi
 
 # Brew
-echo "Homebrew..."
-if ! type_exists 'brew'; then
+if [ "$BREW" == 1 ]; then
   echo "Installing Homebrew..."
-  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+  . $DOTFILES/lib/brew
 fi
-brew bundle ${DOTFILES_DIRECTORY}/lib/brewfile
 
 # Fonts
-cp ${DOTFILES_DIRECTORY}/lib/fonts/*.ttf ~/Library/Fonts/
+if [ "$FONTS" == 1 ]; then
+  echo "Installing Fonts..."
+  cp ${DOTFILES}/lib/fonts/*.ttf ~/Library/Fonts/
+fi
 
 # Keyboard Remap
-. $DOTFILES_DIRECTORY/lib/keyremap
+if [ "$REMAP" == 1 ]; then
+  echo "Configuring KeyRemap4Mac..."
+  . $DOTFILES/lib/keyremap
+fi
 
+# Node
+if [ "$NODE" == 1 ]; then
+  echo "Node..."
+  . $DOTFILES/lib/node
+fi
