@@ -1,0 +1,23 @@
+#!/bin/bash
+
+ # check for input file
+if [ -z "$1" ]; then
+  echo "$(tput setaf 1)$(tput setab 7)PROPER USAGE: $ movgif input.mov [max width in pixels]$(tput sgr 0)"
+  kill -INT $$
+fi
+
+# check for & set optional max-width
+if [ ! -z "$2" ]; then
+  maxsize="-vf scale=$2:-1"
+else
+  maxsize=""
+fi
+
+mov=$1
+filename="${mov%%.*}"
+out="$filename.gif"
+
+# set output & run conversion
+
+ffmpeg -i $1 $maxsize -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=3 > $out
+echo "$(tput setaf 2)output file: $out$(tput sgr 0)"

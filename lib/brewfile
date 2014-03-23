@@ -12,6 +12,9 @@ install htop
 install reattach-to-user-namespace
 install terminal-notifier
 install watch
+install ffmpeg
+install imagemagick
+install ctags
 
 tap phinze/cask
 install brew-cask
@@ -30,6 +33,7 @@ cask install vagrant
 cask install virtualbox
 cask install skype
 cask install sequel-pro
+cask install firefox
 
 # Remove outdated versions from the cellar
 cleanup

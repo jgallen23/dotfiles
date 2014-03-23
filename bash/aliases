@@ -24,7 +24,7 @@ alias of="open ."
 alias u='cd ..'
 alias u2='cd ../..'
 
-alias chromedev="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --disable-web-security"
+alias chromedev="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security"
 alias timemachine="/System/Library/CoreServices/backupd.bundle/Contents/Resources/backupd-helper &"
 
 complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u | sed 's/^ssh //'))" ssh
