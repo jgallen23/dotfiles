@@ -47,5 +47,7 @@ Bundle 'dhruvasagar/vim-table-mode'
 Bundle 'tpope/vim-vinegar'
 Bundle 'jgallen23/openurl.vim'
 Bundle 'vim-scripts/Decho'
+Bundle 't9md/vim-smalls'
+Bundle 'majutsushi/tagbar'
 
 filetype plugin indent on     " required!

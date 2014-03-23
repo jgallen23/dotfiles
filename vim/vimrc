@@ -27,3 +27,5 @@ source ~/.vim/config/ultisnips.vim
 source ~/.vim/config/folds.vim
 source ~/.vim/config/browser-refresh.vim
 source ~/.vim/config/projects.vim
+source ~/.vim/config/smalls.vim
+source ~/.vim/config/tagbar.vim
