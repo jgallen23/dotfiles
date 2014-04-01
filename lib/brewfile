@@ -15,6 +15,7 @@ install watch
 install ffmpeg
 install imagemagick
 install ctags
+install webkit2png
 
 tap phinze/cask
 install brew-cask
@@ -34,6 +35,8 @@ cask install virtualbox
 cask install skype
 cask install sequel-pro
 cask install firefox
+cask install appcleaner
+cask install macvim
 
 # Remove outdated versions from the cellar
 cleanup
