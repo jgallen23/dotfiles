@@ -3,14 +3,14 @@
   email = me@jga.me
 [alias]
   st=status
-  c=commit
-  co=checkout
+  ;c=commit
+  ;co=checkout
   ;ca=commit -a
   a=add
-    au=!git add -u && git st
-  i=add -i
-  pl=pull
-  ps=push
+  au=!git add -u && git st
+  ;i=add -i
+  ;pl=pull
+  ;ps=push
   d=diff --color
   dc=diff --color --cached
   dw=diff --color-words
