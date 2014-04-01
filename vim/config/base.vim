@@ -27,7 +27,7 @@ set smartindent
 set cmdheight=1
 set laststatus=2
 "set statusline=[%l,%c\ %P%M]\ [%{getcwd()}%*\]%{fugitive#statusline()}\ %f\ %r%h%w
-set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+set guifont=Source\ Code\ Pro:h14
 set nohlsearch
 nnoremap <leader>hl :set hlsearch!<CR>
 set incsearch
