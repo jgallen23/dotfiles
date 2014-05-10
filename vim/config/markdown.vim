@@ -57,6 +57,8 @@ function! s:markdown_setup()
   noremap <silent> <leader>tw :call marktodo#remove_tag('tomorrow') \| call marktodo#remove_tag('today') \| call marktodo#toggle_tag('week')<CR>
   noremap <silent> <leader>tt :call marktodo#remove_tag('tomorrow') \| call marktodo#remove_tag('week') \| call marktodo#toggle_tag('today')<CR>
   noremap <silent> <leader>tm :call marktodo#remove_tag('today') \| call marktodo#remove_tag('week') \| call marktodo#toggle_tag('tomorrow')<CR>
+  noremap <silent> <leader>t1 :call marktodo#remove_tag('p2') \| call marktodo#toggle_tag('p1')<CR>
+  noremap <silent> <leader>t2 :call marktodo#remove_tag('p1') \| call marktodo#toggle_tag('p2')<CR>
 
   nmap <buffer> <CR> :OpenUrl<CR>
 
