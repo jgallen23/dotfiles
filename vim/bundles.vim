@@ -49,5 +49,6 @@ Bundle 'jgallen23/openurl.vim'
 Bundle 'vim-scripts/Decho'
 Bundle 't9md/vim-smalls'
 Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/DirDiff.vim'
 
 filetype plugin indent on     " required!
