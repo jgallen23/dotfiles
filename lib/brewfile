@@ -16,6 +16,7 @@ install ffmpeg
 install imagemagick
 install ctags
 install webkit2png
+install irssi
 
 tap phinze/cask
 install brew-cask
