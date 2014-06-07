@@ -29,3 +29,4 @@ source ~/.vim/config/browser-refresh.vim
 source ~/.vim/config/projects.vim
 source ~/.vim/config/smalls.vim
 source ~/.vim/config/tagbar.vim
+source ~/.vim/config/json.vim
