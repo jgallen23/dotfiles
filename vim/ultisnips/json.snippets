@@ -1,0 +1,64 @@
+snippet pkg
+{
+  "name": "${1:name}",
+  "description": "${2}",
+  "homepage": "https://github.com/firstandthird/$1",
+  "author": "First+Third",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/firstandthird/$1.git"
+  }
+}
+endsnippet
+snippet pkg-full
+{
+  "name": "${1:name}",
+  "description": "${2}",
+  "homepage": "https://github.com/jgallen23/$1",
+  "author": "Greg Allen <@jgaui> (http://jga.me)",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jgallen23/$1.git"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "main": "./lib/$1.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "bin": {
+  }
+}
+endsnippet
+
+snippet bower
+{
+  "name": "${1}",
+  "description": "${2}",
+  "version": "0.0.1",
+  "homepage": "https://github.com/firstandthird/$1",
+  "license": "MIT",
+  "copyright": "First+Third",
+  "main": "dist/$1.bower.js",
+  "dependencies": {
+    "jquery": "1.*"
+  },
+  "devDependencies": {
+    "assert": "*"
+  },
+  "ignore": [
+    "test",
+    "example",
+    "lib",
+    "Gruntfile.js",
+    "package.json",
+    "grunt"
+  ]
+}
+endsnippet
+
