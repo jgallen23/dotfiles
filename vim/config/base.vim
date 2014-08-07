@@ -66,9 +66,6 @@ vmap <left> <gv
 noremap H ^
 noremap L g_
 
-"javascript
-au! BufRead,BufNewFile *.json setfiletype javascript
-
 au! BufRead,BufNewFile *.handlebars setfiletype html
 au BufNewFile,BufRead *.ejs set filetype=html
 
