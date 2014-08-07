@@ -4,13 +4,17 @@ nmap <silent> <C-o> :BufSurfForward<CR>
 
 
 function! s:bufremove()
-  BufSurfBack
-  bd #
+  silent! BufSurfBack
+  if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) != 0
+    bd #
+  else
+    bd
+  endif
 endfunction
 
 command! BufRemove call s:bufremove()
 
-nmap <silent> <C-x> :BufRemove<CR>
+nmap <silent> <C-c> :BufRemove<CR>
 
 function s:bufclear()
   let last_buffer = bufnr('$')
