@@ -54,5 +54,6 @@ Bundle 'idanarye/vim-merginal'
 Bundle 'editorconfig/editorconfig-vim'
 Bundle 'Keithbsmiley/gist.vim'
 Bundle 'sheerun/vim-polyglot'
+Bundle 'eiginn/netrw'
 
 filetype plugin indent on     " required!
