@@ -72,3 +72,7 @@ function notes() {
   tmux rename-window "notes*"
   vim 2-computer.md
 }
+
+function sizedir() {
+  du -ck -d 1 | sort -n
+}
