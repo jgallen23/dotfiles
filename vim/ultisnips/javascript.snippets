@@ -34,58 +34,37 @@ endsnippet
 
 snippet suite
 suite('${1}', function() {
-  ${2}
+});
+endsnippet
+
+snippet desc
+describe('${1}', function() {
 });
 endsnippet
 
 snippet test
 test('${1}', function() {
-  ${2}
+});
+endsnippet
+
+snippet it
+it('should ${1}', function(done) {
+  done();
+});
+endsnippet
+
+snippet ita
+it('should ${1}', function(done) {
 });
 endsnippet
 
 snippet testa
 test('${1}', function(done) {
-  ${2}
 });
 endsnippet
 
 snippet testp
 test('${1}');
-endsnippet
-
-snippet package
-{
-  "name": "${1:name}",
-  "description": "${2}",
-  "homepage": "https://github.com/jgallen23/$1",
-  "author": "Greg Allen <@jgaui> (http://jga.me)",
-  "version": "0.0.1",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jgallen23/$1.git"
-  },
-  "dependencies": {
-  },
-  "devDependencies": {
-    "mocha": "*"
-  },
-  "main": "./lib/$1.js",
-  "scripts": {
-    "test": "mocha"
-  },
-  "bin": {
-  }
-}
-endsnippet
-
-snippet bower
-{
-  "name": "${1:name}",
-  "version": "0.1.0",
-  "dependencies": {
-  }
-}
 endsnippet
 
 snippet grunt
@@ -96,4 +75,12 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', []);
 };
+endsnippet
+
+snippet expect
+expect(${1}).to.${2}
+endsnippet
+
+snippet require
+var ${1} = require('${1}');
 endsnippet
