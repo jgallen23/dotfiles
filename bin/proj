@@ -12,12 +12,12 @@ update_repo() {
 
   if [ -f "package.json" ]; then
     echo "updating node_modules"
-    npm install && npm update
+    npm prune && npm install && npm update
   fi
 
   if [ -f "bower.json" ]; then
     echo "updating bower"
-    bower install && bower update
+    bower prune && bower install && bower update
   fi
 
   if [ -f "Gruntfile.js" ]; then
