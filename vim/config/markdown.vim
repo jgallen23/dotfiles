@@ -71,7 +71,7 @@ endfunction
 
 augroup vimrc-markdown
   autocmd!
-  autocmd FileType mkd,markdown call s:markdown_setup()
+  "autocmd FileType mkd,markdown call s:markdown_setup()
 augroup END
 "au BufWritePost *.md :TodoSearch
 "let g:vim_markdown_folding_disabled=1

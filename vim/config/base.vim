@@ -2,10 +2,7 @@ set background=dark
 if hostname() == "localhost"
   colorscheme ir_black
 else
-  "colorscheme base16-ocean
-  "set t_Co=256
-  "let g:hybrid_use_iTerm_colors = 1
-  colorscheme hybrid
+  colorscheme base16-tomorrow
 endif
 
 set ignorecase
@@ -36,7 +33,7 @@ set relativenumber
 set mouse=a
 set list listchars=tab:→\ ,trail:·
 "center screen
-set so=999
+"set so=999
 
 set tabstop=2
 set shiftwidth=2
@@ -51,9 +48,10 @@ nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-l> :wincmd l<CR>
-nmap <silent> <C-x> :wincmd c<CR>
-nmap <silent> <C-y> :wincmd v<CR>
-nmap <silent> <C-n> :wincmd s<CR>
+nmap <silent> <C-c> :bp\|bd #<CR>
+"nmap <silent> <C-x> :wincmd c<CR>
+"nmap <silent> <C-y> :wincmd v<CR>
+"nmap <silent> <C-n> :wincmd s<CR>
 
 
 "indent
@@ -81,9 +79,6 @@ command! Notes call s:notes()
 if !has('gui_running')
   set backspace=indent,eol,start
 endif
-
-"Redraw
-map <leader>a :redraw!<CR>
 
 "paste
 nmap <leader>p :set paste!<BAR>:set paste?<CR>

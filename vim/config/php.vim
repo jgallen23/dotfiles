@@ -1,3 +1,3 @@
 autocmd FileType php setlocal noexpandtab
-au BufRead,BufNewFile *.php set filetype=html
+"au BufRead,BufNewFile *.php set filetype=html
 

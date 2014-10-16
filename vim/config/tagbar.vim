@@ -1,9 +1,13 @@
 map <leader>a :TagbarToggle<CR>
+let g:tagbar_autoclose = 1
 
 let g:tagbar_type_javascript = {
     \ 'ctagstype' : 'js',
     \ 'kinds'     : [
-        \ 'f:function'
+        \ 'f:function',
+        \ 'd:describe',
+        \ 't:it',
+        \ 'e:exports',
     \ ],
     \ 'sort'    : 0
 \ }

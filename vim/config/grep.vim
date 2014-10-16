@@ -2,5 +2,6 @@ let g:grep_height = 10
 let g:grep_excludes_dir=['.git', 'node_modules', '_compiled', 'dist', '.meteor', '.svn', '_dist']
 "map <leader>gr :Grep 
 map <leader>gw :call Grep(expand('<cword>'))<CR>
-"vmap <leader>gv :GrepSelection<CR>
+map <leader>g :Grep 
+vmap <leader>gv :GrepSelection<CR>
 

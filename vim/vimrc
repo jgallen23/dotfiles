@@ -16,7 +16,7 @@ source ~/.vim/config/wrap.vim
 source ~/.vim/config/nerdcommenter.vim
 source ~/.vim/config/nerdtree.vim
 source ~/.vim/config/runcode.vim
-source ~/.vim/config/bufsurf.vim
+"source ~/.vim/config/bufsurf.vim
 source ~/.vim/config/grep.vim
 source ~/.vim/config/php.vim
 source ~/.vim/config/search.vim
@@ -30,3 +30,4 @@ source ~/.vim/config/projects.vim
 source ~/.vim/config/smalls.vim
 source ~/.vim/config/tagbar.vim
 source ~/.vim/config/json.vim
+source ~/.vim/config/bufclear.vim
