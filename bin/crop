@@ -1,0 +1,11 @@
+#!/bin/bash
+
+INPUT=$1
+SIZE=$2
+OUTPUT=$3
+
+if [[ -z "$OUTPUT" ]]; then
+  OUTPUT=$INPUT
+fi
+
+convert $INPUT -resize $SIZE^ -gravity Center -crop $SIZE+0+0 +repage $OUTPUT
