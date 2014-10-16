@@ -76,3 +76,7 @@ function notes() {
 function sizedir() {
   du -ck -d 1 | sort -n
 }
+
+function tr() {
+  tmux rename-window ${PWD//*\//};
+}
