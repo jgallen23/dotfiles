@@ -21,6 +21,9 @@
 --regex-js=/(,|^)[ \t]*([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*:[ \t]*(true|false)/\2/b,boolean/
 --regex-js=/(,|^)[ \t]*([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*:[ \t]*[0-9]+/\2/n,number/
 --regex-js=/(,|^)[ \t]*([A-Za-z_$][A-Za-z0-9_$]+)[ \t]*:[ \t]*[^=]+([,;]|$)/\2/v,variable/
+--regex-js=/describe\(['"](.*)['"], function/\1/d,describe/
+--regex-js=/it\(['"](.*)['"], function/\1/t,it/
+--regex-js=/^exports\.([A-Za-z_]+)/\1/e,exports/
 
 --langdef=html2
 --langmap=html2:.html
