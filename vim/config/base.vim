@@ -1,4 +1,5 @@
-set background=dark
+set t_Co=256
+set background=light
 if hostname() == "localhost"
   colorscheme ir_black
 else
