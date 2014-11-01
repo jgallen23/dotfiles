@@ -2981,11 +2981,11 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame Preferences</key>
-	<string>151 149 924 485 0 0 1440 877 </string>
+	<string>927 325 924 485 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>720 5 714 872 0 0 1440 877 </string>
+	<string>3 573 1434 836 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-824 900 1280 1418 -2104 900 2560 1418 </string>
+	<string>501 299 1914 1052 0 0 2560 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_D87308A1-F3D0-4C07-86AB-B8CCE43B39F8</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -3208,7 +3208,7 @@
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Recycle</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Disable Printing</key>
@@ -3789,7 +3789,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-10-16T22:38:28Z</date>
+	<date>2014-10-31T17:03:26Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -3825,7 +3825,7 @@
 	<key>WebKitDefaultFontSize</key>
 	<integer>11</integer>
 	<key>WebKitStandardFont</key>
-	<string>Lucida Grande</string>
+	<string>.Helvetica Neue DeskInterface</string>
 	<key>WindowNumber</key>
 	<true/>
 	<key>WindowStyle</key>
@@ -3837,6 +3837,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>1.0.0.20140629</string>
+	<string>2.0.0.20141022</string>
 </dict>
 </plist>
