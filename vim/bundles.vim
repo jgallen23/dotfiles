@@ -45,5 +45,6 @@ Bundle 'eiginn/netrw'
 Bundle 'd11wtq/ctrlp_bdelete.vim'
 Bundle 'haya14busa/incsearch.vim'
 Bundle 'jeetsukumaran/vim-filebeagle'
+Plugin 'octref/RootIgnore'
 
 filetype plugin indent on     " required!
