@@ -71,7 +71,7 @@ f(){
     fi
   fi 
 };
-#export PROMPT_COMMAND=f;
+export PROMPT_COMMAND=f;
 
 export HISTCONTROL=ignoredups:erasedups
 HISTFILESIZE=1000000000 HISTSIZE=1000000
