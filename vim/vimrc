@@ -32,3 +32,4 @@ source ~/.vim/config/tagbar.vim
 source ~/.vim/config/json.vim
 source ~/.vim/config/bufclear.vim
 source ~/.vim/config/incsearch.vim
+source ~/.vim/config/csv.vim
