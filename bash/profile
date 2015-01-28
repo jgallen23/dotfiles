@@ -98,5 +98,10 @@ source ~/dotfiles/vendor/nvm/nvm.sh
 FA_INTERACTIVE=1
 eval "$(~/dotfiles/vendor/fa/bin/fa --init)"
 
+function prompt_callback {
+  if [ `jobs | wc -l` -ne 0 ]; then
+    echo -n " jobs:\j"
+  fi
+}
 # as last entry source the gitprompt script
 source ~/dotfiles/vendor/bash-git-prompt/gitprompt.sh
