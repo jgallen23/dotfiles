@@ -10,7 +10,7 @@ alias grepps='ps aux | grep'
 sshkey() { cat ~/.ssh/id_rsa.pub | ssh $@ 'mkdir -p ~/.ssh && cat >> .ssh/authorized_keys'; }
 
 alias free="free -m"
-alias s="screen -dR"
+#alias s="screen -dR"
 function t {
 	if [ -z "$1" ];then
 		tmux ls

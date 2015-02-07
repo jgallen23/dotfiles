@@ -13,3 +13,6 @@
 [submodule "vendor/bash-git-prompt"]
 	path = vendor/bash-git-prompt
 	url = https://github.com/magicmonty/bash-git-prompt.git
+[submodule "vendor/bashmarks"]
+	path = vendor/bashmarks
+	url = git://github.com/huyng/bashmarks.git

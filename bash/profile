@@ -103,5 +103,6 @@ function prompt_callback {
     echo -n " jobs:\j"
   fi
 }
+source ~/.local/bin/bashmarks.sh
 # as last entry source the gitprompt script
 source ~/dotfiles/vendor/bash-git-prompt/gitprompt.sh
