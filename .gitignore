@@ -6,3 +6,4 @@ vim/bundle
 !vim/bundle/vundle
 vim/bundle-old
 vim/view
+conf/gh.json
