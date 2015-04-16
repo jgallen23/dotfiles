@@ -1,47 +1,36 @@
-# Make sure we’re using the latest Homebrew
-update
 
-# Upgrade any already-installed formulae
-upgrade
+tap caskroom/cask
 
-install phantomjs
-install wget
-install tmux
-install vim
-install htop
-install reattach-to-user-namespace
-install ffmpeg
-install graphicsmagick
-install ctags
-install webkit2png
-install boot2docker
-
-tap phinze/cask
-install brew-cask
+brew 'phantomjs'
+brew 'wget'
+brew 'tmux'
+brew 'vim'
+brew 'htop'
+brew 'reattach-to-user-namespace'
+brew 'ffmpeg'
+brew 'graphicsmagick'
+brew 'ctags'
+brew 'webkit2png'
+brew 'boot2docker'
 
 # Cask
-cask install google-chrome
-cask install alfred
-cask install dropbox
-cask install onepassword
-cask install bartender
-cask install cloudup
-cask install vagrant
-cask install virtualbox
-cask install skype
-cask install firefox
-cask install appcleaner
-cask install macvim
-cask install omnidisksweeper
-cask install karabiner
-cask install seil
-cask install sonos
-cask install transmit
-cask install tokens
-cask install sizeup
-cask install 1password
-
-# Remove outdated versions from the cellar
-cleanup
-
-cask alfred link
+cask 'google-chrome'
+cask 'alfred'
+cask 'dropbox'
+cask 'onepassword'
+cask 'bartender'
+cask 'cloudup'
+cask 'vagrant'
+cask 'virtualbox'
+cask 'skype'
+cask 'firefox'
+cask 'appcleaner'
+cask 'macvim'
+cask 'omnidisksweeper'
+cask 'karabiner'
+cask 'seil'
+cask 'sonos'
+cask 'transmit'
+cask 'tokens'
+cask 'sizeup'
+cask '1password'
