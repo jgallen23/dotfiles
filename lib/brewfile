@@ -1,6 +1,7 @@
 
-tap caskroom/cask
+tap 'caskroom/cask'
 
+brew 'caskroom/cask/brew-cask'
 brew 'phantomjs'
 brew 'wget'
 brew 'tmux'
@@ -17,7 +18,6 @@ brew 'boot2docker'
 cask 'google-chrome'
 cask 'alfred'
 cask 'dropbox'
-cask 'onepassword'
 cask 'bartender'
 cask 'cloudup'
 cask 'vagrant'
@@ -35,3 +35,4 @@ cask 'tokens'
 cask 'sizeup'
 cask '1password'
 cask 'imageoptim'
+cask 'google-drive'
