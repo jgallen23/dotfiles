@@ -5,6 +5,7 @@ if [ -z "$DOTFILES" ]; then
 fi
 
 cd $DOTFILES
+git submodule update --init
 
 usage() {
   cat <<-EOF
