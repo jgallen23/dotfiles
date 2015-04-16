@@ -13,7 +13,10 @@ brew 'graphicsmagick'
 brew 'ctags'
 brew 'webkit2png'
 brew 'boot2docker'
+brew 'docker-compose'
 brew 'mongo'
+brew 'awscli'
+brew 'aws-elasticbeanstalk'
 
 # Cask
 cask 'google-chrome'
