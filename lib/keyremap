@@ -1,9 +1,9 @@
 #!/bin/bash
 
-mkdir -p ~/Library/Application\ Support/KeyRemap4MacBook
-cp ${DOTFILES}/lib/keyremap.xml ~/Library/Application\ Support/KeyRemap4MacBook/private.xml
+mkdir -p ~/Library/Application\ Support/Karabiner
+cp ${DOTFILES}/lib/keyremap.xml ~/Library/Application\ Support/Karabiner/private.xml
 
-cli=/Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli
+cli=/opt/homebrew-cask/Caskroom/karabiner/latest/Karabiner.app/Contents/Library/bin/karabiner
 
 $cli set space_cadet.left_control_to_hyper 1
 $cli reloadxml
