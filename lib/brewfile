@@ -13,6 +13,7 @@ brew 'graphicsmagick'
 brew 'ctags'
 brew 'webkit2png'
 brew 'boot2docker'
+brew 'mongo'
 
 # Cask
 cask 'google-chrome'
@@ -36,3 +37,4 @@ cask 'sizeup'
 cask '1password'
 cask 'imageoptim'
 cask 'google-drive'
+cask 'mongohub'
