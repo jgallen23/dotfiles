@@ -3,7 +3,7 @@
 mkdir -p ~/Library/Application\ Support/Karabiner
 cp ${DOTFILES}/lib/keyremap.xml ~/Library/Application\ Support/Karabiner/private.xml
 
-cli=/opt/homebrew-cask/Caskroom/karabiner/latest/Karabiner.app/Contents/Library/bin/karabiner
+cli=/Applications/Karabiner.app/Contents/Library/bin/karabiner
 
 $cli set space_cadet.left_control_to_hyper 1
 $cli reloadxml
