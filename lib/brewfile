@@ -41,3 +41,8 @@ cask '1password'
 cask 'imageoptim'
 cask 'google-drive'
 cask 'mongohub'
+cask 'recordit'
+
+brew 'Caskroom/cask/xquartz'
+brew 'ttfautohint'
+brew 'fontforge', args: ['with-python']
