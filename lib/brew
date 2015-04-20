@@ -2,6 +2,6 @@
 
 if ! type_exists 'brew'; then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  brew tap Homebrew/brewdler
+  brew tap Homebrew/bundle
 fi
-brew brewdle --file=${DOTFILES}/lib/brewfile
+brew bundle --file=${DOTFILES}/lib/brewfile
