@@ -46,5 +46,6 @@ Bundle 'd11wtq/ctrlp_bdelete.vim'
 Bundle 'haya14busa/incsearch.vim'
 "Bundle 'jeetsukumaran/vim-filebeagle'
 "Plugin 'octref/RootIgnore'
+Plugin 'int3/vim-extradite'
 
 filetype plugin indent on     " required!
