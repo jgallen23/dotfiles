@@ -4,6 +4,7 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enabled = 1
+let g:airline_section_b = '%{getcwd()} | %{airline#util#wrap(airline#extensions#branch#get_head(),0)}'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 nmap <leader>1 <Plug>AirlineSelectTab1
