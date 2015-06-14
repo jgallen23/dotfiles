@@ -11,13 +11,6 @@ if [ -f ~/.bash_env ]; then
 	. ~/.bash_env
 fi
 
-source ~/dotfiles/git-completion.bash
-source ~/dotfiles/vendor/git-extras/etc/bash_completion.sh
-
-if [ -f /usr/local/bin/grunt ]; then
-  eval "$(grunt --completion=bash)"
-fi
-
 export PATH=~/bin:~/dotfiles/vendor/git-extras/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -60,7 +53,7 @@ function prompt_callback {
 }
 source ~/dotfiles/vendor/bashmarks/bashmarks.sh
 
-complete -C '/usr/local/bin/aws_completer' aws
+source ~/dotfiles/bash/completion/load.sh
 
 source ~/dotfiles/vendor/bash-git-prompt/gitprompt.sh
 
