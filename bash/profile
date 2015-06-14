@@ -17,6 +17,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
 CDPATH=$CDPATH:~:$HOME/code:$HOME/clients
 shopt -s cdspell
+ulimit -n 1000
 
 f_old(){ 
   if [ -n "$TMUX" ] && [ "$PWD" != "$LPWD" ] && [ "$TMUX_FIXED" != "1" ];then 
