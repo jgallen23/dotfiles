@@ -17,6 +17,7 @@ brew 'docker-compose'
 brew 'mongo'
 brew 'awscli'
 brew 'aws-elasticbeanstalk'
+brew 'ssh-copy-id'
 
 # Cask
 cask 'google-chrome'
