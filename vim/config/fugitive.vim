@@ -3,13 +3,17 @@ function! GitWriteCommit()
   q
   Gstatus
 endfunction
+function! GitStatus()
+  Gstatus
+  tabedit %
+endfunction
 function! s:fugitive_setup()
 	map <silent> <buffer> W :call GitWriteCommit()<CR>
 	"map <buffer> au :Git add -u<CR>
 	"map <buffer> dc :Git diff --cached<CR>
 	"map <buffer> di :Git diff<CR>
 endfunction
-map <leader>gs :Gstatus<CR>
+map <leader>gs :call GitStatus()<CR>
 "map <leader>gp :Git push<CR>
 "map <leader>gd :Git diff<CR>
 augroup vimrc-git
