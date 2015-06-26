@@ -3,5 +3,5 @@
 if ! type_exists 'node'; then
   nvm install v0.10.38
   nvm alias default v0.10.38
-  npm install -g grunt-cli nodemon david gh bower jshint
+  npm install -g grunt-cli nodemon david gh bower jshint jscs
 fi
