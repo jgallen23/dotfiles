@@ -32,6 +32,7 @@ command! FindSameFile :call s:ctrlp_populate(expand('%:t:r'))
 nnoremap <silent> <leader>fm :CtrlPMRUFiles<CR>
 nmap <silent> <leader>fs :FindSameFile<CR>
 nmap <silent> <leader>fc :CtrlPCurFile<CR>
+nmap <silent> <leader>x :CtrlPCurFile<CR>
 nmap <silent> <leader>fd :CtrlPDir<CR>
 nnoremap <silent> <space>  :CtrlPBuffer<CR>
 nnoremap <silent> \ :CtrlP<CR>
