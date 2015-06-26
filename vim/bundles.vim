@@ -47,5 +47,6 @@ Bundle 'haya14busa/incsearch.vim'
 "Bundle 'jeetsukumaran/vim-filebeagle'
 "Plugin 'octref/RootIgnore'
 Plugin 'int3/vim-extradite'
+Plugin 'jdkanani/vim-material-theme'
 
 filetype plugin indent on     " required!
