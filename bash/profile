@@ -1,4 +1,6 @@
-
+if [[ "$(uname)" == "Linux" ]]; then
+  export TERM=xterm-256color
+fi
 export DOTFILES=~/dotfiles
 
 #if [ -f ~/.bashrc ]; then
