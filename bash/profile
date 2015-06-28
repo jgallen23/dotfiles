@@ -56,5 +56,6 @@ source ~/dotfiles/vendor/bashmarks/bashmarks.sh
 
 source ~/dotfiles/bash/completion/load.sh
 
+GIT_PROMPT_THEME="Custom"
 source ~/dotfiles/vendor/bash-git-prompt/gitprompt.sh
 
