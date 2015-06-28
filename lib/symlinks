@@ -11,9 +11,14 @@ link vim/vimrc .vimrc
 link bash/aliases .bash_aliases
 link bash/profile .bash_profile
 link bash/inputrc .inputrc
+link bash/git-prompt-colors .git-prompt-colors.sh
 link conf/jshintrc .jshintrc
 link conf/ctags .ctags
-link conf/tmux.conf .tmux.conf
+if [[ "$(uname)" == "Linux" ]]; then
+  link conf/tmux.linux.conf .tmux.conf
+else
+  link conf/tmux.conf .tmux.conf
+fi
 link conf/gitconfig .gitconfig
 #link conf/gh.json .gh.json
 link vendor/nvm .nvm
