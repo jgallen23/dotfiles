@@ -1,7 +1,7 @@
 function! GitWriteCommit()
   w
   q
-  Gstatus
+  call GitStatus()
 endfunction
 function! GitStatus()
   Gstatus
