@@ -27,11 +27,15 @@ EOF
 
 
 if [ $# == 0 ]; then
-  SYMLINKS=1
-  OSX=1
-  BREW=1
-  REMAP=1
-  NODE=1
+  if [[ "$(uname)" == "Linux" ]]; then
+    SYMLINKS=1
+  else
+    SYMLINKS=1
+    OSX=1
+    BREW=1
+    REMAP=1
+    NODE=1
+  fi
 fi
 
 while test $# -ne 0; do
