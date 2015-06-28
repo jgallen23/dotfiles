@@ -1,12 +1,12 @@
 [submodule "vendor/fa"]
 	path = vendor/fa
-	url = git@github.com:firstandthird/fa.git
+  url = https://github.com/firstandthird/fa
 [submodule "vim/bundle/vundle"]
 	path = vim/bundle/vundle
-	url = git@github.com:gmarik/Vundle.vim.git
+  url = https://github.com/gmarik/Vundle.vim
 [submodule "vendor/git-extras"]
 	path = vendor/git-extras
-	url = git@github.com:jgallen23/git-extras.git
+  url = https://github.com/jgallen23/git-extras.git
 [submodule "vendor/nvm"]
 	path = vendor/nvm
 	url = https://github.com/creationix/nvm.git
@@ -15,4 +15,4 @@
 	url = https://github.com/magicmonty/bash-git-prompt.git
 [submodule "vendor/bashmarks"]
 	path = vendor/bashmarks
-	url = git://github.com/huyng/bashmarks.git
+  url = https://github.com/huyng/bashmarks.git
