@@ -1,4 +1,4 @@
-source ~/dotfiles/git-completion.bash
+source ~/dotfiles/bash/completion/git.bash
 source ~/dotfiles/vendor/git-extras/etc/bash_completion.sh
 
 source ~/dotfiles/bash/completion/docker
