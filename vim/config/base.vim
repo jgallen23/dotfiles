@@ -108,6 +108,3 @@ autocmd FileType gitcommit setlocal spell
 iab <expr> dts strftime("%Y.%m.%d")
 
 nmap <leader>s :setlocal spell!<BAR>:setlocal spell?<CR>
-
-
-let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
