@@ -1,5 +1,8 @@
 if [[ "$(uname)" == "Linux" ]]; then
   export TERM=xterm-256color
+  if [ -f /env/start ]; then
+    . /env/start
+  fi
 fi
 export DOTFILES=~/dotfiles
 
