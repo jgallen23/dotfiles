@@ -16,7 +16,7 @@ if [ -f ~/.bash_env ]; then
 	. ~/.bash_env
 fi
 
-export PATH=~/bin:~/dotfiles/vendor/git-extras/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
+export PATH=~/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
