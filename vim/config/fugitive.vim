@@ -5,7 +5,6 @@ function! GitWriteCommit()
 endfunction
 function! GitStatus()
   Gstatus
-  tabedit %
 endfunction
 function! s:fugitive_setup()
 	map <silent> <buffer> W :call GitWriteCommit()<CR>
