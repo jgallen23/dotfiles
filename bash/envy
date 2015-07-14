@@ -1,0 +1,5 @@
+CDPATH=$CDPATH:/work
+
+if [ -f /env/start ]; then
+  . /env/start
+fi

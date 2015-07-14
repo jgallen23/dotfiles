@@ -1,8 +1,5 @@
 if [[ "$(uname)" == "Linux" ]]; then
   export TERM=xterm-256color
-  if [ -f /env/start ]; then
-    . /env/start
-  fi
 fi
 export DOTFILES=~/dotfiles
 
@@ -60,6 +57,10 @@ function prompt_callback {
 source ~/dotfiles/vendor/bashmarks/bashmarks.sh
 
 source ~/dotfiles/bash/completion/load.sh
+
+if [[ -n "$ENVY_USER" ]]; then
+  source $DOTFILES/bash/envy
+fi
 
 GIT_PROMPT_THEME="Custom"
 source ~/dotfiles/vendor/bash-git-prompt/gitprompt.sh
