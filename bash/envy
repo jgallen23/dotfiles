@@ -5,19 +5,35 @@ if [ -f /env/start ]; then
   . /env/start
 fi
 
-alias mongostart="docker start mongo && export MONGO_PORT_27017_TCP_ADDR=\$(docker-ip mongo)"
-alias mysqlstart="docker start mysql && export MYSQLHOST=\$(docker-ip mysql)"
+dev_setup() {
 
-if [[ "$ENVY_TYPE" == "apache" ]]; then
-  if [[ -n "$PROJECT_DIR" ]]; then
-    rm -r /var/www/html
-    ln -s $PROJECT_DIR /var/www/html
+  if [[ "$ENVY_TYPE" == "apache" ]]; then
+    if [[ -n "$PROJECT_DIR" ]]; then
+      rm -r /var/www/html
+      ln -s $PROJECT_DIR /var/www/html
+    fi
+    docker start mysql
+    export MYSQLHOST=$(docker-ip mysql)
+    service apache2 start
   fi
-  mysqlstart
-  service apache2 start
-fi
 
-if [[ "$ENVY_TYPE" == "node" ]]; then
-  mongostart
-fi
+  if [[ "$ENVY_TYPE" == "node" ]]; then
+    docker start mongo
+    export MONGO_PORT_27017_TCP_ADDR=$(docker-ip mongo)
+  fi
+}
+
+dev_stop() {
+  if [[ "$ENVY_TYPE" == "apache" ]]; then
+    docker stop mysql
+  fi
+
+  if [[ "$ENVY_TYPE" == "node" ]]; then
+    docker stop mongo
+  fi
+}
+
+alias dev="dev_setup && cd $PROJECT_DIR"
+alias fin="dev_stop"
+
 
