@@ -1,5 +1,23 @@
 CDPATH=$CDPATH:/work
+export PORT=80
 
 if [ -f /env/start ]; then
   . /env/start
 fi
+
+alias mongostart="docker start mongo && export MONGO_PORT_27017_TCP_ADDR=\$(docker-ip mongo)"
+alias mysqlstart="docker start mysql && export MYSQLHOST=\$(docker-ip mysql)"
+
+if [[ "$ENVY_TYPE" == "apache" ]]; then
+  if [[ -n "$PROJECT_DIR" ]]; then
+    rm -r /var/www/html
+    ln -s $PROJECT_DIR /var/www/html
+  fi
+  mysqlstart
+  service apache2 start
+fi
+
+if [[ "$ENVY_TYPE" == "node" ]]; then
+  mongostart
+fi
+
