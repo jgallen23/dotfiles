@@ -36,4 +36,18 @@ dev_stop() {
 alias dev="dev_setup && cd $PROJECT_DIR"
 alias fin="dev_stop"
 
+ms() {
+  m start $@
+}
 
+mp() {
+  m stop $@
+}
+
+mt() {
+  m tailf $@
+}
+
+mr() {
+  m restart $@
+}
