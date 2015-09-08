@@ -1,0 +1,5 @@
+init-author-email = "code@firstandthird.com"
+init-author-name = "Greg Allen"
+init-author-url = "http://firstandthird.com"
+init-license = "MIT"
+init-version = "0.0.1"
