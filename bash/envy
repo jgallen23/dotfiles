@@ -1,10 +1,6 @@
 CDPATH=$CDPATH:/work
 export PORT=80
 
-if [ -f /env/start ]; then
-  . /env/start
-fi
-
 dev_setup() {
 
   if [[ "$ENVY_TYPE" == "apache" ]]; then
@@ -21,6 +17,11 @@ dev_setup() {
     docker start mongo
     export MONGO_PORT_27017_TCP_ADDR=$(docker-ip mongo)
   fi
+
+  if [ -f /env/start ]; then
+    . /env/start
+  fi
+
 }
 
 dev_stop() {
