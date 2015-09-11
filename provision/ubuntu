@@ -1,7 +1,7 @@
 #!/bin/bash
 
-apt-get update && \
-  apt-get install -y \
+sudo apt-get update && \
+  sudo apt-get install -y \
     git \
     htop \
     wget \
@@ -16,21 +16,22 @@ apt-get update && \
     exuberant-ctags < /dev/null
 
 #VIM
-add-apt-repository ppa:fcwu-tw/ppa && \
-  apt-get update && \
-  apt-get install -y vim < /dev/null
+sudo add-apt-repository ppa:fcwu-tw/ppa && \
+  sudo apt-get update && \
+  sudo apt-get install -y vim < /dev/null
 
 #TMUX
-add-apt-repository -y ppa:pi-rho/dev && \
-  apt-get update && \
-  apt-get install -y tmux < /dev/null
+sudo add-apt-repository -y ppa:pi-rho/dev && \
+  sudo apt-get update && \
+  sudo apt-get install -y tmux < /dev/null
 
 #node
 curl -sL https://deb.nodesource.com/setup_0.10 | sudo -E bash -
-apt-get install -y nodejs < /dev/null
+sudo apt-get install -y nodejs < /dev/null
 
 #docker
-curl -sSL https://get.docker.com/ | sh
+curl -sSL https://get.docker.com/ | sudo sh
+sudo usermod -aG docker ubuntu
 
 #docker-compose
 curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
@@ -39,7 +40,7 @@ curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose
 curl -L https://github.com/docker/machine/releases/download/v0.4.0/docker-machine_linux-amd64 > /usr/local/bin/docker-machine && chmod +x /usr/local/bin/docker-machine
 
 #utf8
-locale-gen en_US.UTF-8
+sudo locale-gen en_US.UTF-8
 export LC_ALL=en_US.utf-8
 
 #Timezone
@@ -52,13 +53,13 @@ npm install -g david grunt-cli bower jscs jshint nodemon aws-cli-utils
 npm update -g npm
 
 #aws
-pip install awscli && pip install awsebcli
+sudo pip install awscli && sudo pip install awsebcli
 
 #s3cmd
-wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | apt-key add - && \
+wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-key add - && \
   wget -O/etc/apt/sources.list.d/s3tools.list http://s3tools.org/repo/deb-all/stable/s3tools.list && \
-  apt-get update && \
-  apt-get -y install s3cmd < /dev/null
+  sudo apt-get update && \
+  sudo apt-get -y install s3cmd < /dev/null
 
 #docker-extras
 curl -sSL https://raw.githubusercontent.com/jgallen23/docker-extras/master/install.sh | bash
