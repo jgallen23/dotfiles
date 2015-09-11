@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#dotfiles
+if [[ ! -d ~/dotfiles ]]; then
+  cd ~
+  git clone https://github.com/jgallen23/dotfiles.git
+  . dotfiles/bin/dotfiles
+
+  bash ~/dotfiles/vim-install.sh
+
+  ssh-keygen -f ~/.ssh/id_rsa -t rsa -N ''
+
+  echo "Add this to github"
+  cat ~/.ssh/id_rsa.pub
+fi
