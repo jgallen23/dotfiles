@@ -13,7 +13,7 @@ apt-get update && \
     python-pip \
     fontforge \
     ttfautohint \
-    exuberant-ctags
+    exuberant-ctags < /dev/null
 
 #VIM
 add-apt-repository ppa:fcwu-tw/ppa && \
