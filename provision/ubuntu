@@ -40,13 +40,13 @@ curl -L https://github.com/docker/machine/releases/download/v0.4.0/docker-machin
 
 #utf8
 locale-gen en_US.UTF-8
-ENV LC_ALL en_US.utf-8
+export LC_ALL en_US.utf-8
 
 #Timezone
 echo America/Los_Angeles | tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
 
 #global node libs
-npm install -g david grunt-cli bower jscs jshint nodemon aws-cli-utils up
+npm install -g david grunt-cli bower jscs jshint nodemon aws-cli-utils
 
 #update npm
 npm update -g npm
