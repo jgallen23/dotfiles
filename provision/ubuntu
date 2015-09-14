@@ -27,6 +27,7 @@ sudo apt-get install -y \
   fontforge \
   ttfautohint \
   exuberant-ctags \
+  graphicsmagick \
   vim \
   tmux \
   nodejs \
