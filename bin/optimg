@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "processing png files"
+pngquant --ext .png --force --verbose *.png
+pngquant --ext .png --force --verbose **/*.png
+
+echo "processing jpg files"
+jpegoptim --strip-all --all-progressive -m90 *.jpg
+jpegoptim --strip-all --all-progressive -m90 **/*.jpg
+
+
