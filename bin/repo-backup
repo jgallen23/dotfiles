@@ -1,0 +1,14 @@
+#!/bin/bash
+
+org=$1
+repo=$2
+dir=/tmp/repo-backup
+cwd=$(pwd)
+
+mkdir -p $dir
+cd $dir
+git clone git@github.com:$org/$repo
+tar -cvzf $cwd/$repo.tar.gz *
+cd $cwd
+rm -rf $dir
+aws --profile ft s3 cp $repo.tar.gz s3://ft-repos/
