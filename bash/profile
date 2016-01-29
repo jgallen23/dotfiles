@@ -17,7 +17,7 @@ export PATH=~/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
-CDPATH=$CDPATH:~:$HOME/code:$HOME/clients
+CDPATH=$CDPATH:~:$HOME/projects:$HOME/clients:$HOME/libraries
 shopt -s cdspell
 ulimit -n 1000
 
@@ -61,6 +61,7 @@ source ~/dotfiles/bash/completion/load.sh
 if [[ -n "$ENVY_USER" ]]; then
   source $DOTFILES/bash/envy
 fi
+export DIRNAME=${PWD##*/}
 
 GIT_PROMPT_THEME="Custom"
 source ~/dotfiles/vendor/bash-git-prompt/gitprompt.sh
