@@ -6,7 +6,8 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 
 "colorschemes
 "Bundle 'baskerville/bubblegum'
@@ -19,7 +20,7 @@ Bundle 'chriskempson/base16-vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-fugitive'
 Bundle 'SirVer/ultisnips'
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'gregsexton/MatchTag'
 Bundle 'edsono/vim-matchit'
@@ -48,5 +49,7 @@ Bundle 'haya14busa/incsearch.vim'
 "Plugin 'octref/RootIgnore'
 Plugin 'int3/vim-extradite'
 Plugin 'jdkanani/vim-material-theme'
+Plugin 'fatih/vim-go'
+Plugin 'mtscout6/syntastic-local-eslint.vim'
 
 filetype plugin indent on     " required!
