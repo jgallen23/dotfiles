@@ -76,3 +76,5 @@ function sizedir() {
 function tr() {
   tmux rename-window ${PWD//*\//};
 }
+
+alias dc="docker-compose"
