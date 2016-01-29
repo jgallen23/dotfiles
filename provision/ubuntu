@@ -31,17 +31,25 @@ sudo apt-get install -y \
   vim \
   tmux \
   nodejs \
-  s3cmd
+  s3cmd \
+  jpegoptim \
+  pngquant \
+  apache2-utils
 
 #docker
 curl -sSL https://get.docker.com/ | sudo sh
 sudo usermod -aG docker ubuntu
 
 #docker-compose
-curl -L https://github.com/docker/compose/releases/download/1.4.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+DOCKER_COMPOSE_VERSION=1.5.0
+curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
 
 #docker-machine
-curl -L https://github.com/docker/machine/releases/download/v0.4.0/docker-machine_linux-amd64 > /usr/local/bin/docker-machine && chmod +x /usr/local/bin/docker-machine
+DOCKER_MACHINE_VERSION=0.5.0
+curl -L https://github.com/docker/machine/releases/download/v$DOCKER_MACHINE_VERSION/docker-machine_linux-amd64.zip >machine.zip && \
+  unzip machine.zip && \
+  rm machine.zip && \
+  mv -f docker-machine* /usr/local/bin
 
 #utf8
 sudo locale-gen en_US.UTF-8
@@ -51,13 +59,13 @@ export LC_ALL=en_US.utf-8
 echo America/Los_Angeles | tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
 
 #global node libs
-npm install -g david grunt-cli bower jscs jshint nodemon aws-cli-utils
+npm install -g david grunt-cli bower jscs jshint nodemon aws-cli-utils eslint
 
 #update npm
 npm update -g npm
 
 #aws
-sudo pip install awscli && sudo pip install awsebcli
+sudo pip install awscli && sudo pip install awsebcli && sudo pip install aws-shell
 
 #docker-extras
 curl -sSL https://raw.githubusercontent.com/jgallen23/docker-extras/master/install.sh | bash
@@ -65,3 +73,5 @@ curl -sSL https://raw.githubusercontent.com/jgallen23/docker-extras/master/insta
 #git-extras
 curl -sSL http://git.io/git-extras-setup | bash /dev/stdin
 
+#httpie
+sudo pip install httpie
