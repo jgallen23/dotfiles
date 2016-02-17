@@ -5,6 +5,7 @@ filetype plugin indent on
 
 "source ~/.vim/config/powerline.vim
 source ~/.vim/config/base.vim
+source ~/.vim/config/windows.vim
 source ~/.vim/config/airline.vim
 "source ~/.vim/config/snippets.vim
 source ~/.vim/config/ctrlp.vim

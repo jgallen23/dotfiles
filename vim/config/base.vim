@@ -44,16 +44,6 @@ set expandtab
 map <leader>b :Explore<CR>
 map <leader>e :RunCode<CR>
 
-"move around windows better
-nmap <silent> <C-h> :wincmd h<CR>
-nmap <silent> <C-j> :wincmd j<CR>
-nmap <silent> <C-k> :wincmd k<CR>
-nmap <silent> <C-l> :wincmd l<CR>
-nmap <silent> <C-c> :bp\|bd #<CR>
-"nmap <silent> <C-x> :wincmd c<CR>
-"nmap <silent> <C-y> :wincmd v<CR>
-"nmap <silent> <C-n> :wincmd s<CR>
-
 
 "indent
 vmap <Tab> >gv

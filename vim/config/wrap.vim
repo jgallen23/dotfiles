@@ -1,1 +1,1 @@
-map <leader>w :set nowrap!<CR>
+map <leader>wp :set nowrap!<CR>
