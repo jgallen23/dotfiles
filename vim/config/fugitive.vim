@@ -5,6 +5,10 @@ function! GitWriteCommit()
 endfunction
 function! GitStatus()
   Gstatus
+  for i in range(1)
+    call search('^#\t.*','W')
+  endfor
+  return '.'
 endfunction
 function! GitCommit()
   Git add -p
