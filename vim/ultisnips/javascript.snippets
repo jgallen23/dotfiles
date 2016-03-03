@@ -1,5 +1,5 @@
 snippet cl "console.log"
-console.log(${1:Message});
+console.log(${1});
 endsnippet
 
 snippet deb "debugger"
@@ -26,40 +26,40 @@ snippet dox
  */
 endsnippet
 
-snippet doxs
+snippet com
 /**
  * ${1:Description}
  */
 endsnippet
 
 snippet suite
-suite('${1}', function() {
+suite('${1}', () => {
 });
 endsnippet
 
 snippet desc
-describe('${1}', function() {
+describe('${1}', () => {
 });
 endsnippet
 
 snippet test
-test('${1}', function() {
+test('${1}', () => {
 });
 endsnippet
 
 snippet it
-it('should ${1}', function(done) {
-  done();
+it('should ${1}', () => {
+  ${2}
 });
 endsnippet
 
 snippet ita
-it('should ${1}', function(done) {
+it('should ${1}', (done) => {
 });
 endsnippet
 
 snippet testa
-test('${1}', function(done) {
+test('${1}', (done) => {
 });
 endsnippet
 
@@ -81,10 +81,10 @@ snippet exp
 expect(${1}).to.${2}
 endsnippet
 
-snippet require
+snippet req
 var ${1} = require('${1}');
 endsnippet
 
-snippet stringify
+snippet cls
 console.log(JSON.stringify(${1}, null, '  '));
 endsnippet
