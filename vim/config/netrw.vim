@@ -5,7 +5,7 @@ let g:netrw_banner=0            " no banner
 let g:netrw_alto=0              " open files on right
 let g:netrw_altv=1              " open files on right
 let g:netrw_preview=1           " open previews vertically
-let g:netrw_winsize=25
+let g:netrw_winsize=75
 
 function! ExploreAndFocus()
   execute 'Explore | call search(' . string(expand('%:t')) . ')'

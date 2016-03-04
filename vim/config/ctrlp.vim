@@ -40,3 +40,4 @@ nnoremap <silent> \ :CtrlP<CR>
 command! FindDotfiles :CtrlP ~/.vim/
 command! FindBowerFiles :call CtrlPSearchNoIgnore('bower_components')
 command! FindNodeFiles :call CtrlPSearchNoIgnore('node_modules')
+command! Cpr :CtrlPClearCache
