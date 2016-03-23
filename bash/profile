@@ -53,6 +53,9 @@ function prompt_callback {
   if [ `jobs | wc -l` -ne 0 ]; then
     echo -n " jobs:\j"
   fi
+  if [[ -n "$DOCKER_MACHINE_NAME" ]]; then
+    echo -n " machine: $DOCKER_MACHINE_NAME"
+  fi
 }
 source ~/dotfiles/vendor/bashmarks/bashmarks.sh
 
