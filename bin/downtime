@@ -1,13 +1,18 @@
 #!/bin/bash
+
+if [[ -z "$1" ]]; then
+  echo "pass in url"
+  exit 1
+fi
 COUNTER=0
 URL=$1
 while :
 do
-	if curl -s --head $URL | grep "200 OK" > /dev/null
-	then
-		echo "Up!" > /dev/null
-	else
-		echo Downtime! on Request $COUNTER
-	fi
-	let COUNTER=COUNTER+1
+  if curl -s --head $URL | grep "200 OK" > /dev/null
+  then
+    echo "Up!" > /dev/null
+  else
+    echo Downtime! on Request $COUNTER
+  fi
+  let COUNTER=COUNTER+1
 done
