@@ -48,8 +48,10 @@ Bundle 'haya14busa/incsearch.vim'
 "Bundle 'jeetsukumaran/vim-filebeagle'
 "Plugin 'octref/RootIgnore'
 Plugin 'int3/vim-extradite'
-Plugin 'jdkanani/vim-material-theme'
-Plugin 'fatih/vim-go'
+"Plugin 'jdkanani/vim-material-theme'
+"Plugin 'fatih/vim-go'
 Plugin 'mtscout6/syntastic-local-eslint.vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'mmozuras/vim-github-comment'
 
 filetype plugin indent on     " required!
