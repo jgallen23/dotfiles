@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+  echo "pass in dropbox url"
+  exit 1
+fi
+
+URL=$1
+URL=${URL/dl=0/dl=1}
+curl -L -o dropbox.zip $URL
+unzip dropbox.zip
+rm dropbox.zip
