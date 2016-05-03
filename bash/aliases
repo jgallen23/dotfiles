@@ -15,7 +15,11 @@ function t {
 	if [ -z "$1" ];then
 		tmux ls
 	else
-		tmux at -t $1 || tmux new -s $1
+    if [[ -z "$TMUX" ]]; then
+      tmux at -t $1 || tmux new -s $1
+    else
+      tmux switch-client -t $1
+    fi
 	fi
 }
 alias tm='t main'
