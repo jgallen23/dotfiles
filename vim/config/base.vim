@@ -1,10 +1,11 @@
-set t_Co=256
+"let base16colorspace=256
+"set t_Co=256
 set background=dark
-if hostname() == "localhost"
-  colorscheme ir_black
-else
-  colorscheme base16-ocean
-endif
+colorscheme tender
+" enable tender lightline theme
+let g:tender_lightline = 1
+" set lighline theme
+let g:lightline = { 'colorscheme': 'tender' }
 
 set ignorecase
 set smartcase
@@ -97,4 +98,6 @@ autocmd FileType gitcommit setlocal spell
 
 iab <expr> dts strftime("%Y.%m.%d")
 
-nmap <leader>s :setlocal spell!<BAR>:setlocal spell?<CR>
+command! Spell :setlocal spell!<BAR>:setlocal spell?
+
+let g:polyglot_disabled = ['javascript']

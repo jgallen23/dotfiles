@@ -6,8 +6,9 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
+"Bundle 'vim-airline/vim-airline'
+"Bundle 'vim-airline/vim-airline-themes'
+Plugin 'itchyny/lightline.vim'
 
 "colorschemes
 "Bundle 'baskerville/bubblegum'
@@ -40,7 +41,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'zhaocai/DirDiff.vim'
 Bundle 'idanarye/vim-merginal'
 Bundle 'editorconfig/editorconfig-vim'
-Bundle 'Keithbsmiley/gist.vim'
+"Bundle 'Keithbsmiley/gist.vim'
 Bundle 'sheerun/vim-polyglot'
 Bundle 'eiginn/netrw'
 Bundle 'd11wtq/ctrlp_bdelete.vim'
@@ -52,6 +53,13 @@ Plugin 'int3/vim-extradite'
 "Plugin 'fatih/vim-go'
 Plugin 'mtscout6/syntastic-local-eslint.vim'
 Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
 Plugin 'mmozuras/vim-github-comment'
+Plugin 'lucidstack/ctrlp-tmux.vim'
+"Plugin 'ternjs/tern_for_vim'
+"Plugin 'othree/yajs.vim'
+Plugin 'jacoborus/tender'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'ap/vim-buftabline'
 
 filetype plugin indent on     " required!
