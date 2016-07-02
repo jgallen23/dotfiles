@@ -34,7 +34,8 @@ sudo apt-get install -y \
   s3cmd \
   jpegoptim \
   pngquant \
-  apache2-utils
+  apache2-utils \
+  ncdu
 
 #docker
 curl -sSL https://get.docker.com/ | sudo sh
@@ -59,7 +60,7 @@ export LC_ALL=en_US.utf-8
 echo America/Los_Angeles | tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
 
 #global node libs
-npm install -g david grunt-cli bower jscs jshint nodemon aws-cli-utils eslint
+npm install -g david grunt-cli bower nodemon eslint npm-check cwl
 
 #update npm
 npm update -g npm
