@@ -1,0 +1,181 @@
+#!/bin/bash
+#
+# @title inodes
+# ------------------------------------------------------------------------------------------
+# @author Myles McNamara
+# @date 11/27/2013
+# @version 1.7
+# @source https://gh.smyl.es/inodes
+# @description Check the amount of inodes (files) in a given directory.
+# ------------------------------------------------------------------------------------------
+# @usage ./inodes (-d|--dir) string [(-h|--help)] [(-t|--tree) integer] [(-e|--exclude) integer]
+# ------------------------------------------------------------------------------------------
+# @copyright Copyright (C) 2016  Myles McNamara
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+# ------------------------------------------------------------------------------------------
+
+# Define help function
+function help(){
+    echo "inodes - Count the amount of inodes in a given directory";
+    echo "Usage example:";
+    echo "inodes (-d|--dir) string [(-h|--help)] [(-t|--tree) integer] [(-e|--exclude) integer]";
+    echo "Options:";
+    echo "-h or --help: Displays this information.";
+    echo "-d or --dir string: Directory to scan and count inodes. Required.";
+    echo "-t or --tree integer: Show tree for directories with inodes above this number.";
+    echo "-e or --exclude integer: Exclude directory from report when below this many inodes.";
+    exit 1;
+}
+GET_SIZE(){
+    du -hs $1 |cut -f 1
+}
+GET_COUNT(){
+    find $1 |wc -l
+}
+SHOW_LINE(){
+    echo "------------------------------------------"
+}
+BLACK=$(tput setaf 0)
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+LIME_YELLOW=$(tput setaf 190)
+POWDER_BLUE=$(tput setaf 153)
+BLUE=$(tput setaf 4)
+MAGENTA=$(tput setaf 5)
+CYAN=$(tput setaf 6)
+WHITE=$(tput setaf 7)
+BRIGHT=$(tput bold)
+NORMAL=$(tput sgr0)
+BLINK=$(tput blink)
+REVERSE=$(tput smso)
+UNDERLINE=$(tput smul)
+clear
+
+# Declare vars. Flags initalizing to 0.
+
+# Execute getopt
+ARGS=$(getopt -o "hd:t:e:" -l "help,dir:,tree:,exclude:" -n "inodes" -- "$@");
+
+#Bad arguments
+if [ $? -ne 0 ];
+then
+    help;
+fi
+
+eval set -- "$ARGS";
+
+while true; do
+    case "$1" in
+        -h|--help)
+            shift;
+            help;
+            ;;
+        -d|--dir)
+            shift;
+                    if [ -n "$1" ];
+                    then
+                        dir="$1";
+                        SHOW_LINE
+                        printf "[CONFIG] Directory to scan specified as $1\n"
+                        shift;
+                    fi
+            ;;
+        -t|--tree)
+            shift;
+                    if [ -n "$1" ];
+                    then
+                        tree="$1";
+                        SHOW_LINE
+                        printf "[CONFIG] Tree directories above $1 inodes\n"
+                        shift;
+                    fi
+            ;;
+        -e|--exclude)
+            shift;
+                    if [ -n "$1" ];
+                    then
+                        exclude="$1";
+                        SHOW_LINE
+                        printf "[CONFIG] Exclude directories below $1 inodes\n"
+                        shift;
+                    fi
+            ;;
+
+        --)
+            shift;
+            break;
+            ;;
+    esac
+done
+
+# Check required arguments
+if [[ -z "$dir" && -n $1 && $1 != -* ]]
+then
+    SHOW_LINE
+    printf "${RED}[CONFIG] Arguments not used, directory specified as $1 $NORMAL \n"
+    CURDIR=$1;
+elif [[ -z "$dir" || "$dir" == "." ]]
+then
+    CURDIR=`pwd`;
+    SHOW_LINE
+    printf "${RED}[ERROR] dir not specified, or invalid arguments, using $CURDIR $NORMAL\n";
+else
+    CURDIR="$dir";
+fi
+
+# backup and change IFS to prevent problems with spaces in paths or file names
+OLDIFS=$IFS
+IFS=$'\n'
+
+# New format for output using printf
+format="%-10s | %-10s | %-20s\n"
+header="${REVERSE}%-10s | %-10s | %-20s\n${NORMAL}"
+treeformat="${CYAN}%-10s | %-10s | %-20s\n${NORMAL}"
+SHOW_LINE
+printf "\tINODE USAGE SUMMARY\n"
+SHOW_LINE
+printf "$header" "    INODES" "      SIZE" "DIRECTORY"
+SHOW_LINE
+	for DIR in `find $CURDIR -maxdepth 1 -type d |grep -xv $CURDIR |sort`; do
+		COUNT=$(GET_COUNT $DIR)
+		SIZE=$(GET_SIZE $DIR)
+
+        # Check if exclude arg was used, and if so only output directories above exclude inode count
+        if [[ -z $exclude ]] || [[ -n $exclude && $COUNT -gt $exclude ]]
+        then
+            printf "$format" "  $COUNT" "  $SIZE" "`basename $DIR`"
+        fi
+
+        # Check for tree arg, and output sub-directory inode count if above tree parameter
+		if [[ -n $tree && $COUNT -gt $tree ]]
+		then
+			for TREEDIR in `find $DIR -maxdepth 1 -type d |grep -xv $DIR |sort`; do
+				TREECOUNT=$(GET_COUNT $TREEDIR)
+				TREESIZE=$(GET_SIZE $TREEDIR)
+                # Check for exclude arg on tree output
+                if [[ -z $exclude ]] || [[ -n $exclude && $TREECOUNT -gt $exclude ]]
+                then
+				    printf "$treeformat" "  --$TREECOUNT" "  --$TREESIZE" "--`basename $TREEDIR`"
+                fi
+			done
+		fi
+	done
+SHOW_LINE
+printf "$header" "$(GET_COUNT $CURDIR)" "$(GET_SIZE $CURDIR)" "$CURDIR"
+SHOW_LINE
+
+# restore IFS
+IFS=$OLDIFS
