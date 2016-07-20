@@ -39,3 +39,4 @@ source ~/.vim/config/csv.vim
 source ~/.vim/config/netrw.vim
 source ~/.vim/config/ctags.vim
 source ~/.vim/config/gist.vim
+source ~/.vim/config/colors.vim

@@ -61,5 +61,6 @@ Plugin 'mmozuras/vim-github-comment'
 Plugin 'jacoborus/tender'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'ap/vim-buftabline'
+Plugin 'gorodinskiy/vim-coloresque'
 
 filetype plugin indent on     " required!
