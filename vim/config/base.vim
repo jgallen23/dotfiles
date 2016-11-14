@@ -58,6 +58,7 @@ noremap L g_
 
 au! BufRead,BufNewFile *.handlebars setfiletype html
 au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead *.njk set filetype=jinja
 
 "change cwd
 command! CWD :cd %:p:h
@@ -100,4 +101,5 @@ iab <expr> dts strftime("%Y.%m.%d")
 
 command! Spell :setlocal spell!<BAR>:setlocal spell?
 
-let g:polyglot_disabled = ['javascript']
+"let g:polyglot_disabled = ['javascript']
+let g:jsx_ext_required = 1

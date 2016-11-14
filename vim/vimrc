@@ -40,3 +40,4 @@ source ~/.vim/config/netrw.vim
 source ~/.vim/config/ctags.vim
 source ~/.vim/config/gist.vim
 source ~/.vim/config/colors.vim
+source ~/.vim/config/dirdiff.vim
