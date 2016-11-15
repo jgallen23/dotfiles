@@ -1,0 +1,47 @@
+#!/bin/bash
+
+SSH_IDENTITY=$1
+SSH_HOST=$2
+
+sshcmd() {
+  local cmd=$@
+  ssh -i $SSH_IDENTITY ubuntu@${SSH_HOST} $cmd
+}
+
+sshkeys() {
+  scp -i $SSH_IDENTITY -r ~/.ssh/authorized_keys ubuntu@${SSH_HOST}:~/.ssh/authorized_keys
+}
+
+ssh_idrsa() {
+  scp -i $SSH_IDENTITY -r ~/.ssh/id_rsa* ubuntu@${SSH_HOST}:~/.ssh/
+}
+
+aws() {
+  scp -i $SSH_IDENTITY -r ~/.aws ubuntu@${SSH_HOST}:~/
+}
+
+npm() {
+  scp -i $SSH_IDENTITY -r ~/.npmrc ubuntu@${SSH_HOST}:~/
+}
+
+dotfiles() {
+  sshcmd git clone git@github.com:jgallen23/dotfiles.git || (cd ~/dotfiles && git pull)
+}
+
+provision() {
+  sshcmd bash ~/dotfiles/provision/ubuntu
+}
+
+dotfiles_setup() {
+  sshcmd bash ~/dotfiles/bin/dotfiles
+  sshcmd bash ~/dotfiles/vim-install.sh
+}
+
+
+sshkeys && \
+  aws && \
+  npm && \
+  dotfiles && \
+  provision && \
+  dotfiles_setup && \
+  ssh_idrsa
