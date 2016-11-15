@@ -38,14 +38,14 @@ fi
 
 #docker-compose
 DOCKER_COMPOSE_VERSION=1.8.1
-curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
 
 #utf8
 sudo locale-gen en_US.UTF-8
 export LC_ALL=en_US.utf-8
 
 #Timezone
-echo America/Los_Angeles | tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
+sudo echo America/Los_Angeles | tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
 
 #global node libs
 sudo npm install -g david grunt-cli bower nodemon eslint npm-check
@@ -53,13 +53,16 @@ sudo npm install -g david grunt-cli bower nodemon eslint npm-check
 #update npm
 sudo npm update -g npm
 
+#update pip
+sudo pip install --upgrade pip
+
 #aws
 sudo pip install awscli && \
   sudo pip install awsebcli && \
   sudo pip install aws-shell
 
 #docker-extras
-curl -sSL https://raw.githubusercontent.com/jgallen23/docker-extras/master/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/jgallen23/docker-extras/master/install.sh | sudo bash
 
 #git-extras
 curl -sSL http://git.io/git-extras-setup | bash /dev/stdin
