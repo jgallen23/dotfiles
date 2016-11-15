@@ -44,8 +44,6 @@ bind '"\e[B":history-search-forward'
 
 export LC_ALL=en_US.utf-8 
 export LANG="$LC_ALL"
-source ~/dotfiles/vendor/nvm/nvm.sh
-[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 FA_INTERACTIVE=1
 eval "$(~/dotfiles/vendor/fa/bin/fa --init)"
 
@@ -57,7 +55,6 @@ function prompt_callback {
     echo -n " machine: $DOCKER_MACHINE_NAME"
   fi
 }
-source ~/dotfiles/vendor/bashmarks/bashmarks.sh
 
 source ~/dotfiles/bash/completion/load.sh
 
