@@ -38,14 +38,14 @@ fi
 
 #docker-compose
 DOCKER_COMPOSE_VERSION=1.8.1
-sudo curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
 
 #utf8
 sudo locale-gen en_US.UTF-8
 export LC_ALL=en_US.utf-8
 
 #Timezone
-sudo echo America/Los_Angeles | tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
+echo America/Los_Angeles | sudo tee /etc/timezone && sudo dpkg-reconfigure --frontend noninteractive tzdata
 
 #global node libs
 sudo npm install -g david grunt-cli bower nodemon eslint npm-check
