@@ -30,8 +30,11 @@ sudo apt-get install -y \
   mosh
 
 #docker
-curl -sSL https://get.docker.com/ | sudo sh
-sudo usermod -aG docker ubuntu
+which docker
+if [[ "$?" == 1 ]]; then
+  curl -sSL https://get.docker.com/ | sudo sh
+  sudo usermod -aG docker ubuntu
+fi
 
 #docker-compose
 DOCKER_COMPOSE_VERSION=1.8.1
@@ -45,10 +48,10 @@ export LC_ALL=en_US.utf-8
 echo America/Los_Angeles | tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
 
 #global node libs
-npm install -g david grunt-cli bower nodemon eslint npm-check
+sudo npm install -g david grunt-cli bower nodemon eslint npm-check
 
 #update npm
-npm update -g npm
+sudo npm update -g npm
 
 #aws
 sudo pip install awscli && \
