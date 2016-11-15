@@ -14,7 +14,6 @@ link bash/inputrc .inputrc
 link bash/git-prompt-colors .git-prompt-colors.sh
 link conf/jshintrc .jshintrc
 link conf/ctags .ctags
-link conf/npmrc .npmrc
 if [[ "$(uname)" == "Linux" ]]; then
   link conf/tmux.linux.conf .tmux.conf
 else
@@ -22,4 +21,3 @@ else
 fi
 link conf/gitconfig .gitconfig
 #link conf/gh.json .gh.json
-link vendor/nvm .nvm
