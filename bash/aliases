@@ -81,4 +81,12 @@ function tr() {
   tmux rename-window ${PWD//*\//};
 }
 
+function pt() {
+  docker run -e PAPERTRAIL_API_TOKEN=${PAPERTRAIL_API_TOKEN} --rm firstandthird/papertrail-cli $@
+}
+alias http='docker run -it --rm --net=host clue/httpie'
+
 alias dc="docker-compose"
+function dcl() {
+  docker run -it -e DOCKERCLOUD_NAMESPACE="$DOCKERCLOUD_NAMESPACE" -v ~/.docker:/root/.docker:ro --rm dockercloud/cli $@
+}

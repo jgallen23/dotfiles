@@ -6,6 +6,12 @@ override_git_prompt_colors() {
   GIT_PROMPT_START_USER="_LAST_COMMAND_INDICATOR_ ${ResetColor} [${HOSTNAME%%.*}] ${Yellow}${PathShort}${ResetColor}"
   GIT_PROMPT_START_ROOT="${GIT_PROMPT_START_USER}"
   #Time12a=$(date +%I:%M%p)
+  #GIT_PROMPT_CONFLICTS="${Red}× "                           # the number of files in conflict
+  #GIT_PROMPT_CHANGED="${Blue}+ "                            # the number of changed files
+  #GIT_PROMPT_STASHED="${BoldBlue}▪ "                        # the number of stashed files/dir
+  #GIT_PROMPT_CLEAN="${BoldGreen}√"                          # a colored flag indicating a "clean" repo
+  #GIT_PROMPT_COMMAND_OK="${Green}√"                         # indicator if the last command returned with an exit code of 0
+  #GIT_PROMPT_COMMAND_FAIL="${Red}×-_LAST_COMMAND_STATE_"    # indicator if the last command returned with an exit code of other than 0
 }
 
 

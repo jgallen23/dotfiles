@@ -1,4 +1,3 @@
-call ctrlp_bdelete#init()
 let g:ctrlp_working_path_mode = 0
 
 "let g:ctrlp_extensions = ['tag']
@@ -41,6 +40,3 @@ command! FindDotfiles :CtrlP ~/.vim/
 command! FindBowerFiles :call CtrlPSearchNoIgnore('bower_components')
 command! FindNodeFiles :call CtrlPSearchNoIgnore('node_modules')
 command! Cpr :CtrlPClearCache
-
-let g:ctrlp_extensions = ['tmux']
-nnoremap <Leader>s :CtrlPTmux<CR>
