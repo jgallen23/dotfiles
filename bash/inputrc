@@ -5,5 +5,3 @@ TAB: menu-complete
 "\e[Z": "\e-1\C-i"
 #"\e[Z": complete
 #Control-k: menu-complete
-
-set editing-mode vi
