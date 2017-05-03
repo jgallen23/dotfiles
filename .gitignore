@@ -7,3 +7,5 @@ vim/bundle
 vim/bundle-old
 vim/view
 conf/gh.json
+fish/fish_history
+fish/fishd*
