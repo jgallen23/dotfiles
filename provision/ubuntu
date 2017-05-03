@@ -27,7 +27,8 @@ sudo apt-get install -y \
   tmux \
   nodejs \
   ncdu \
-  mosh
+  mosh \
+  silversearcher-ag
 
 #docker
 which docker
@@ -37,8 +38,14 @@ if [[ "$?" == 1 ]]; then
 fi
 
 #docker-compose
-DOCKER_COMPOSE_VERSION=1.8.1
+DOCKER_COMPOSE_VERSION=1.11.2
 sudo curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
+
+#docker machine
+DOCKER_MACHINE_VERSION=0.10.0
+curl -L https://github.com/docker/machine/releases/download/v${DOCKER_MACHINE_VERSION}/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine && \
+  chmod +x /tmp/docker-machine && \
+  sudo cp /tmp/docker-machine /usr/local/bin/docker-machine
 
 #utf8
 sudo locale-gen en_US.UTF-8
@@ -48,7 +55,7 @@ export LC_ALL=en_US.utf-8
 echo America/Los_Angeles | sudo tee /etc/timezone && sudo dpkg-reconfigure --frontend noninteractive tzdata
 
 #global node libs
-sudo npm install -g david grunt-cli bower nodemon eslint npm-check
+sudo npm install -g david bower nodemon eslint npm-check
 
 #update npm
 sudo npm update -g npm
@@ -66,6 +73,3 @@ curl -sSL https://raw.githubusercontent.com/jgallen23/docker-extras/master/insta
 
 #git-extras
 curl -sSL http://git.io/git-extras-setup | bash /dev/stdin
-
-#httpie
-sudo pip install httpie
