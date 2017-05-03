@@ -41,7 +41,7 @@ dotfiles_setup() {
 sshkeys && \
   aws && \
   npm && \
+  ssh_idrsa && \
   dotfiles && \
   provision && \
-  dotfiles_setup && \
-  ssh_idrsa
+  dotfiles_setup
