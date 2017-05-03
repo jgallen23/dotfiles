@@ -22,6 +22,7 @@ function! s:fugitive_setup()
 endfunction
 map <leader>gs :call GitStatus()<CR>
 map <leader>gc :call GitCommit()<CR>
+map <leader>ga :Git add -p<CR>
 "map <leader>gp :Git push<CR>
 "map <leader>gd :Git diff<CR>
 augroup vimrc-git
