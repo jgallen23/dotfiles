@@ -29,4 +29,5 @@ recursive_check() {
 }
 
 check_dir ~/dotfiles/
-recursive_check ~/code
+recursive_check ~/clients
+recursive_check ~/projects
