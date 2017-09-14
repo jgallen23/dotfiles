@@ -16,3 +16,6 @@
 [submodule "vendor/bashmarks"]
 	path = vendor/bashmarks
   url = https://github.com/huyng/bashmarks.git
+[submodule "vendor/base16-shell"]
+	path = vendor/base16-shell
+	url = https://github.com/chriskempson/base16-shell.git

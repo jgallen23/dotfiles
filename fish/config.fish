@@ -8,8 +8,12 @@ source $OMF_PATH/init.fish
 set -x CLICOLOR 1
 set -x EDITOR vim
 set -x CDPATH $CDPATH . ~ $HOME/projects $HOME/clients
-set -gx PATH /home/ubuntu/projects/aws-extras $PATH
+set -gx PATH /home/ubuntu/projects/aws-extras /home/ubuntu/bin $PATH
 set -gx FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
+
+if status --is-interactive
+  source $HOME/dotfiles/vendor/base16-shell/profile_helper.fish
+end
 
 if test -f $HOME/.fish_env
   . $HOME/.fish_env

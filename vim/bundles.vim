@@ -25,7 +25,7 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'eiginn/netrw'
 Plugin 'ervandew/supertab'
 Plugin 'felixjung/vim-base16-lightline'
-Plugin 'gorodinskiy/vim-coloresque'
+"Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'gregsexton/MatchTag'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'int3/vim-extradite'
@@ -51,6 +51,8 @@ Plugin 'haya14busa/incsearch-easymotion.vim'
 Plugin 'benmills/vimux'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'nightsense/seabird'
+Plugin 'stephpy/vim-yaml'
 
 call vundle#end()
 filetype plugin indent on     " required!

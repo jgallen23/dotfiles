@@ -1,7 +1,9 @@
 "let base16colorspace=256
 "set t_Co=256
-set background=light
+"set background=light
+let g:base16_shell_path="/home/ubuntu/dotfiles/vendor/base16-shell/scripts"
 colorscheme base16-ocean
+"colorscheme seagull
 " enable tender lightline theme
 let g:tender_lightline = 1
 
@@ -58,6 +60,9 @@ au! BufRead,BufNewFile *.handlebars setfiletype html
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.njk set filetype=jinja
 
+au BufRead,BufNewFile Dockerfile* setfiletype dockerfile
+au BufRead,BufNewFile DockerfileProd setfiletype dockerfile
+
 "change cwd
 command! CWD :cd %:p:h
 
@@ -99,5 +104,5 @@ iab <expr> dts strftime("%Y.%m.%d")
 
 command! Spell :setlocal spell!<BAR>:setlocal spell?
 
-let g:polyglot_disabled = ['javascript']
+let g:polyglot_disabled = ['javascript', 'yaml']
 let g:jsx_ext_required = 1
